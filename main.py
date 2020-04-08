@@ -1,12 +1,20 @@
 import kivy
 from kivy.app import App
-from kivy.uix.label import Label
+from kivy.core.window import Window
+from kivy.uix.widget import Widget
 
-class GolfApp(App):
+class Background(Widget):
+    pass
+
+class LoginButtons(Widget):
+    pass
+
+class LoginScreen(App):
     def build(self):
-        return Label(text="This is a test")
+        Window.size=(350,600)
+        return Background()
 
 
 
 if __name__=="__main__":
-    GolfApp().run()
+    LoginScreen().run()
