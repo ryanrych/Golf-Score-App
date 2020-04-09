@@ -5,52 +5,79 @@
         pos: self.parent.pos
         size: self.parent.size
 
-        GridLayout:
+        BoxLayout:
             canvas.before:
                 Color:
                     rgba: 1, 1, 1, 1
                 Rectangle:
                     pos: self.pos
                     size: self.size
-            cols:1
+            #pos: self.parent.pos
+            size: self.parent.size
+            orientation: "horizontal"
+
             spacing: 5
+
             Label:
+                size_hint: .05, 1
                 text: ""
 
-            TextInput:
-                size_hint:1,.15
-                hint_text: "User"
-                multiline: False
-            TextInput:
-                size_hint:1,.15
-                hint_text: "Password"
-                multiline: False
-                password: True
+            GridLayout:
+                size_hint: .9, 1
+                cols:1
+                spacing: 7
 
-            Button:
-                size_hint:1,.15
-                text: "Login"
+                Label:
+                    size_hint:1,.1
+                    text: ""
 
-            Button:
-                size_hint:1,.15
-                text: "Create Account"
+                TextInput:
+                    size_hint:1,.2
+                    hint_text: "User"
+                    multiline: False
+                    font_size: 15
+                    background_normal: "White.png"
+                    background_active: "White.png"
+                    cursor_color: 0,0,0,1
+                    foreground_color: 0,0,0,1
+                TextInput:
+                    size_hint:1,.2
+                    hint_text: "Password"
+                    multiline: False
+                    password: True
+                    background_normal: "White.png"
+                    background_active: "White.png"
+                    cursor_color: 0,0,0,1
+                    foreground_color: 0,0,0,1
+
+                Button:
+                    size_hint:1,.2
+                    text: "Login"
+
+                Button:
+                    size_hint:1,.2
+                    text: "Create Account"
+
+                Label:
+                    size_hint:1,.1
+                    text: ""
 
             Label:
+                size_hint: .05, 1
                 text: ""
 
 <Background>:
     AnchorLayout:
         canvas.before:
-            Color:
-                rgba: .05, .8, .3, 1
             Rectangle:
                 pos: self.pos
                 size: self.size
+                source: "BackgroundPic.png"
         size: self.parent.size
         anchor_x: 'center'
         anchor_y: 'center'
         LoginButtons:
-            size_hint: .8,.8
+            size_hint: .8,.3
 
 <LoginScreen>:
     FloatLayout:
