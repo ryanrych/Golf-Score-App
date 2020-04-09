@@ -27,36 +27,63 @@
                 cols:1
                 spacing: 7
 
-                Label:
-                    size_hint:1,.1
-                    text: ""
+                GridLayout:
+                    cols: 1
+                    size_hint: 1,.48
+                    spacing:5
+
+                    Label:
+                        size_hint:1, .4
+                        font_name: "Raleway-Regular.ttf"
+                        text: "Rychlak International"
+                        font_size:18
+                        color: 0,0,0,1
+
+                    Label:
+                        size_hint: 1, .1
+                        font_name: "Raleway-Regular.ttf"      
+                        text: "Companion App"
+                        font_size: 18
+                        color:0.650980392157, 0.650980392157, 0.650980392157, 1
+
+                    Label:
+                        size_hint: 1, .1
+                        text: ""
 
                 TextInput:
-                    size_hint:1,.2
+                    size_hint:1,.12
                     hint_text: "User"
                     multiline: False
-                    font_size: 15
                     background_normal: "White.png"
                     background_active: "White.png"
+                    font_size: .55*self.height
                     cursor_color: 0,0,0,1
                     foreground_color: 0,0,0,1
+
                 TextInput:
-                    size_hint:1,.2
+                    size_hint:1,.12
                     hint_text: "Password"
                     multiline: False
                     password: True
+                    font_size: .55*self.height
                     background_normal: "White.png"
                     background_active: "White.png"
                     cursor_color: 0,0,0,1
                     foreground_color: 0,0,0,1
 
                 Button:
-                    size_hint:1,.2
+                    size_hint:1,.12
+                    font_size: .55*self.height
                     text: "Login"
+                    background_normal: ""
+                    background_color: 0.501960784314, 0.898039215686, 1.0, 1
 
                 Button:
-                    size_hint:1,.2
+                    size_hint:1,.12
+                    font_size: .55*self.height
                     text: "Create Account"
+                    background_normal: ""
+                    background_color: 0.501960784314, 0.898039215686, 1.0, 1
 
                 Label:
                     size_hint:1,.1
@@ -72,12 +99,12 @@
             Rectangle:
                 pos: self.pos
                 size: self.size
-                source: "BackgroundPic.png"
+                source: "LoginBackground.png"
         size: self.parent.size
         anchor_x: 'center'
         anchor_y: 'center'
         LoginButtons:
-            size_hint: .8,.3
+            size_hint: .8,.5
 
 <LoginScreen>:
     FloatLayout:
