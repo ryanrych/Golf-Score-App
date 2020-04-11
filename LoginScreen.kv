@@ -8,8 +8,8 @@
         BoxLayout:
             canvas.before:
                 Color:
-                    rgba: app.hexToKivyColor("#ffffff",1)
-                Rectangle:
+                    rgba: app.hexToKivyColor("#ffffff",.8)
+                RoundedRectangle:
                     pos: self.pos
                     size: self.size
             #pos: self.parent.pos
@@ -75,22 +75,26 @@
                     cursor_color: 0,0,0,1
                     foreground_color: 0,0,0,1
 
+                Label:
+                    size_hint:1,.06
+                    text: ""
+
                 Button:
                     size_hint:1,.12
                     font_size: .5*self.height
                     text: "Login"
                     background_normal: ""
-                    background_color: 0.501960784314, 0.898039215686, 1.0, 1
+                    background_color: app.hexToKivyColor("#008ae6",1)
 
                 Button:
                     size_hint:1,.12
                     font_size: .5*self.height
                     text: "Create Account"
                     background_normal: ""
-                    background_color: 0.501960784314, 0.898039215686, 1.0, 1
+                    background_color: app.hexToKivyColor("#008ae6",1)
 
                 Label:
-                    size_hint:1,.12
+                    size_hint:1,.06
                     text: ""
 
             Label:
