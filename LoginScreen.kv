@@ -8,7 +8,7 @@
         BoxLayout:
             canvas.before:
                 Color:
-                    rgba: 1, 1, 1, 1
+                    rgba: app.hexToKivyColor("#ffffff",1)
                 Rectangle:
                     pos: self.pos
                     size: self.size
@@ -29,25 +29,29 @@
 
                 GridLayout:
                     cols: 1
-                    size_hint: 1,.48
+                    size_hint: 1,.3
                     spacing:5
 
                     Label:
-                        size_hint:1, .4
+                        size_hint: 1, .1
+                        text: ""
+
+                    Label:
+                        size_hint:1, .35
                         font_name: "Raleway-Regular.ttf"
                         text: "Rychlak International"
-                        font_size:18
+                        font_size:20
                         color: 0,0,0,1
 
                     Label:
-                        size_hint: 1, .1
+                        size_hint: 1, .35
                         font_name: "Raleway-Regular.ttf"      
                         text: "Companion App"
                         font_size: 18
                         color:0.650980392157, 0.650980392157, 0.650980392157, 1
 
                     Label:
-                        size_hint: 1, .1
+                        size_hint: 1, .2
                         text: ""
 
                 TextInput:
@@ -56,7 +60,7 @@
                     multiline: False
                     background_normal: "White.png"
                     background_active: "White.png"
-                    font_size: .55*self.height
+                    font_size: .5*self.height
                     cursor_color: 0,0,0,1
                     foreground_color: 0,0,0,1
 
@@ -65,7 +69,7 @@
                     hint_text: "Password"
                     multiline: False
                     password: True
-                    font_size: .55*self.height
+                    font_size: .5*self.height
                     background_normal: "White.png"
                     background_active: "White.png"
                     cursor_color: 0,0,0,1
@@ -73,20 +77,20 @@
 
                 Button:
                     size_hint:1,.12
-                    font_size: .55*self.height
+                    font_size: .5*self.height
                     text: "Login"
                     background_normal: ""
                     background_color: 0.501960784314, 0.898039215686, 1.0, 1
 
                 Button:
                     size_hint:1,.12
-                    font_size: .55*self.height
+                    font_size: .5*self.height
                     text: "Create Account"
                     background_normal: ""
                     background_color: 0.501960784314, 0.898039215686, 1.0, 1
 
                 Label:
-                    size_hint:1,.1
+                    size_hint:1,.12
                     text: ""
 
             Label:
@@ -104,7 +108,7 @@
         anchor_x: 'center'
         anchor_y: 'center'
         LoginButtons:
-            size_hint: .8,.5
+            size_hint: .8,.45
 
 <LoginScreen>:
     FloatLayout:
