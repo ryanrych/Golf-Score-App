@@ -1,4 +1,18 @@
+#:import CardTransition kivy.uix.screenmanager.CardTransition
+#:import SlideTransition kivy.uix.screenmanager.SlideTransition
+
+WindowManager:
+    LoginScreen:
+    CreateAccountScreen:
+
+
+
 <LoginButtons>:
+    userInput: userInput
+    passwordInput: passwordInput
+    loginButton: loginButton
+    createAccountButton: createAccountButton
+
     size_hint: None, None
 
     RelativeLayout:
@@ -55,6 +69,7 @@
                         text: ""
 
                 TextInput:
+                    id: userInput
                     size_hint:1,.12
                     hint_text: "User"
                     multiline: False
@@ -65,6 +80,7 @@
                     foreground_color: 0,0,0,1
 
                 TextInput:
+                    id: passwordInput
                     size_hint:1,.12
                     hint_text: "Password"
                     multiline: False
@@ -80,21 +96,26 @@
                     text: ""
 
                 Button:
-                    size_hint:1,.12
-                    font_size: .5*self.height
+                    id: loginButton
+                    size_hint:1,.10
+                    font_size: .6*self.height
                     text: "Login"
                     background_normal: ""
                     background_color: app.hexToKivyColor("#008ae6",1)
 
                 Button:
-                    size_hint:1,.12
-                    font_size: .5*self.height
+                    id: createAccountButton
+                    size_hint:1,.10
+                    font_size: .6*self.height
                     text: "Create Account"
                     background_normal: ""
                     background_color: app.hexToKivyColor("#008ae6",1)
+                    on_release:
+                        app.root.transition = CardTransition(direction = "up")
+                        app.root.current = "CreateAccountScreen"
 
                 Label:
-                    size_hint:1,.06
+                    size_hint:1,.1
                     text: ""
 
             Label:
@@ -115,6 +136,20 @@
             size_hint: .8,.45
 
 <LoginScreen>:
+    name: "LoginScreen"
     FloatLayout:
         Background:
             center: 0.5, 0.5
+
+
+
+<CreateAccountScreen>:
+    name: "CreateAccountScreen"
+
+    Label:
+        text: "hi"
+    Button:
+        text: "back"
+        on_release:
+            app.root.transition = CardTransition(direction = "down",mode = "pop")
+            app.root.current = "LoginScreen"

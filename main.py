@@ -2,6 +2,9 @@ import kivy
 from kivy.app import App
 from kivy.core.window import Window
 from kivy.uix.widget import Widget
+from kivy.properties import ObjectProperty
+from kivy.lang import Builder
+from kivy.uix.screenmanager import ScreenManager, Screen
 
 class Background(Widget):
     pass
@@ -9,7 +12,18 @@ class Background(Widget):
 class LoginButtons(Widget):
     pass
 
-class LoginScreen(App):
+class WindowManager(ScreenManager):
+    pass
+
+class LoginScreen(Screen):
+    pass
+
+class CreateAccountScreen(Screen):
+    pass
+
+
+
+class GolfApp(App):
     def hexToKivyColor(Object, hex, alpha):
         values = {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, 'a': 10, 'b': 11,
                   'c': 12,
@@ -25,11 +39,10 @@ class LoginScreen(App):
         returnList = [decimalValueRed/255.0, decimalValueGreen/255.0, decimalValueBlue/255.0, alpha]
 
         return returnList
+
     def build(self):
         Window.size=(350,600)
-        return Background()
-
-
+        return Builder.load_file("Style.kv")
 
 if __name__=="__main__":
-    LoginScreen().run()
+    GolfApp().run()
