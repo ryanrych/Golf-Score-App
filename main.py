@@ -5,17 +5,26 @@ from kivy.uix.widget import Widget
 from kivy.properties import ObjectProperty
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.factory import Factory
 
-class Background(Widget):
+from time import sleep
+
+class WindowManager(ScreenManager):
     pass
 
 class LoginButtons(Widget):
     pass
 
-class WindowManager(ScreenManager):
+class LoginBackground(Widget):
     pass
 
 class LoginScreen(Screen):
+    pass
+
+class CreateAccountButtons(Widget):
+    pass
+
+class CreateAccountBackground(Screen):
     pass
 
 class CreateAccountScreen(Screen):

@@ -6,7 +6,6 @@ WindowManager:
     CreateAccountScreen:
 
 
-
 <LoginButtons>:
     userInput: userInput
     passwordInput: passwordInput
@@ -26,7 +25,6 @@ WindowManager:
                 RoundedRectangle:
                     pos: self.pos
                     size: self.size
-            #pos: self.parent.pos
             size: self.parent.size
             orientation: "horizontal"
 
@@ -59,7 +57,7 @@ WindowManager:
 
                     Label:
                         size_hint: 1, .35
-                        font_name: "Raleway-Regular.ttf"      
+                        font_name: "Raleway-Regular.ttf"
                         text: "Companion App"
                         font_size: 18
                         color:0.650980392157, 0.650980392157, 0.650980392157, 1
@@ -111,7 +109,7 @@ WindowManager:
                     background_normal: ""
                     background_color: app.hexToKivyColor("#008ae6",1)
                     on_release:
-                        app.root.transition = CardTransition(direction = "up")
+                        app.root.transition = CardTransition(direction = "up",mode = "push")
                         app.root.current = "CreateAccountScreen"
 
                 Label:
@@ -122,7 +120,7 @@ WindowManager:
                 size_hint: .05, 1
                 text: ""
 
-<Background>:
+<LoginBackground>:
     AnchorLayout:
         canvas.before:
             Rectangle:
@@ -138,18 +136,59 @@ WindowManager:
 <LoginScreen>:
     name: "LoginScreen"
     FloatLayout:
-        Background:
+        LoginBackground:
             center: 0.5, 0.5
 
 
+<CreateAccountButtons>:
+
+    size_hint: None, None
+
+    RelativeLayout:
+        pos: self.parent.pos
+        size: self.parent.size
+
+        BoxLayout:
+            canvas.before:
+                Color:
+                    rgba: app.hexToKivyColor("#ffffff",1)
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+            size: self.parent.size
+            orientation: "horizontal"
+
+            spacing: 5
+
+            Button:
+                id: createAccountButton
+                size_hint:1,.10
+                font_size: .6*self.height
+                text: "Create Account"
+                background_normal: ""
+                background_color: app.hexToKivyColor("#008ae6",1)
+                on_release:
+                    app.root.transition = CardTransition(direction = "down",mode = "pop")
+                    app.root.current = "LoginScreen"
+
+
+
+
+<CreateAccountBackground>:
+    AnchorLayout:
+        canvas.before:
+            Color:
+                rgba: app.hexToKivyColor("#008ae6",1)
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        size: self.parent.size
+        anchor_x: 'center'
+        anchor_y: 'center'
+        CreateAccountButtons:
+            size_hint: .9,.8
 
 <CreateAccountScreen>:
     name: "CreateAccountScreen"
-
-    Label:
-        text: "hi"
-    Button:
-        text: "back"
-        on_release:
-            app.root.transition = CardTransition(direction = "down",mode = "pop")
-            app.root.current = "LoginScreen"
+    FloatLayout:
+        CreateAccountBackground:
