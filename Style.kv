@@ -52,15 +52,15 @@ WindowManager:
                         size_hint:1, .35
                         font_name: "Raleway-Regular.ttf"
                         text: "Rychlak International"
-                        font_size:20
+                        font_size:self.height
                         color: 0,0,0,1
 
                     Label:
                         size_hint: 1, .35
                         font_name: "Raleway-Regular.ttf"
                         text: "Companion App"
-                        font_size: 18
-                        color:0.650980392157, 0.650980392157, 0.650980392157, 1
+                        font_size: self.height
+                        color: app.hexToKivyColor("#595959",1)
 
                     Label:
                         size_hint: 1, .2
@@ -171,7 +171,7 @@ WindowManager:
 
                 GridLayout:
                     cols: 1
-                    size_hint: 1,.2
+                    size_hint: 1,.22
                     spacing:10
 
                     Label:
@@ -182,7 +182,7 @@ WindowManager:
                         size_hint:1, .7
                         font_name: "Raleway-Regular.ttf"
                         text: "New User"
-                        font_size:20
+                        font_size:self.height
                         color: 0,0,0,1
 
                     Label:
@@ -229,14 +229,14 @@ WindowManager:
                     text: ""
 
                 Button:
-                    size_hint:1,.12
+                    size_hint:1,.11
                     font_size: .6*self.height
                     text: "Create"
                     background_normal: ""
                     background_color: app.hexToKivyColor("#008ae6",1)
 
                 Button:
-                    size_hint:1,.12
+                    size_hint:1,.11
                     font_size: .6*self.height
                     text: "Cancel"
                     background_normal: ""
