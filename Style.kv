@@ -151,7 +151,7 @@ WindowManager:
         BoxLayout:
             canvas.before:
                 Color:
-                    rgba: app.hexToKivyColor("#ffffff",1)
+                    rgba: app.hexToKivyColor("#ffffff",.8)
                 RoundedRectangle:
                     pos: self.pos
                     size: self.size
@@ -160,16 +160,98 @@ WindowManager:
 
             spacing: 5
 
-            Button:
-                id: createAccountButton
-                size_hint:1,.10
-                font_size: .6*self.height
-                text: "Create Account"
-                background_normal: ""
-                background_color: app.hexToKivyColor("#008ae6",1)
-                on_release:
-                    app.root.transition = CardTransition(direction = "down",mode = "pop")
-                    app.root.current = "LoginScreen"
+            Label:
+                size_hint: .05, 1
+                text: ""
+
+            GridLayout:
+                size_hint: .9, 1
+                cols:1
+                spacing: 7
+
+                GridLayout:
+                    cols: 1
+                    size_hint: 1,.2
+                    spacing:10
+
+                    Label:
+                        size_hint: 1, .1
+                        text: ""
+
+                    Label:
+                        size_hint:1, .7
+                        font_name: "Raleway-Regular.ttf"
+                        text: "New User"
+                        font_size:20
+                        color: 0,0,0,1
+
+                    Label:
+                        size_hint: 1, .2
+                        text: ""
+
+                TextInput:
+                    id: userInput
+                    size_hint:1,.14
+                    hint_text: "Username"
+                    multiline: False
+                    background_normal: "White.png"
+                    background_active: "White.png"
+                    font_size: .5*self.height
+                    cursor_color: 0,0,0,1
+                    foreground_color: 0,0,0,1
+
+                TextInput:
+                    id: passwordInput
+                    size_hint:1,.14
+                    hint_text: "Password"
+                    multiline: False
+                    password: True
+                    font_size: .5*self.height
+                    background_normal: "White.png"
+                    background_active: "White.png"
+                    cursor_color: 0,0,0,1
+                    foreground_color: 0,0,0,1
+
+                TextInput:
+                    id: passwordInput
+                    size_hint:1,.14
+                    hint_text: "Confirm Password"
+                    multiline: False
+                    password: True
+                    font_size: .5*self.height
+                    background_normal: "White.png"
+                    background_active: "White.png"
+                    cursor_color: 0,0,0,1
+                    foreground_color: 0,0,0,1
+
+                Label:
+                    size_hint:1,.06
+                    text: ""
+
+                Button:
+                    size_hint:1,.12
+                    font_size: .6*self.height
+                    text: "Create"
+                    background_normal: ""
+                    background_color: app.hexToKivyColor("#008ae6",1)
+
+                Button:
+                    size_hint:1,.12
+                    font_size: .6*self.height
+                    text: "Cancel"
+                    background_normal: ""
+                    background_color: app.hexToKivyColor("#008ae6",1)
+                    on_release:
+                        app.root.transition = CardTransition(direction = "down",mode = "pop")
+                        app.root.current = "LoginScreen"
+
+                Label:
+                    size_hint:1,.08
+                    text: ""
+
+            Label:
+                size_hint: .05, 1
+                text: ""
 
 
 
@@ -177,16 +259,15 @@ WindowManager:
 <CreateAccountBackground>:
     AnchorLayout:
         canvas.before:
-            Color:
-                rgba: app.hexToKivyColor("#008ae6",1)
             Rectangle:
                 pos: self.pos
                 size: self.size
+                source: "CreateBackground.jpg"
         size: self.parent.size
         anchor_x: 'center'
         anchor_y: 'center'
         CreateAccountButtons:
-            size_hint: .9,.8
+            size_hint: .8,.45
 
 <CreateAccountScreen>:
     name: "CreateAccountScreen"
