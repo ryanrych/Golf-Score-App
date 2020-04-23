@@ -6,14 +6,20 @@ from kivy.properties import ObjectProperty
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.factory import Factory
-
-from time import sleep
+from kivy.clock import Clock
 
 class WindowManager(ScreenManager):
     pass
 
 class LoginButtons(Widget):
-    pass
+    userField = ObjectProperty(None)
+    passwordField = ObjectProperty(None)
+    passwordFailed = ObjectProperty(None)
+
+    def loginButtonPress(self):
+        pass
+
+
 
 class LoginBackground(Widget):
     pass
@@ -22,7 +28,8 @@ class LoginScreen(Screen):
     pass
 
 class CreateAccountButtons(Widget):
-    pass
+    def loginButtonPress(self):
+        print("hi")
 
 class CreateAccountBackground(Screen):
     pass
@@ -48,6 +55,15 @@ class GolfApp(App):
         returnList = [decimalValueRed/255.0, decimalValueGreen/255.0, decimalValueBlue/255.0, alpha]
 
         return returnList
+
+    userData = {}
+    users = open("Users", "r")
+    for user in users:
+        data = user.split(",")
+        userData["user"] = data[0]
+        userData["pass"] = data[1]
+    users.close()
+
 
     def build(self):
         Window.size=(350,600)

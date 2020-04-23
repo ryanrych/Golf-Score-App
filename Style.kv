@@ -7,10 +7,11 @@ WindowManager:
 
 
 <LoginButtons>:
-    userInput: userInput
-    passwordInput: passwordInput
+    userField: userField
+    passwordField: passwordField
     loginButton: loginButton
     createAccountButton: createAccountButton
+    passwordFailed: passwordFailed
 
     size_hint: None, None
 
@@ -67,7 +68,7 @@ WindowManager:
                         text: ""
 
                 TextInput:
-                    id: userInput
+                    id: userField
                     size_hint:1,.12
                     hint_text: "User"
                     multiline: False
@@ -78,7 +79,7 @@ WindowManager:
                     foreground_color: 0,0,0,1
 
                 TextInput:
-                    id: passwordInput
+                    id: passwordField
                     size_hint:1,.12
                     hint_text: "Password"
                     multiline: False
@@ -90,8 +91,10 @@ WindowManager:
                     foreground_color: 0,0,0,1
 
                 Label:
+                    id: passwordFailed
                     size_hint:1,.06
                     text: ""
+                    color: app.hexToKivyColor("#ff0000",1)
 
                 Button:
                     id: loginButton
@@ -100,6 +103,8 @@ WindowManager:
                     text: "Login"
                     background_normal: ""
                     background_color: app.hexToKivyColor("#008ae6",1)
+                    on_release:
+                        root.loginButtonPress()
 
                 Button:
                     id: createAccountButton
@@ -190,7 +195,6 @@ WindowManager:
                         text: ""
 
                 TextInput:
-                    id: userInput
                     size_hint:1,.14
                     hint_text: "Username"
                     multiline: False
@@ -201,7 +205,6 @@ WindowManager:
                     foreground_color: 0,0,0,1
 
                 TextInput:
-                    id: passwordInput
                     size_hint:1,.14
                     hint_text: "Password"
                     multiline: False
@@ -213,7 +216,6 @@ WindowManager:
                     foreground_color: 0,0,0,1
 
                 TextInput:
-                    id: passwordInput
                     size_hint:1,.14
                     hint_text: "Confirm Password"
                     multiline: False
@@ -234,6 +236,8 @@ WindowManager:
                     text: "Create"
                     background_normal: ""
                     background_color: app.hexToKivyColor("#008ae6",1)
+                    on_release:
+                        root.loginButtonPress()
 
                 Button:
                     size_hint:1,.11
