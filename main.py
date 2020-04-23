@@ -14,24 +14,26 @@ class WindowManager(ScreenManager):
 class LoginButtons(Widget):
     userField = ObjectProperty(None)
     passwordField = ObjectProperty(None)
-    passwordFailed = ObjectProperty(None)
+    loginFailed = ObjectProperty(None)
 
     def loginButtonPress(self):
-        if (self.userField.text in GolfApp.userData):
-            if (self.passwordField.text == GolfApp.userData[self.userField.text]["password"]):
-                print("hi")
+        username = self.userField.text.lower()
+        password = self.passwordField.text
+
+        if (username in GolfApp.userData):
+            if (password == GolfApp.userData[username]["password"]):
                 pass #go to new screen
             else:
-                self.passwordFailedStart()
-                Clock.schedule_once(self.passwordFailedEnd, 3)
+                self.loginFailedStart()
+                Clock.schedule_once(self.loginFailedEnd, 3)
         else:
-            self.passwordFailedStart()
-            Clock.schedule_once(self.passwordFailedEnd, 3)
+            self.loginFailedStart()
+            Clock.schedule_once(self.loginFailedEnd, 3)
 
-    def passwordFailedStart(self):
-        self.passwordFailed.text = "Invalid Password"
+    def loginFailedStart(self):
+        self.passwordFailed.text = "Invalid Login"
 
-    def passwordFailedEnd(self, dt):
+    def loginFailedEnd(self, dt):
         self.passwordFailed.text = ""
 
 
@@ -43,8 +45,37 @@ class LoginScreen(Screen):
     pass
 
 class CreateAccountButtons(Widget):
-    def loginButtonPress(self):
-        print("hi")
+    userField = ObjectProperty(None)
+    passwordField = ObjectProperty(None)
+    confirmField = ObjectProperty(None)
+    createFailed = ObjectProperty(None)
+
+    def createButtonPress(self):
+        username = self.userField.text.lower()
+        password = self.passwordField.text
+        confirm = self.confirmField.text
+
+        if (username in GolfApp.userData):
+            self.userFailStart()
+        elif (password != confirm):
+            self.passwordFailStart()
+        else:
+            GolfApp.userData[username] = {}
+            GolfApp.userData[username]["password"] = password
+
+
+    def userFailStart(self):
+        self.createFailed.text = "Username Taken"
+        Clock.schedule_once(self.failEnd,3)
+
+    def passwordFailStart(self):
+        self.createFailed.text = "Passwords Don't Match"
+        Clock.schedule_once(self.failEnd,3)
+
+    def failEnd(self,dt):
+        self.createFailed.text = ""
+
+
 
 class CreateAccountBackground(Screen):
     pass
@@ -72,7 +103,7 @@ class GolfApp(App):
         return returnList
 
     userData = {}
-    users = open("Users", "r")
+    users = open("Users.txt", "r")
     for user in users:
         data = user.split(",")
         userData[data[0]]={}

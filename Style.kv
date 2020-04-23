@@ -11,7 +11,7 @@ WindowManager:
     passwordField: passwordField
     loginButton: loginButton
     createAccountButton: createAccountButton
-    passwordFailed: passwordFailed
+    loginFailed: loginFailed
 
     size_hint: None, None
 
@@ -91,7 +91,7 @@ WindowManager:
                     foreground_color: 0,0,0,1
 
                 Label:
-                    id: passwordFailed
+                    id: loginFailed
                     size_hint:1,.06
                     text: ""
                     color: app.hexToKivyColor("#ff0000",1)
@@ -146,6 +146,10 @@ WindowManager:
 
 
 <CreateAccountButtons>:
+    userField: userField
+    passwordField: passwordField
+    confirmField: confirmField
+    createFailed: createFailed
 
     size_hint: None, None
 
@@ -195,6 +199,7 @@ WindowManager:
                         text: ""
 
                 TextInput:
+                    id: userField
                     size_hint:1,.14
                     hint_text: "Username"
                     multiline: False
@@ -205,6 +210,7 @@ WindowManager:
                     foreground_color: 0,0,0,1
 
                 TextInput:
+                    id: passwordField
                     size_hint:1,.14
                     hint_text: "Password"
                     multiline: False
@@ -216,6 +222,7 @@ WindowManager:
                     foreground_color: 0,0,0,1
 
                 TextInput:
+                    id: confirmField
                     size_hint:1,.14
                     hint_text: "Confirm Password"
                     multiline: False
@@ -227,8 +234,10 @@ WindowManager:
                     foreground_color: 0,0,0,1
 
                 Label:
+                    id: createFailed
                     size_hint:1,.06
                     text: ""
+                    color: 1,0,0,1
 
                 Button:
                     size_hint:1,.11
@@ -237,7 +246,7 @@ WindowManager:
                     background_normal: ""
                     background_color: app.hexToKivyColor("#008ae6",1)
                     on_release:
-                        root.loginButtonPress()
+                        root.createButtonPress()
 
                 Button:
                     size_hint:1,.11
