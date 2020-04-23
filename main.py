@@ -17,7 +17,22 @@ class LoginButtons(Widget):
     passwordFailed = ObjectProperty(None)
 
     def loginButtonPress(self):
-        pass
+        if (self.userField.text in GolfApp.userData):
+            if (self.passwordField.text == GolfApp.userData[self.userField.text]["password"]):
+                print("hi")
+                pass #go to new screen
+            else:
+                self.passwordFailedStart()
+                Clock.schedule_once(self.passwordFailedEnd, 3)
+        else:
+            self.passwordFailedStart()
+            Clock.schedule_once(self.passwordFailedEnd, 3)
+
+    def passwordFailedStart(self):
+        self.passwordFailed.text = "Invalid Password"
+
+    def passwordFailedEnd(self, dt):
+        self.passwordFailed.text = ""
 
 
 
@@ -60,8 +75,8 @@ class GolfApp(App):
     users = open("Users", "r")
     for user in users:
         data = user.split(",")
-        userData["user"] = data[0]
-        userData["pass"] = data[1]
+        userData[data[0]]={}
+        userData[data[0]]["password"] = data[1]
     users.close()
 
 
