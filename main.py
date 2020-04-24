@@ -8,6 +8,7 @@ from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.factory import Factory
 from kivy.clock import Clock
+from kivy.uix.screenmanager import CardTransition
 
 class WindowManager(ScreenManager):
     pass
@@ -64,6 +65,11 @@ class CreateAccountButtons(Widget):
         else:
             GolfApp.userData[username] = {}
             GolfApp.userData[username]["password"] = password
+            self.userField.text = ""
+            self.passwordField.text = ""
+            self.confirmField.text = ""
+            return "LoginScreen"
+        return "CreateAccountScreen"
 
 
     def userFailStart(self):

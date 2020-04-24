@@ -249,7 +249,8 @@ WindowManager:
                     background_normal: ""
                     background_color: app.hexToKivyColor("#008ae6",1)
                     on_release:
-                        root.createButtonPress()
+                        app.root.transition = CardTransition(direction = "down", mode = "pop", duration = .3)
+                        app.root.current = root.createButtonPress()
 
                 Button:
                     size_hint:1,.11
