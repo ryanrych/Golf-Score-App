@@ -4,7 +4,7 @@
 WindowManager:
     LoginScreen:
     CreateAccountScreen:
-
+    MainScreen:
 
 <LoginButtons>:
     userField: userField
@@ -12,6 +12,7 @@ WindowManager:
     loginButton: loginButton
     createAccountButton: createAccountButton
     loginFailed: loginFailed
+    loginPassed:
 
     size_hint: None, None
 
@@ -105,6 +106,8 @@ WindowManager:
                     background_color: app.hexToKivyColor("#008ae6",1)
                     on_release:
                         root.loginButtonPress()
+                        app.root.transition =  CardTransition(direction = "left",mode = "push", duration = .3)
+                        app.root.current = "MainScreen" if root.loginPassed else "LoginScreen"
 
                 Button:
                     id: createAccountButton
@@ -114,7 +117,7 @@ WindowManager:
                     background_normal: ""
                     background_color: app.hexToKivyColor("#008ae6",1)
                     on_release:
-                        app.root.transition = CardTransition(direction = "up",mode = "push")
+                        app.root.transition = CardTransition(direction = "up",mode = "push", duration = .3)
                         app.root.current = "CreateAccountScreen"
 
                 Label:
@@ -255,7 +258,7 @@ WindowManager:
                     background_normal: ""
                     background_color: app.hexToKivyColor("#008ae6",1)
                     on_release:
-                        app.root.transition = CardTransition(direction = "down", mode = "pop")
+                        app.root.transition = CardTransition(direction = "down", mode = "pop", duration = .3)
                         app.root.current = "LoginScreen"
 
                 Label:
@@ -286,3 +289,42 @@ WindowManager:
     name: "CreateAccountScreen"
     FloatLayout:
         CreateAccountBackground:
+
+
+
+<MainButtons>:
+    size_hint: None, None
+
+    RelativeLayout:
+        pos: self.parent.pos
+        size: self.parent.size
+
+        BoxLayout:
+            canvas.before:
+                Color:
+                    rgba: app.hexToKivyColor("#ffffff",.8)
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+            size: self.parent.size
+            orientation: "horizontal"
+
+            spacing: 5
+
+<MainBackground>:
+    AnchorLayout:
+        canvas.before:
+            Rectangle:
+                pos: self.pos
+                size: self.size
+                source: "MainBackground.jpg"
+        size: self.parent.size
+        anchor_x: 'center'
+        anchor_y: 'center'
+        MainButtons:
+            size_hint: .9,.9
+
+<MainScreen>:
+    name: "MainScreen"
+    FloatLayout:
+        MainBackground:

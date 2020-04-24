@@ -2,7 +2,8 @@ import kivy
 from kivy.app import App
 from kivy.core.window import Window
 from kivy.uix.widget import Widget
-from kivy.properties import ObjectProperty
+from kivy.properties import ObjectProperty, BooleanProperty, StringProperty
+from kivy.properties import BooleanProperty
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.factory import Factory
@@ -15,6 +16,7 @@ class LoginButtons(Widget):
     userField = ObjectProperty(None)
     passwordField = ObjectProperty(None)
     loginFailed = ObjectProperty(None)
+    loginPassed = BooleanProperty(False)
 
     def loginButtonPress(self):
         username = self.userField.text.lower()
@@ -22,7 +24,7 @@ class LoginButtons(Widget):
 
         if (username in GolfApp.userData):
             if (password == GolfApp.userData[username]["password"]):
-                pass #go to new screen
+                self.loginPassed = True
             else:
                 self.loginFailedStart()
                 Clock.schedule_once(self.loginFailedEnd, 3)
@@ -31,18 +33,18 @@ class LoginButtons(Widget):
             Clock.schedule_once(self.loginFailedEnd, 3)
 
     def loginFailedStart(self):
-        self.passwordFailed.text = "Invalid Login"
+        self.loginFailed.text = "Invalid Login"
 
     def loginFailedEnd(self, dt):
-        self.passwordFailed.text = ""
-
-
+        self.loginFailed.text = ""
 
 class LoginBackground(Widget):
     pass
 
 class LoginScreen(Screen):
     pass
+
+
 
 class CreateAccountButtons(Widget):
     userField = ObjectProperty(None)
@@ -75,12 +77,19 @@ class CreateAccountButtons(Widget):
     def failEnd(self,dt):
         self.createFailed.text = ""
 
-
-
 class CreateAccountBackground(Screen):
     pass
 
 class CreateAccountScreen(Screen):
+    pass
+
+class MainButtons(Widget):
+    pass
+
+class MainBackground(Widget):
+    pass
+
+class MainScreen(Screen):
     pass
 
 
