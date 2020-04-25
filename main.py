@@ -23,6 +23,7 @@ class LoginButtons(Widget):
         username = self.userField.text.lower()
         password = self.passwordField.text
 
+        print(username,password,GolfApp.userData)
         if (username in GolfApp.userData):
             if (password == GolfApp.userData[username]["password"]):
                 self.loginPassed = True
@@ -121,7 +122,7 @@ class GolfApp(App):
     users = open("Users.txt", "r")
     for user in users:
         data = user.split(",")
-        userData[data[0]]={}
+        userData[data[0].lower()]={}
         userData[data[0]]["password"] = data[1]
     users.close()
 
