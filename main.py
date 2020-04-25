@@ -8,7 +8,6 @@ from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.factory import Factory
 from kivy.clock import Clock
-from kivy.uix.screenmanager import CardTransition
 
 class WindowManager(ScreenManager):
     pass
@@ -23,7 +22,6 @@ class LoginButtons(Widget):
         username = self.userField.text.lower()
         password = self.passwordField.text
 
-        print(username,password,GolfApp.userData)
         if (username in GolfApp.userData):
             if (password == GolfApp.userData[username]["password"]):
                 self.loginPassed = True
@@ -129,6 +127,8 @@ class GolfApp(App):
 
     def build(self):
         Window.size=(350,600)
+        self.icon = "appIcon.png"
+        self.title = "Rychlak International"
         return Builder.load_file("Style.kv")
 
 if __name__=="__main__":
