@@ -8,7 +8,13 @@ from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.factory import Factory
 from kivy.clock import Clock
-from kivy.uix.screenmanager import CardTransition
+from kivy.garden.graph import Graph, MeshLinePlot
+
+class CreateGraph(Widget):
+    pass
+
+
+
 
 class WindowManager(ScreenManager):
     pass
@@ -90,7 +96,11 @@ class CreateAccountScreen(Screen):
     pass
 
 class MainButtons(Widget):
-    pass
+
+    def createGraph(self):
+        scorePlot = MeshLinePlot(color=[0, 0, 0, 1])
+        scorePlot.points = [(0,35),(1,36),(2,32),(3,31),(4,40),(5,33)]
+        return scorePlot
 
 class MainBackground(Widget):
     pass
@@ -121,13 +131,15 @@ class GolfApp(App):
     users = open("Users.txt", "r")
     for user in users:
         data = user.split(",")
-        userData[data[0]]={}
+        userData[data[0].lower()]={}
         userData[data[0]]["password"] = data[1]
     users.close()
 
 
     def build(self):
         Window.size=(350,600)
+        self.icon = "appIcon.png"
+        self.title = "Rychlak International"
         return Builder.load_file("Style.kv")
 
 if __name__=="__main__":
