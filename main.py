@@ -8,16 +8,13 @@ from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.factory import Factory
 from kivy.clock import Clock
-from kivy.garden.graph import Graph, MeshLinePlot
-
-class CreateGraph(Widget):
-    pass
-
 
 
 
 class WindowManager(ScreenManager):
     pass
+
+
 
 class LoginButtons(Widget):
     userField = ObjectProperty(None)
