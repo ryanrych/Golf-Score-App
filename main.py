@@ -93,11 +93,7 @@ class CreateAccountScreen(Screen):
     pass
 
 class MainButtons(Widget):
-
-    def createGraph(self):
-        scorePlot = MeshLinePlot(color=[0, 0, 0, 1])
-        scorePlot.points = [(0,35),(1,36),(2,32),(3,31),(4,40),(5,33)]
-        return scorePlot
+    pass
 
 class MainBackground(Widget):
     pass
