@@ -1,5 +1,6 @@
 #:import CardTransition kivy.uix.screenmanager.CardTransition
 #:import SlideTransition kivy.uix.screenmanager.SlideTransition
+#:import Graph kivy_garden.graph
 
 WindowManager:
     LoginScreen:
@@ -294,6 +295,8 @@ WindowManager:
 
 
 <MainButtons>:
+    mainGraph: mainGraph
+
     size_hint: None, None
 
     RelativeLayout:
@@ -344,12 +347,18 @@ WindowManager:
                     font_size: .45 * self.height
                     color: 0,0,0,1
 
+                MainScreenGraph:
+                    id: mainGraph
+                    size_hint: 1, .4
+
                 Button:
                     size_hint: 1, .06
                     font_size: .6*self.height
                     text: "Statistics"
                     background_normal: ""
                     background_color: app.hexToKivyColor("#008ae6",1)
+                    on_release:
+                        root.fill()
 
                 Button:
                     size_hint: 1, .06
