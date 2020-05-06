@@ -295,6 +295,7 @@ WindowManager:
 
 
 <MainButtons>:
+    mainGraph: mainGraph
 
     size_hint: None, None
 
@@ -377,9 +378,11 @@ WindowManager:
 
                         Button:
                             size_hint: .1, 1
-                            text: "3"
+                            text: "5"
                             background_normal: ""
                             background_color: app.hexToKivyColor("#008ae6",1)
+                            on_release:
+                                root.graphButtons(1)
 
                         Label:
                             size_hint: .01,1
@@ -387,9 +390,11 @@ WindowManager:
 
                         Button:
                             size_hint: .1, 1
-                            text: "5"
+                            text: "10"
                             background_normal: ""
                             background_color: app.hexToKivyColor("#008ae6",1)
+                            on_release:
+                                root.graphButtons(2)
 
                         Label:
                             size_hint: .01,1
@@ -400,24 +405,16 @@ WindowManager:
                             text: "all"
                             background_normal: ""
                             background_color: app.hexToKivyColor("#008ae6",1)
+                            on_release:
+                                root.graphButtons(3)
 
 
                     Graph:
+                        id: mainGraph
                         size_hint: 1, .49
-                        xmin : 1
-                        xmax : 5
-                        ymin : 32
-                        ymax : 44
-                        x_ticks_major : 1
-                        x_ticks_minor : 1
-                        y_ticks_major : 4
-                        y_ticks_minor : 4
                         tick_color : [0, 0, 0, 1]
-                        y_label : True
                         padding : 5
-                        font_color : [0,0,0,1]
-                        #root.fill()
-                        plot: root.mainGraph
+                        font_color : [0, 0, 0, 1]
 
                     Label:
                         size_hint: 1, .01
