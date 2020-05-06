@@ -14,15 +14,6 @@ from kivy_garden.graph import Graph, LinePlot
 class WindowManager(ScreenManager):
     pass
 
-class MainScreenGraph(Graph):
-    graph = Graph(xlabel='', ylabel='',
-                  x_ticks_major=1, y_ticks_major=4,
-                  y_grid_label=True, x_grid_label=True, padding=5,
-                  x_grid=True, y_grid=True, xmin=1, xmax=5, ymin=32, ymax=44)
-    plot = LinePlot(color=[0,1,0,1])
-    plot.points = [(x,36) for x in range(100)]
-    graph.add_plot(plot)
-
 class LoginButtons(Widget):
     userField = ObjectProperty(None)
     passwordField = ObjectProperty(None)
@@ -100,30 +91,7 @@ class CreateAccountScreen(Screen):
     pass
 
 class MainButtons(Widget):
-    mainGraph = ObjectProperty(None)
-
-    graph = Graph(xlabel='', ylabel='',
-                  x_ticks_major=1, y_ticks_major=4,
-                  y_grid_label=True, x_grid_label=True, padding=5,
-                  x_grid=True, y_grid=True, xmin=1, xmax=5, ymin=32, ymax=44)
-
-    def fill(self):
-        self.mainGraph.xmin = 1
-        self.mainGraph.xmax = 5
-        self.mainGraph.ymin = 32
-        self.mainGraph.ymax = 44
-        self.mainGraph.x_ticks_major=1
-        self.mainGraph.x_ticks_minor = 1
-        self.mainGraph.y_ticks_major = 4
-        self.mainGraph.y_ticks_minor = 4
-        self.mainGraph.tick_color = [0, 0, 0, 1]
-        self.mainGraph.y_label = True
-        #self.mainGraph._y_grid_label = ListProperty([2])
-        self.mainGraph.padding = 5
-        self.mainGraph.font_color = [0,0,0,1]
-        plot = LinePlot(color=[0, 138, 230, 1])
-        plot.points = [(1, 36), (2, 37), (3, 33), (3, 40), (4, 36), (5, 34)]
-        self.mainGraph.add_plot(plot)
+    mainGraph = ObjectProperty(LinePlot(color = [0,138,230,1]))
 
 class MainBackground(Widget):
     pass
