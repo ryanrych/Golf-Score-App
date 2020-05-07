@@ -1,4 +1,5 @@
 import kivy
+from PIL.ImageQt import rgb
 from kivy.app import App
 from kivy.core.window import Window
 from kivy.uix.widget import Widget
@@ -28,6 +29,7 @@ class LoginButtons(Widget):
     loginPassed = BooleanProperty(False)
 
     def loginButtonPress(self):
+        global currUser
         username = self.userField.text.lower()
         password = self.passwordField.text
 
@@ -105,18 +107,26 @@ class MainButtons(Widget):
     mainGraph = ObjectProperty(None)
 
     def graphButtons(self, amount):
+        global currUser
+
         self.mainGraph.tick_color = [0, 0, 0, 1]
-        self.mainGraph._y_grid_label = range(100)
-        self.mainGraph.padding = 5
         self.mainGraph.font_color = [0, 0, 0, 1]
+        self.mainGraph.label_options = {"color": GolfApp.hexToKivyColor(None,"#595959",1)}
+        self.mainGraph.x_grid_label = True
+        self.mainGraph.y_grid_label = True
+        # self.mainGraph.y_grid = True
+        # self.mainGraph.x_grid = True
+        self.mainGraph.tick_color = GolfApp.hexToKivyColor(None,"#595959",1)
 
         plot = LinePlot(color = [1,0,1,1])
         if (amount == 1):
+            self.mainGraph.padding = 5
             scores = userData[currUser]["scores"][-5:]
             points = scores
             self.mainGraph.xmin = 0
             self.mainGraph.xmax = 6
             self.mainGraph.x_ticks_major = 1
+            self.mainGraph.x_ticks_minor = 1
             r = max(scores) - min(scores)
             yTicks = ceil(r / 5)
             if (yTicks == 0): yTicks = 1
@@ -125,8 +135,10 @@ class MainButtons(Widget):
             self.mainGraph.y_ticks_major = yTicks
 
         elif (amount == 2):
+            self.mainGraph.padding = 0
             scores = userData[currUser]["scores"][-10:]
             points = scores
+            self.mainGraph._trigger_size = ObjectProperty(None)
             self.mainGraph.xmin = 0
             self.mainGraph.xmax = 11
             self.mainGraph.x_ticks_major = 1
@@ -158,8 +170,6 @@ class MainButtons(Widget):
             self.mainGraph.remove_plot(x)
 
         self.mainGraph.add_plot(plot)
-
-
 
 class MainBackground(Widget):
     pass

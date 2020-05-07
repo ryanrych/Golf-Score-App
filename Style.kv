@@ -367,7 +367,7 @@ WindowManager:
                         orientation: "horizontal"
 
                         Label:
-                            size_hint: .33, 1
+                            size_hint: .44, 1
                             text: ""
 
                         Label:
@@ -396,25 +396,10 @@ WindowManager:
                             on_release:
                                 root.graphButtons(2)
 
-                        Label:
-                            size_hint: .01,1
-                            text: ""
-
-                        Button:
-                            size_hint: .1, 1
-                            text: "all"
-                            background_normal: ""
-                            background_color: app.hexToKivyColor("#008ae6",1)
-                            on_release:
-                                root.graphButtons(3)
-
 
                     Graph:
                         id: mainGraph
                         size_hint: 1, .49
-                        tick_color : [0, 0, 0, 1]
-                        padding : 5
-                        font_color : [0, 0, 0, 1]
 
                     Label:
                         size_hint: 1, .01
