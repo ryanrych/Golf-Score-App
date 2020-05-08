@@ -6,6 +6,7 @@ WindowManager:
     LoginScreen:
     CreateAccountScreen:
     MainScreen:
+    GameScreen:
 
 <LoginButtons>:
     userField: userField
@@ -418,6 +419,8 @@ WindowManager:
                         text: "Play Round"
                         background_normal: ""
                         background_color: app.hexToKivyColor("#008ae6",1)
+                        on_release:
+                            app.root.current = "GameScreen"
 
                     Label:
                         size_hint: 1, .06
@@ -446,6 +449,61 @@ WindowManager:
     name: "MainScreen"
     FloatLayout:
         MainBackground:
+
+
+
+<GameButtons>:
+
+    size_hint: None, None
+
+    RelativeLayout:
+        pos: self.parent.pos
+        size: self.parent.size
+
+        BoxLayout:
+            canvas.before:
+                Color:
+                    rgba: app.hexToKivyColor("#ffffff",.8)
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+            size: self.parent.size
+            orientation: "horizontal"
+
+            Label:
+                size_hint: .05, 1
+                text: ""
+
+            GridLayout:
+                size_hint: .9, 1
+
+
+            Label:
+                size_hint: .05, 1
+                text:""
+
+
+
+
+
+<GameBackground>:
+    AnchorLayout:
+        canvas.before:
+            Rectangle:
+                pos: self.pos
+                size: self.size
+                source: "GameBackground.jpg"
+        size: self.parent.size
+        anchor_x: 'center'
+        anchor_y: 'center'
+        GameButtons:
+            size_hint: .85,.8
+
+<GameScreen>:
+    name: "GameScreen"
+    FloatLayout:
+        GameBackground:
+
 
 
 <RoundedButton@Button>:

@@ -114,11 +114,9 @@ class MainButtons(Widget):
         self.mainGraph.label_options = {"color": GolfApp.hexToKivyColor(None,"#595959",1)}
         self.mainGraph.x_grid_label = True
         self.mainGraph.y_grid_label = True
-        # self.mainGraph.y_grid = True
-        # self.mainGraph.x_grid = True
         self.mainGraph.tick_color = GolfApp.hexToKivyColor(None,"#595959",1)
 
-        plot = LinePlot(color = [1,0,1,1])
+        plot = LinePlot(color = GolfApp.hexToKivyColor(None,"33aaff",1))
         if (amount == 1):
             self.mainGraph.padding = 5
             scores = userData[currUser]["scores"][-5:]
@@ -135,7 +133,7 @@ class MainButtons(Widget):
             self.mainGraph.y_ticks_major = yTicks
 
         elif (amount == 2):
-            self.mainGraph.padding = 0
+            self.mainGraph.padding = 1
             scores = userData[currUser]["scores"][-10:]
             points = scores
             self.mainGraph._trigger_size = ObjectProperty(None)
@@ -175,6 +173,17 @@ class MainBackground(Widget):
     pass
 
 class MainScreen(Screen):
+    pass
+
+
+
+class GameButtons(Widget):
+    pass
+
+class GameBackground(Widget):
+    pass
+
+class GameScreen(Screen):
     pass
 
 
