@@ -3,7 +3,7 @@ from PIL.ImageQt import rgb
 from kivy.app import App
 from kivy.core.window import Window
 from kivy.uix.widget import Widget
-from kivy.properties import ObjectProperty, BooleanProperty, StringProperty, ListProperty
+from kivy.properties import ObjectProperty, DictProperty
 from kivy.properties import BooleanProperty
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
@@ -178,7 +178,9 @@ class MainScreen(Screen):
 
 
 class GameButtons(Widget):
-    pass
+    holeData = DictProperty({})
+    currHole = 1
+
 
 class GameBackground(Widget):
     pass
@@ -212,10 +214,22 @@ class GolfApp(App):
     for user in users:
         data = user.split(",")
         userData[data[0].lower()] = {}
-        userData[data[0]]["password"] = data[1]
+        userData[data[0].lower()]["password"] = data[1]
         scores = list(map(int,data[2][1:-1].split(";")))
-        userData[data[0]]["scores"] = scores
+        userData[data[0].lower()]["scores"] = scores
     users.close()
+
+    mastersData = {}
+    holes = open("MastersHoles","r")
+    for hole in holes:
+        data = hole.split(",")
+        mastersData[data[0]] = {}
+        mastersData[data[0]]["scores"] = list(map(int,data[1][1:-1].split(";")))
+        mastersData[data[0]]["low"] = int(data[2])
+        mastersData[data[0]]["high"] = int(data[3])
+        mastersData[data[0]]["average"] = int(data[4])
+        mastersData[data[0]]["index"] = int(data[5])
+    holes.close()
 
     def build(self):
         Window.size=(350,600)
