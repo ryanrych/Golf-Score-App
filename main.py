@@ -219,17 +219,17 @@ class GolfApp(App):
         userData[data[0].lower()]["scores"] = scores
     users.close()
 
-    mastersData = {}
-    holes = open("MastersHoles","r")
-    for hole in holes:
-        data = hole.split(",")
-        mastersData[data[0]] = {}
-        mastersData[data[0]]["scores"] = list(map(int,data[1][1:-1].split(";")))
-        mastersData[data[0]]["low"] = int(data[2])
-        mastersData[data[0]]["high"] = int(data[3])
-        mastersData[data[0]]["average"] = int(data[4])
-        mastersData[data[0]]["index"] = int(data[5])
-    holes.close()
+    # mastersData = {}
+    # holes = open("MastersHoles","r")
+    # for hole in holes:
+    #     data = hole.split(",")
+    #     mastersData[data[0]] = {}
+    #     mastersData[data[0]]["scores"] = list(map(int,data[1][1:-1].split(";")))
+    #     mastersData[data[0]]["low"] = int(data[2])
+    #     mastersData[data[0]]["high"] = int(data[3])
+    #     mastersData[data[0]]["average"] = int(data[4])
+    #     mastersData[data[0]]["index"] = int(data[5])
+    # holes.close()
 
     def build(self):
         Window.size=(350,600)
