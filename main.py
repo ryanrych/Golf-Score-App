@@ -15,6 +15,7 @@ from math import ceil
 
 userData = {}
 currUser = ""
+mastersData = {}
 
 class WindowManager(ScreenManager):
     pass
@@ -178,9 +179,9 @@ class MainScreen(Screen):
 
 
 class GameButtons(Widget):
+    global mastersData
     holeData = DictProperty({})
     currHole = 1
-
 
 class GameBackground(Widget):
     pass
@@ -192,6 +193,7 @@ class GameScreen(Screen):
 
 class GolfApp(App):
     global userData
+    global mastersData
 
     def hexToKivyColor(Object, hex, alpha):
         values = {'0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, 'a': 10, 'b': 11,
@@ -219,17 +221,17 @@ class GolfApp(App):
         userData[data[0].lower()]["scores"] = scores
     users.close()
 
-    # mastersData = {}
-    # holes = open("MastersHoles","r")
-    # for hole in holes:
-    #     data = hole.split(",")
-    #     mastersData[data[0]] = {}
-    #     mastersData[data[0]]["scores"] = list(map(int,data[1][1:-1].split(";")))
-    #     mastersData[data[0]]["low"] = int(data[2])
-    #     mastersData[data[0]]["high"] = int(data[3])
-    #     mastersData[data[0]]["average"] = int(data[4])
-    #     mastersData[data[0]]["index"] = int(data[5])
-    # holes.close()
+    mastersData = {}
+    holes = open("MastersHoles","r")
+    for hole in holes:
+        data = hole.split(",")
+        mastersData[data[0]] = {}
+        mastersData[data[0]]["scores"] = list(map(int,data[2][1:-1].split(";")))
+        mastersData[data[0]]["low"] = int(data[3])
+        mastersData[data[0]]["high"] = int(data[4])
+        mastersData[data[0]]["average"] = float(data[5])
+        mastersData[data[0]]["index"] = int(data[6])
+    holes.close()
 
     def build(self):
         Window.size=(350,600)
