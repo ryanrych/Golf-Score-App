@@ -397,7 +397,6 @@ WindowManager:
                             on_release:
                                 root.graphButtons(2)
 
-
                     Graph:
                         id: mainGraph
                         size_hint: 1, .49
@@ -420,6 +419,7 @@ WindowManager:
                         background_normal: ""
                         background_color: app.hexToKivyColor("#008ae6",1)
                         on_release:
+                            app.root.transition = CardTransition(direction = "up", mode = "pop", duration = .3)
                             app.root.current = "GameScreen"
 
                     Label:
@@ -453,7 +453,13 @@ WindowManager:
 
 
 <GameButtons>:
-    #holeData: holeData
+    name: name
+    descriptionID: descriptionID
+    best: best
+    average: average
+    index: index
+    scoreField: scoreField
+    puttField: puttField
 
     size_hint: None, None
 
@@ -475,8 +481,100 @@ WindowManager:
                 size_hint: .05, 1
                 text: ""
 
-            GridLayout:
+            BoxLayout:
+                cols: 1
                 size_hint: .9, 1
+                spacing:3
+                orientation: "vertical"
+
+                Label:
+                    size_hint: 1, .05
+                    text:""
+
+                Label:
+                    id: name
+                    size_hint: 1, .1
+                    color: 0,0,0,1
+                    text: "Hole: " + str(root.hole)
+
+                Label:
+                    id: descriptionID
+                    text_size: self.width, None
+                    size_hint: 1, .23
+                    height: self.texture_size[1]
+                    halign: "center"
+                    color: 0,0,0,1
+                    text: str(root.description)
+
+                Label:
+                    size_hint: 1, .05
+                    text:""
+
+                Label:
+                    id: best
+                    size_hint: 1, .07
+                    color: 0,0,0,1
+                    text: "Best Score: " + str(root.bestScore)
+
+                Label:
+                    id: average
+                    size_hint: 1, .07
+                    color: 0,0,0,1
+                    text: "Average Score: " + str(root.averageScore)
+
+                Label:
+                    id: index
+                    size_hint: 1, .07
+                    color: 0,0,0,1
+                    text: "Stroke Index: " + str(root.strokeIndex)
+
+                Label:
+                    size_hint: 1, .06
+                    text:""
+
+                BoxLayout:
+                    size_hint: 1, .08
+                    orientation: "horizontal"
+
+                    Label:
+                        size_hint: .8, 1
+                        color: 0,0,0,1
+                        text: "Score: "
+
+                    TextInput:
+                        id: scoreField
+                        size_hint: .2, 1
+                        multiline: False
+                        background_normal: "White.png"
+                        background_active: "White.png"
+                        cursor_color: 0,0,0,1
+                        foreground_color: 0,0,0,1
+
+                BoxLayout:
+                    size_hint: 1, .08
+                    orientation: "horizontal"
+
+                    Label:
+                        size_hint: .8, 1
+                        color: 0,0,0,1
+                        text: "Putts: "
+
+                    TextInput:
+                        id: puttField
+                        size_hint: .2, 1
+                        multiline: False
+                        background_normal: "White.png"
+                        background_active: "White.png"
+                        cursor_color: 0,0,0,1
+                        foreground_color: 0,0,0,1
+
+                Button:
+                    size_hint: 1, .12
+                    text: "Next Hole"
+                    background_normal: ""
+                    background_color: app.hexToKivyColor("#008ae6",1)
+                    on_release:
+                        root.updateHole()
 
 
             Label:

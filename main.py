@@ -3,7 +3,7 @@ from PIL.ImageQt import rgb
 from kivy.app import App
 from kivy.core.window import Window
 from kivy.uix.widget import Widget
-from kivy.properties import ObjectProperty, DictProperty
+from kivy.properties import ObjectProperty, DictProperty, NumericProperty, StringProperty
 from kivy.properties import BooleanProperty
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
@@ -16,6 +16,29 @@ from math import ceil
 userData = {}
 currUser = ""
 mastersData = {}
+
+userData = {}
+users = open("Users.txt", "r")
+for user in users:
+    data = user.split(",")
+    userData[data[0].lower()] = {}
+    userData[data[0].lower()]["password"] = data[1]
+    scores = list(map(int,data[2][1:-1].split(";")))
+    userData[data[0].lower()]["scores"] = scores
+users.close()
+
+mastersData = {}
+holes = open("MastersHoles.txt","r")
+for hole in holes:
+    data = hole.split(",")
+    mastersData[data[0]] = {}
+    mastersData[data[0]]["description"] = data[1]
+    mastersData[data[0]]["scores"] = list(map(int,data[2][1:-1].split(";")))
+    mastersData[data[0]]["low"] = int(data[3])
+    mastersData[data[0]]["high"] = int(data[4])
+    mastersData[data[0]]["average"] = float(data[5])
+    mastersData[data[0]]["index"] = int(data[6])
+holes.close()
 
 class WindowManager(ScreenManager):
     pass
@@ -180,8 +203,23 @@ class MainScreen(Screen):
 
 class GameButtons(Widget):
     global mastersData
-    holeData = DictProperty({})
-    currHole = 1
+    global userData
+
+    hole = 1
+    description = mastersData[str(hole)]["description"]
+    bestScore = mastersData[str(hole)]["low"]
+    averageScore = mastersData[str(hole)]["average"]
+    strokeIndex = mastersData[str(hole)]["index"]
+
+    def updateHole(self):
+        self.hole += 1
+        self.name.text = "Hole: " + str(self.hole)
+        self.descriptionID.text = str(mastersData[str(self.hole)]["description"])
+        self.best.text = "Best Score: " + str(mastersData[str(self.hole)]["low"])
+        self.average.text = "Average Score: " + str(mastersData[str(self.hole)]["average"])
+        self.index.text = "Stroke Index: " + str(mastersData[str(self.hole)]["index"])
+        self.scoreField.text = ""
+        self.puttField.text = ""
 
 class GameBackground(Widget):
     pass
@@ -210,28 +248,6 @@ class GolfApp(App):
         returnList = [decimalValueRed/255.0, decimalValueGreen/255.0, decimalValueBlue/255.0, alpha]
 
         return returnList
-
-    userData = {}
-    users = open("Users.txt", "r")
-    for user in users:
-        data = user.split(",")
-        userData[data[0].lower()] = {}
-        userData[data[0].lower()]["password"] = data[1]
-        scores = list(map(int,data[2][1:-1].split(";")))
-        userData[data[0].lower()]["scores"] = scores
-    users.close()
-
-    mastersData = {}
-    holes = open("MastersHoles","r")
-    for hole in holes:
-        data = hole.split(",")
-        mastersData[data[0]] = {}
-        mastersData[data[0]]["scores"] = list(map(int,data[2][1:-1].split(";")))
-        mastersData[data[0]]["low"] = int(data[3])
-        mastersData[data[0]]["high"] = int(data[4])
-        mastersData[data[0]]["average"] = float(data[5])
-        mastersData[data[0]]["index"] = int(data[6])
-    holes.close()
 
     def build(self):
         Window.size=(350,600)
