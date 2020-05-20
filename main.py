@@ -208,16 +208,16 @@ class GameButtons(Widget):
     hole = 1
     description = mastersData[str(hole)]["description"]
     bestScore = mastersData[str(hole)]["low"]
-    averageScore = mastersData[str(hole)]["average"]
+    averageScore = round(mastersData[str(hole)]["average"],1)
     strokeIndex = mastersData[str(hole)]["index"]
 
     def updateHole(self):
         self.hole += 1
         self.name.text = "Hole: " + str(self.hole)
         self.descriptionID.text = str(mastersData[str(self.hole)]["description"])
-        self.best.text = "Best Score: " + str(mastersData[str(self.hole)]["low"])
-        self.average.text = "Average Score: " + str(mastersData[str(self.hole)]["average"])
-        self.index.text = "Stroke Index: " + str(mastersData[str(self.hole)]["index"])
+        self.best.text = "Best Score:      " + str(mastersData[str(self.hole)]["low"])
+        self.average.text = "Average Score: " + str(round(mastersData[str(self.hole)]["average"],1))
+        self.index.text = "Stroke Index:   " + str(mastersData[str(self.hole)]["index"])
         self.scoreField.text = ""
         self.puttField.text = ""
 
