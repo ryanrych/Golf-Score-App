@@ -38,6 +38,7 @@ for hole in holes:
     mastersData[data[0]]["high"] = int(data[4])
     mastersData[data[0]]["average"] = float(data[5])
     mastersData[data[0]]["index"] = int(data[6])
+    mastersData[data[0]]["distance"] = int(data[7])
 holes.close()
 
 class WindowManager(ScreenManager):
@@ -209,17 +210,29 @@ class GameButtons(Widget):
     description = mastersData[str(hole)]["description"]
     bestScore = mastersData[str(hole)]["low"]
     averageScore = round(mastersData[str(hole)]["average"],1)
+    yards = mastersData[str(hole)]["distance"]
     strokeIndex = mastersData[str(hole)]["index"]
 
     def updateHole(self):
-        self.hole += 1
-        self.name.text = "Hole: " + str(self.hole)
-        self.descriptionID.text = str(mastersData[str(self.hole)]["description"])
-        self.best.text = str(mastersData[str(self.hole)]["low"])
-        self.average.text = str(round(mastersData[str(self.hole)]["average"],1))
-        self.index.text = str(mastersData[str(self.hole)]["index"])
-        self.scoreField.text = ""
-        self.puttField.text = ""
+        if True: #self.scoreField.text in map(str,range(1,100)) and self.puttField.text in map(str,range(1,100)):
+            self.hole += 1
+            self.name.text = "Hole: " + str(self.hole)
+            self.descriptionID.text = str(mastersData[str(self.hole)]["description"])
+            self.best.text = str(mastersData[str(self.hole)]["low"])
+            self.average.text = str(round(mastersData[str(self.hole)]["average"],1))
+            self.index.text = str(mastersData[str(self.hole)]["index"])
+            self.distance.text = str(mastersData[str(self.hole)]["distance"]) + " yds"
+            self.scoreField.text = ""
+            self.puttField.text = ""
+        else:
+            if not self.scoreField.text in map(str,range(1,100)):
+                self.errorMessage.text = "Enter Your Score"
+            else:
+                self.errorMessage.text = "Enter Your Putts"
+            Clock.schedule_once(self.failInputEnd,2)
+
+    def failInputEnd(self, dt):
+        self.errorMessage.text = ""
 
 class GameBackground(Widget):
     pass

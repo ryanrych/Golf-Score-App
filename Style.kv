@@ -458,8 +458,10 @@ WindowManager:
     best: best
     average: average
     index: index
+    distance: distance
     scoreField: scoreField
     puttField: puttField
+    errorMessage: errorMessage
 
     size_hint: None, None
 
@@ -496,84 +498,101 @@ WindowManager:
                     id: name
                     size_hint: 1, .1
                     color: 0,0,0,1
-                    font_size: .65*self.height
+                    font_size: .75 * self.height
                     text: "Hole: " + str(root.hole)
+
+                Label:
+                    size_hint: 1, .04
+                    text: ""
 
                 Label:
                     id: descriptionID
                     text_size: self.width, None
-                    size_hint: 1, .13
+                    size_hint: 1, .2
                     height: self.texture_size[1]
                     halign: "center"
                     color: 0,0,0,1
-                    font_size: .25*self.height
+                    font_size: .26 * self.height
                     text: str(root.description)
 
                 Label:
-                    size_hint: 1, .05
+                    size_hint: 1, .04
                     text:""
 
                 BoxLayout:
-                    size_hint: 1, .15
+                    size_hint: 1, .22
                     orientation: "horizontal"
 
                     Label:
-                        size_hint: .25, 1
+                        size_hint: .23, 1
                         text: ""
 
                     GridLayout:
-                        size_hint: .5, 1
+                        size_hint: .54, 1
                         cols: 2
 
                         Label:
-                            size_hint: .22, 1
+                            size_hint: .17, 1
                             halign: "left"
                             color: 0,0,0,1
                             text: "Best Score:"
 
                         Label:
                             id: best
-                            size_hint: .11, 1
+                            size_hint: .08, 1
                             halign: "left"
                             color: 0,0,0,1
                             text: str(root.bestScore)
 
                         Label:
-                            size_hint: .22, 1
+                            size_hint: .17, 1
                             halign: "left"
                             color: 0,0,0,1
-                            text: "Average Score: "
+                            text: "Average Score:"
 
                         Label:
                             id: average
-                            size_hint: .11, 1
+                            size_hint: .08, 1
                             halign: "left"
                             color: 0,0,0,1
                             text: str(root.averageScore)
 
                         Label:
-                            size_hint: .23, 1
+                            size_hint: .17, 1
+                            halign: "left"
+                            color: 0,0,0,1
+                            text: "Distance:"
+
+                        Label:
+                            id: distance
+                            size_hint: .08, 1
+                            halign: "left"
+                            color: 0,0,0,1
+                            text: str(root.yards) + " yds"
+
+                        Label:
+                            size_hint: .17, 1
                             halign: "left"
                             color: 0,0,0,1
                             text: "Stroke Index:"
 
                         Label:
                             id: index
-                            size_hint: .11, 1
+                            size_hint: .08, 1
                             halign: "left"
                             color: 0,0,0,1
                             text: str(root.strokeIndex)
 
                     Label:
-                        size_hint: .25, 1
+                        size_hint: .23, 1
                         text: ""
 
                 Label:
-                    size_hint: 1, .07
+                    size_hint: 1, .04
                     text:""
 
                 BoxLayout:
-                    size_hint: 1, .12
+                    size_hint: 1, .2
                     orientation: "horizontal"
 
                     Label:
@@ -617,19 +636,23 @@ WindowManager:
                         text: ""
 
                 Label:
-                    size_hint: 1, .17
+                    id: errorMessage
+                    size_hint: 1, .05
+                    color: 1,0,0,1
                     text: ""
 
                 Button:
-                    size_hint: 1, .12
+                    size_hint: 1, .09
                     text: "Next Hole"
                     background_normal: ""
                     background_color: app.hexToKivyColor("#008ae6",1)
                     on_release:
-                        root.updateHole()
+                        if root.hole != 18: root.updateHole();
+                        else: app.root.current = "LoginScreen";
+
 
                 Label:
-                    size_hint: 1, .11
+                    size_hint: 1, .05
                     text:""
 
 
@@ -648,7 +671,7 @@ WindowManager:
         anchor_x: 'center'
         anchor_y: 'center'
         GameButtons:
-            size_hint: .8, .7
+            size_hint: .8, .55
 
 <GameScreen>:
     name: "GameScreen"
