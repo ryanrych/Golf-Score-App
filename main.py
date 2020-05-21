@@ -215,9 +215,9 @@ class GameButtons(Widget):
         self.hole += 1
         self.name.text = "Hole: " + str(self.hole)
         self.descriptionID.text = str(mastersData[str(self.hole)]["description"])
-        self.best.text = "Best Score:      " + str(mastersData[str(self.hole)]["low"])
-        self.average.text = "Average Score: " + str(round(mastersData[str(self.hole)]["average"],1))
-        self.index.text = "Stroke Index:   " + str(mastersData[str(self.hole)]["index"])
+        self.best.text = str(mastersData[str(self.hole)]["low"])
+        self.average.text = str(round(mastersData[str(self.hole)]["average"],1))
+        self.index.text = str(mastersData[str(self.hole)]["index"])
         self.scoreField.text = ""
         self.puttField.text = ""
 

@@ -496,15 +496,17 @@ WindowManager:
                     id: name
                     size_hint: 1, .1
                     color: 0,0,0,1
+                    font_size: .65*self.height
                     text: "Hole: " + str(root.hole)
 
                 Label:
                     id: descriptionID
                     text_size: self.width, None
-                    size_hint: 1, .23
+                    size_hint: 1, .13
                     height: self.texture_size[1]
                     halign: "center"
                     color: 0,0,0,1
+                    font_size: .25*self.height
                     text: str(root.description)
 
                 Label:
@@ -512,112 +514,110 @@ WindowManager:
                     text:""
 
                 BoxLayout:
-                    size_hint: 1, .21
-                    cols: 2
+                    size_hint: 1, .15
+                    orientation: "horizontal"
 
-                    BoxLayout:
-                        size_hint: 1, .33
-                        orientation: "horizontal"
+                    Label:
+                        size_hint: .25, 1
+                        text: ""
+
+                    GridLayout:
+                        size_hint: .5, 1
+                        cols: 2
+
+                        Label:
+                            size_hint: .22, 1
+                            halign: "left"
+                            color: 0,0,0,1
+                            text: "Best Score:"
 
                         Label:
                             id: best
-                            size_hint: .6, 1
+                            size_hint: .11, 1
                             halign: "left"
                             color: 0,0,0,1
-                            text: "Best Score: " + str(root.bestScore)
+                            text: str(root.bestScore)
 
                         Label:
-                            size_hint: .4, 1
-                            text: ""
-
-                    BoxLayout:
-                        size_hint: 1, .33
-                        orientation: "horizontal"
+                            size_hint: .22, 1
+                            halign: "left"
+                            color: 0,0,0,1
+                            text: "Average Score: "
 
                         Label:
                             id: average
-                            size_hint: .6, 1
+                            size_hint: .11, 1
                             halign: "left"
                             color: 0,0,0,1
-                            text: "Average Score: " + str(root.averageScore)
+                            text: str(root.averageScore)
 
                         Label:
-                            size_hint: .4, 1
-                            text: ""
-
-                    BoxLayout:
-                        size_hint: 1, .33
-                        orientation: "horizontal"
+                            size_hint: .23, 1
+                            halign: "left"
+                            color: 0,0,0,1
+                            text: "Stroke Index:"
 
                         Label:
                             id: index
-                            size_hint: .6, 1
+                            size_hint: .11, 1
                             halign: "left"
                             color: 0,0,0,1
-                            text: "Stroke Index: " + str(root.strokeIndex)
+                            text: str(root.strokeIndex)
 
-                        Label:
-                            size_hint: .4, 1
-                            text: ""
+                    Label:
+                        size_hint: .25, 1
+                        text: ""
 
                 Label:
                     size_hint: 1, .07
                     text:""
 
                 BoxLayout:
-                    size_hint: 1, .06
+                    size_hint: 1, .12
                     orientation: "horizontal"
 
                     Label:
-                        size_hint: .32, 1
+                        size_hint: .37, 1
                         text: ""
 
-                    Label:
-                        size_hint: .3, 1
-                        color: 0,0,0,1
-                        text: "Score: "
+                    GridLayout:
+                        size_hint: .25, 1
+                        cols: 2
 
-                    TextInput:
-                        id: scoreField
-                        size_hint: .08, 1
-                        multiline: False
-                        background_normal: "White.png"
-                        background_active: "White.png"
-                        cursor_color: 0,0,0,1
-                        foreground_color: 0,0,0,1
+                        Label:
+                            size_hint: .5, .5
+                            color: 0,0,0,1
+                            text: "Score:"
 
-                    Label:
-                        size_hint: .4, 1
-                        text: ""
+                        TextInput:
+                            id: scoreField
+                            size_hint: .25, .5
+                            multiline: False
+                            background_normal: "White.png"
+                            background_active: "White.png"
+                            cursor_color: 0,0,0,1
+                            foreground_color: 0,0,0,1
 
-                BoxLayout:
-                    size_hint: 1, .06
-                    orientation: "horizontal"
+                        Label:
+                            size_hint: .5, .5
+                            color: 0,0,0,1
+                            text: "Putts: "
 
-                    Label:
-                        size_hint: .32, 1
-                        text: ""
-
-                    Label:
-                        size_hint: .2, 1
-                        color: 0,0,0,1
-                        text: "Putts: "
-
-                    TextInput:
-                        id: puttField
-                        size_hint: .08, 1
-                        multiline: False
-                        background_normal: "White.png"
-                        background_active: "White.png"
-                        cursor_color: 0,0,0,1
-                        foreground_color: 0,0,0,1
+                        TextInput:
+                            id: puttField
+                            size_hint: .25, .5
+                            multiline: False
+                            background_normal: "White.png"
+                            background_active: "White.png"
+                            cursor_color: 0,0,0,1
+                            foreground_color: 0,0,0,1
 
                     Label:
-                        size_hint: .4, 1
+                        size_hint: .38, 1
                         text: ""
 
                 Label:
-                    size_hint: 1, .07
+                    size_hint: 1, .17
                     text: ""
 
                 Button:
@@ -629,7 +629,7 @@ WindowManager:
                         root.updateHole()
 
                 Label:
-                    size_hint: 1, .05
+                    size_hint: 1, .11
                     text:""
 
 
@@ -648,7 +648,7 @@ WindowManager:
         anchor_x: 'center'
         anchor_y: 'center'
         GameButtons:
-            size_hint: .85,.8
+            size_hint: .8, .7
 
 <GameScreen>:
     name: "GameScreen"
