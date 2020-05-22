@@ -648,7 +648,10 @@ WindowManager:
                     background_color: app.hexToKivyColor("#008ae6",1)
                     on_release:
                         if root.hole != 18: root.updateHole();
-                        else: app.root.current = "LoginScreen";
+                        else:\
+                        root.updateData();\
+                        root.endGame();\
+                        app.root.current = "LoginScreen";\
 
 
                 Label:

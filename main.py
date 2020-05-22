@@ -12,19 +12,49 @@ from kivy.clock import Clock
 from kivy_garden.graph import Graph, LinePlot
 
 from math import ceil
+import datetime
+import json
+
+from PlayedData import Game, Hole
 
 userData = {}
 currUser = ""
 mastersData = {}
 
-userData = {}
 users = open("Users.txt", "r")
 for user in users:
-    data = user.split(",")
+    data = user.split(";")
     userData[data[0].lower()] = {}
     userData[data[0].lower()]["password"] = data[1]
-    scores = list(map(int,data[2][1:-1].split(";")))
-    userData[data[0].lower()]["scores"] = scores
+    userData[data[0].lower()]["games"] = []
+    for x in data[2][1:-1].split("-"):
+        userData[data[0].lower()]["games"].append(Game(x[1:-1].split(",")[0],x[1:-1].split(",")[1],x[1:-1].split(",")[2],x[1:-1].split(",")[3],x[1:-1].split(",")[4],x[1:-1].split(",")[5],x[1:-1].split(",")[6]))
+    userData[data[0].lower()]["best front"] = int(data[3])
+    userData[data[0].lower()]["best back"] = int(data[4])
+    userData[data[0].lower()]["average front"] = float(data[5])
+    userData[data[0].lower()]["average back"] = float(data[6])
+    userData[data[0].lower()]["best total"] = int(data[7])
+    userData[data[0].lower()]["average total"] = float(data[8])
+    userData[data[0].lower()]["average last 5"] = float(data[9])
+    userData[data[0].lower()]["average last 10"] = float(data[10])
+    userData[data[0].lower()]["super 9"] = int(data[11])
+    userData[data[0].lower()]["super 1"] = int(data[12])
+    userData[data[0].lower()]["holes"] = []
+    for x in data[13][1:-1].split("-"):
+        scores = []
+        putts = []
+        for y in x[1:-1].split(",")[0][1:-1].split("."):
+            scores.append(int(y))
+        for y in x[1:-1].split(",")[1][1:-1].split("."):
+            putts.append(int(y))
+        userData[data[0].lower()]["holes"].append(Hole(scores,putts,int(x[1:-1].split(",")[2]),float(x[1:-1].split(",")[3]),int(x[1:-1].split(",")[4]),int(x[1:-1].split(",")[5]),int(x[1:-1].split(",")[6]),float(x[1:-1].split(",")[7]),float(x[1:-1].split(",")[8]),float(x[1:-1].split(",")[9])))
+    userData[data[0].lower()]["games count"] = int(data[14])
+    userData[data[0].lower()]["pars"] = int(data[15])
+    userData[data[0].lower()]["bulls"] = int(data[16])
+    userData[data[0].lower()]["saves"] = int(data[17])
+    userData[data[0].lower()]["par rate"] = float(data[18])
+    userData[data[0].lower()]["bull rate"] = float(data[19])
+    userData[data[0].lower()]["save rate"] = float(data[20])
 users.close()
 
 mastersData = {}
@@ -141,10 +171,14 @@ class MainButtons(Widget):
         self.mainGraph.y_grid_label = True
         self.mainGraph.tick_color = GolfApp.hexToKivyColor(None,"#595959",1)
 
+        userScores = []
+        for x in userData[currUser]["games"]:
+            userScores.append(int(x.totalScore))
+
         plot = LinePlot(color = GolfApp.hexToKivyColor(None,"33aaff",1))
         if (amount == 1):
             self.mainGraph.padding = 5
-            scores = userData[currUser]["scores"][-5:]
+            scores = userScores[-5:]
             points = scores
             self.mainGraph.xmin = 0
             self.mainGraph.xmax = 6
@@ -159,7 +193,7 @@ class MainButtons(Widget):
 
         elif (amount == 2):
             self.mainGraph.padding = 1
-            scores = userData[currUser]["scores"][-10:]
+            scores = userScores[-10:]
             points = scores
             self.mainGraph._trigger_size = ObjectProperty(None)
             self.mainGraph.xmin = 0
@@ -167,18 +201,6 @@ class MainButtons(Widget):
             self.mainGraph.x_ticks_major = 1
             r = max(scores) - min(scores)
             yTicks = ceil(r / 10)
-            if (yTicks == 0): yTicks = 1
-            self.mainGraph.ymin = min(scores) - yTicks
-            self.mainGraph.ymax = max(scores) + yTicks
-            self.mainGraph.y_ticks_major = yTicks
-        else:
-            scores = userData[currUser]["scores"]
-            points = scores
-            self.mainGraph.xmin = 0
-            self.mainGraph.xmax = len(scores) + 1
-            self.mainGraph.x_ticks_major = 1
-            r = max(scores) - min(scores)
-            yTicks = ceil(r / len(scores))
             if (yTicks == 0): yTicks = 1
             self.mainGraph.ymin = min(scores) - yTicks
             self.mainGraph.ymax = max(scores) + yTicks
@@ -205,6 +227,7 @@ class MainScreen(Screen):
 class GameButtons(Widget):
     global mastersData
     global userData
+    global currUser
 
     hole = 1
     description = mastersData[str(hole)]["description"]
@@ -213,8 +236,234 @@ class GameButtons(Widget):
     yards = mastersData[str(hole)]["distance"]
     strokeIndex = mastersData[str(hole)]["index"]
 
+    frontScore = 0
+    frontPutts = 0
+    backScore = 0
+    backPutts = 0
+    score = 0
+    putts = 0
+
+    def writeData(self):
+        open("Users.txt","w").close()
+
+        file = open("Users.txt","w")
+        lines = []
+        for user in userData:
+            line = ""
+            line += user + ";"
+            line += userData[user]["password"] + ";"
+            line += "["
+            for game in userData[user]["games"]:
+                line += "("
+                line += str(game.frontScore) + ","
+                line += str(game.frontPutts) + ","
+                line += str(game.backScore) + ","
+                line += str(game.backPutts) + ","
+                line += str(game.totalScore) + ","
+                line += str(game.totalPutts) + ","
+                line += str(game.datePlayed) + ")-"
+            line = line[:-1]
+            line += "];"
+            line += str(userData[user]["best front"]) + ";"
+            line += str(userData[user]["best back"]) + ";"
+            line += str(userData[user]["average front"]) + ";"
+            line += str(userData[user]["average back"]) + ";"
+            line += str(userData[user]["best total"]) + ";"
+            line += str(userData[user]["average total"]) + ";"
+            line += str(userData[user]["average last 5"]) + ";"
+            line += str(userData[user]["average last 10"]) + ";"
+            line += str(userData[user]["super 9"]) + ";"
+            line += str(userData[user]["super 1"]) + ";"
+            line += "["
+            for hole in userData[user]["holes"]:
+                line += "("
+                line += "{"
+                for score in hole.scores:
+                    line += str(score) + "."
+                line = line[:-1]
+                line += "}"
+                line += ","
+                line += "{"
+                for putt in hole.putts:
+                    line += str(putt) + "."
+                line = line[:-1]
+                line += "}"
+                line += ","
+                line += str(hole.bestScore) + ","
+                line += str(hole.avgScore) + ","
+                line += str(hole.pars) + ","
+                line += str(hole.bulls) + ","
+                line += str(hole.saves) + ","
+                line += str(hole.parRate) + ","
+                line += str(hole.bullRate) + ","
+                line += str(hole.saveRate) + ")-"
+            line = line[:-1]
+            line += "];"
+            line += str(userData[user]["games count"]) + ";"
+            line += str(userData[user]["pars"]) + ";"
+            line += str(userData[user]["bulls"]) + ";"
+            line += str(userData[user]["saves"]) + ";"
+            line += str(userData[user]["par rate"]) + ";"
+            line += str(userData[user]["bull rate"]) + ";"
+            line += str(userData[user]["save rate"])
+
+            file.write(line + "\n")
+
+        file = open("User.txt","w")
+        file.writelines(lines)
+        file.close()
+
+
+
+    def endGame(self):
+        userData[currUser]["games"].append(Game(self.frontScore,self.frontPutts,self.bestScore,self.backPutts,self.score,self.putts,str(datetime.datetime.now().strftime("%x"))))
+
+        sumScoreFront = userData[currUser]["games count"] * userData[currUser]["average front"]
+        sumScoreBack = userData[currUser]["games count"] * userData[currUser]["average back"]
+        sumScoreTotal = userData[currUser]["games count"] * userData[currUser]["average total"]
+        userData[currUser]["games count"] += 1
+        userData[currUser]["average front"] = (sumScoreFront + self.frontScore) / userData[currUser]["games count"]
+        userData[currUser]["average back"] = (sumScoreBack + self.backScore) / userData[currUser]["games count"]
+        userData[currUser]["average total"] = (sumScoreTotal + self.score) / userData[currUser]["games count"]
+
+        if userData[currUser]["games count"] >= 5:
+            total = 0
+            for x in userData["games"][-5:]:
+                total += x.totalScore
+            userData[currUser]["average total last 5"] = total / 5
+
+            if userData[currUser]["games count"] >= 10:
+                total = 0
+                for x in userData["games"][-10:]:
+                    total += x.totalScore
+                userData[currUser]["average total last 10"] = total / 10
+            else:
+                userData[currUser]["average total last 10"] = total / 5
+        else:
+            userData[currUser]["average total last 5"] = userData[currUser]["average total"]
+            userData[currUser]["average total last 10"] = userData[currUser]["average total"]
+
+        if self.frontScore < userData[currUser]["best front"]:
+            userData[currUser]["best front"] = self.frontScore
+        if self.backScore < userData[currUser]["best back"]:
+            userData[currUser]["best back"] = self.backScore
+
+        userData[currUser]["super 9"] = userData[currUser]["best front"] + userData[currUser]["best back"]
+
+        score = 0
+        for i in range(18):
+            score += min(userData[currUser]["holes"][i].scores)
+        userData[currUser]["super 1"] = score
+
+        self.hole = 1
+        self.description = mastersData[str(self.hole)]["description"]
+        self.bestScore = mastersData[str(self.hole)]["low"]
+        self.averageScore = round(mastersData[str(self.hole)]["average"], 1)
+        self.yards = mastersData[str(self.hole)]["distance"]
+        self.strokeIndex = mastersData[str(self.hole)]["index"]
+
+        self.frontScore = 0
+        self.frontPutts = 0
+        self.backScore = 0
+        self.backPutts = 0
+        self.score = 0
+        self.putts = 0
+
+        self.name.text = "Hole: " + str(self.hole)
+        self.descriptionID.text = str(mastersData[str(self.hole)]["description"])
+        self.best.text = str(mastersData[str(self.hole)]["low"])
+        self.average.text = str(round(mastersData[str(self.hole)]["average"], 1))
+        self.index.text = str(mastersData[str(self.hole)]["index"])
+        self.distance.text = str(mastersData[str(self.hole)]["distance"]) + " yds"
+        self.scoreField.text = ""
+        self.puttField.text = ""
+
+        self.writeData()
+
+
+
+    def updateData(self):
+        self.score += int(self.scoreField.text)
+        self.putts += int(self.puttField.text)
+
+        if self.hole < 10:
+            self.frontScore += int(self.scoreField.text)
+            self.frontPutts += int(self.puttField.text)
+        else:
+            self.backScore += int(self.scoreField.text)
+            self.backPutts += int(self.puttField.text)
+
+        userData[currUser]["holes"][self.hole - 1].scores.append(int(self.scoreField.text))
+        userData[currUser]["holes"][self.hole - 1].putts.append(int(self.scoreField.text))
+
+        userData[currUser]["holes"][self.hole - 1].avgScore = sum(userData[currUser]["holes"][self.hole - 1].scores) / len(userData[currUser]["holes"][self.hole - 1].scores)
+
+        if int(self.scoreField.text) > userData[currUser]["holes"][self.hole - 1].bestScore:
+            userData[currUser]["holes"][self.hole - 1].bestScore = int(self.scoreField.text)
+
+        failedBullsHole = userData[currUser]["holes"][self.hole - 1].bulls / userData[currUser]["holes"][self.hole - 1].bullRate
+        if failedBullsHole == 0: failedBullsHole = 1
+        failedBulls = userData[currUser]["bulls"] / userData[currUser]["bull rate"]
+        if failedBulls == 0: failedBulls = 1
+
+        failedParsHole = userData[currUser]["holes"][self.hole - 1].pars / userData[currUser]["holes"][self.hole - 1].parRate
+        if failedParsHole == 0: failedParsHole = 1
+        failedPars = userData[currUser]["pars"] / userData[currUser]["par rate"]
+        if failedPars == 0: failedPars = 1
+
+        failedSavesHole = userData[currUser]["holes"][self.hole - 1].saves / userData[currUser]["holes"][self.hole - 1].saveRate
+        if failedSavesHole == 0: failedSavesHole = 1
+        failedSaves = userData[currUser]["saves"] / userData[currUser]["save rate"]
+        if failedSaves == 0: failedSaves = 1
+
+        if (int(self.scoreField.text) == 1):
+            userData[currUser]["holes"][self.hole - 1].bulls += 1
+            userData[currUser]["holes"][self.hole - 1].bullRate = userData[currUser]["holes"][self.hole - 1].bulls / (failedBullsHole + userData[currUser]["holes"][self.hole - 1].bulls)
+
+            userData[currUser]["bulls"] += 1
+            userData[currUser]["bull rate"] = userData[currUser]["bulls"] / failedBulls
+        elif (int(self.scoreField.text) == 2):
+            if (int(self.puttField.text) == 0):
+                userData[currUser]["holes"][self.hole - 1].saves += 1
+                userData[currUser]["holes"][self.hole - 1].saveRate = userData[currUser]["holes"][self.hole - 1].saves / (failedSavesHole + userData[currUser]["holes"][self.hole - 1].saves)
+
+                userData[currUser]["saves"] += 1
+                userData[currUser]["save rate"] = userData[currUser]["saves"] / (failedSaves + userData[currUser]["saves"])
+
+            userData[currUser]["holes"][self.hole - 1].pars += 1
+            userData[currUser]["holes"][self.hole - 1].parRate = userData[currUser]["holes"][self.hole - 1].pars / (failedParsHole + userData[currUser]["holes"][self.hole - 1].pars)
+
+            userData[currUser]["pars"] += 1
+            userData[currUser]["par rate"] = userData[currUser]["pars"] / (failedPars + userData[currUser]["pars"])
+
+            failedBullsHole += 1
+            userData[currUser]["holes"][self.hole - 1].bullRate = userData[currUser]["holes"][self.hole - 1].bulls / (failedBullsHole + userData[currUser]["holes"][self.hole - 1].bulls)
+
+            failedBulls += 1
+            userData[currUser]["bull rate"] = userData[currUser]["bulls"] / (failedBulls + userData[currUser]["bulls"])
+        else:
+            if int(self.puttField.text) < int(self.scoreField.text) - 1:
+                failedSavesHole += 1
+                userData[currUser]["holes"][self.hole - 1].saveRate = userData[currUser]["holes"][self.hole - 1].saves / (failedSavesHole + userData[currUser]["holes"][self.hole - 1].saves)
+
+                failedSaves += 1
+                userData[currUser]["save rate"] = userData[currUser]["saves"] / (failedSaves + userData[currUser]["saves"])
+
+            failedBullsHole += 1
+            userData[currUser]["holes"][self.hole - 1].bullRate = userData[currUser]["holes"][self.hole - 1].bulls / (failedBullsHole + userData[currUser]["holes"][self.hole - 1].bulls)
+
+            failedBulls += 1
+            userData[currUser]["bull rate"] = userData[currUser]["bulls"] / (failedBulls + userData[currUser]["bulls"])
+
+            failedParsHole += 1
+            userData[currUser]["holes"][self.hole - 1].parRate = userData[currUser]["holes"][self.hole - 1].pars / (failedParsHole + userData[currUser]["holes"][self.hole - 1].pars)
+
+            failedPars += 1
+            userData[currUser]["par rate"] = userData[currUser]["pars"] / (failedPars + userData[currUser]["pars"])
+
     def updateHole(self):
-        if True: #self.scoreField.text in map(str,range(1,100)) and self.puttField.text in map(str,range(1,100)):
+        if self.scoreField.text in map(str,range(1,100)) and self.puttField.text in map(str,range(100)):
+            self.updateData()
             self.hole += 1
             self.name.text = "Hole: " + str(self.hole)
             self.descriptionID.text = str(mastersData[str(self.hole)]["description"])
