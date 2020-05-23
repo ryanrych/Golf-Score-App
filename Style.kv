@@ -455,13 +455,13 @@ WindowManager:
 <GameButtons>:
     name: name
     descriptionID: descriptionID
-    best: best
     average: average
     index: index
     distance: distance
     userBestScore: userBestScore
     userAverageScore: userAverageScore
     userPar: userPar
+    userGreen: userGreen
     scoreField: scoreField
     puttField: puttField
     errorMessage: errorMessage
@@ -541,46 +541,60 @@ WindowManager:
                         text: "You:"
 
                     Label:
-                        id: best
+                        #id:
                         size_hint: 1, .25
                         halign: "left"
                         color: 0,0,0,1
-                        text: "Best Score: " + str(root.bestScore)
+                        text: "On Percentage: " + "add"
 
                     Label:
-                        id: userBestScore
+                        id: userGreen
                         size_hint: 1, .25
                         halign: "left"
                         color: 0,0,0,1
-                        text: "Best Score: " + str(root.userBest)
+                        text: "On Percentage: " + str(root.userGR)
 
                     Label:
-                        id: average
+                        #id:
                         size_hint: 1, .25
                         halign: "left"
                         color: 0,0,0,1
-                        text: "Average Score: " + str(root.averageScore)
-
-                    Label:
-                        id: userAverageScore
-                        size_hint: 1, .25
-                        halign: "left"
-                        color: 0,0,0,1
-                        text: "Average Score: " + str(root.userAverage)
-
-                    Label:
-                        id: index
-                        size_hint: 1, .25
-                        halign: "left"
-                        color: 0,0,0,1
-                        text: "Stroke Index: " + str(root.strokeIndex)
+                        text: "Par Percentage: " + "add"
 
                     Label:
                         id: userPar
                         size_hint: 1, .25
                         halign: "left"
                         color: 0,0,0,1
-                        text: "Par Percent: " + str(root.userPR) + "%"
+                        text: "Par Percentage: " + str(root.userPR)
+
+                    Label:
+                        id: average
+                        size_hint: 1, .25
+                        halign: "left"
+                        color: 0,0,0,1
+                        text: "Average Score: " + str(root.strokeIndex)
+
+                    Label:
+                        id: userAverageScore
+                        size_hint: 1, .25
+                        halign: "left"
+                        color: 0,0,0,1
+                        text: "Average Score: " + str(root.userPR) + "%"
+
+                    Label:
+                        id: index
+                        size_hint: 1, .25
+                        halign: "left"
+                        color: 0,0,0,1
+                        text: "Stroke Index: " + str(root.userPR) + "%"
+
+                    Label:
+                        id: userBestScore
+                        size_hint: 1, .25
+                        halign: "left"
+                        color: 0,0,0,1
+                        text: "Best Score: " + str(root.userPR) + "%"
 
                 Label:
                     size_hint: 1, .05
@@ -665,7 +679,7 @@ WindowManager:
         anchor_x: 'center'
         anchor_y: 'center'
         GameButtons:
-            size_hint: .88, .6
+            size_hint: .95, .6
 
 <GameScreen>:
     name: "GameScreen"

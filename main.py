@@ -49,7 +49,7 @@ for user in users:
             scores.append(int(y))
         for y in x[1:-1].split(",")[1][1:-1].split("."):
             putts.append(int(y))
-        userData[data[0].lower()]["holes"].append(Hole(scores,putts,int(x[1:-1].split(",")[2]),float(x[1:-1].split(",")[3]),int(x[1:-1].split(",")[4]),int(x[1:-1].split(",")[5]),int(x[1:-1].split(",")[6]),int(x[1:-1].split(",")[7]),int(x[1:-1].split(",")[8]),int(x[1:-1].split(",")[9]),float(x[1:-1].split(",")[10]),float(x[1:-1].split(",")[11]),float(x[1:-1].split(",")[12])))
+        userData[data[0].lower()]["holes"].append(Hole(scores,putts,int(x[1:-1].split(",")[2]),float(x[1:-1].split(",")[3]),int(x[1:-1].split(",")[4]),int(x[1:-1].split(",")[5]),int(x[1:-1].split(",")[6]),int(x[1:-1].split(",")[7]),int(x[1:-1].split(",")[8]),int(x[1:-1].split(",")[9]),float(x[1:-1].split(",")[10]),float(x[1:-1].split(",")[11]),float(x[1:-1].split(",")[12]),int(x[1:-1].split(",")[13]),int(x[1:-1].split(",")[14]),float(x[1:-1].split(",")[15])))
     userData[data[0].lower()]["games count"] = int(data[14])
     userData[data[0].lower()]["pars"] = int(data[15])
     userData[data[0].lower()]["bulls"] = int(data[16])
@@ -60,6 +60,9 @@ for user in users:
     userData[data[0].lower()]["par rate"] = float(data[21])
     userData[data[0].lower()]["bull rate"] = float(data[22])
     userData[data[0].lower()]["save rate"] = float(data[23])
+    userData[data[0].lower()]["greens"] = int(data[24])
+    userData[data[0].lower()]["failed greens"] = int(data[25])
+    userData[data[0].lower()]["green rate"] = float(data[26])
 users.close()
 
 mastersData = {}
@@ -245,6 +248,7 @@ class GameButtons(Widget):
     userBest = userData[currUser]["holes"][0].bestScore
     userAverage = round(userData[currUser]["holes"][0].avgScore,1)
     userPR = round(userData[currUser]["holes"][0].parRate,1) * 100
+    userGR = round(userData[currUser]["holes"][0].parRate,1) * 100
 
     frontScore = 0
     frontPutts = 0
@@ -321,7 +325,10 @@ class GameButtons(Widget):
             line += str(userData[user]["failed saves"]) + ";"
             line += str(userData[user]["par rate"]) + ";"
             line += str(userData[user]["bull rate"]) + ";"
-            line += str(userData[user]["save rate"])
+            line += str(userData[user]["save rate"]) + ";"
+            line += str(userData[user]["greens"]) + ";"
+            line += str(userData[user]["failed greens"]) + ";"
+            line += str(userData[user]["green rate"])
 
             file.write(line + "\n")
 
@@ -423,6 +430,12 @@ class GameButtons(Widget):
 
             userData[currUser]["bulls"] += 1
             userData[currUser]["bull rate"] = userData[currUser]["bulls"] / userData[currUser]["failed bulls"]
+
+            userData[currUser]["holes"][self.hole - 1].greens += 1
+            userData[currUser]["holes"][self.hole - 1].greenRate = userData[currUser]["holes"][self.hole - 1].greens / (userData[currUser]["holes"][self.hole - 1].greens + userData[currUser]["holes"][self.hole - 1].failedGreens)
+
+            userData[currUser]["greens"] += 1
+            userData[currUser]["green rate"] = userData[currUser]["greens"] / (userData[currUser]["greens"] + userData[currUser]["failed greens"])
         elif (int(self.scoreField.text) == 2):
             if (int(self.puttField.text) == 0):
                 userData[currUser]["holes"][self.hole - 1].saves += 1
@@ -430,6 +443,18 @@ class GameButtons(Widget):
 
                 userData[currUser]["saves"] += 1
                 userData[currUser]["save rate"] = userData[currUser]["saves"] / (userData[currUser]["failed saves"] + userData[currUser]["saves"])
+                userData[currUser]["holes"][self.hole - 1].failedGreens += 1
+                userData[currUser]["holes"][self.hole - 1].greenRate = userData[currUser]["holes"][self.hole - 1].greens / (userData[currUser]["holes"][self.hole - 1].greens +userData[currUser]["holes"][self.hole - 1].failedGreens)
+
+                userData[currUser]["failed greens"] += 1
+                userData[currUser]["green rate"] = userData[currUser]["greens"] / (userData[currUser]["greens"] + userData[currUser]["failed greens"])
+            else:
+                userData[currUser]["holes"][self.hole - 1].greens += 1
+                userData[currUser]["holes"][self.hole - 1].greenRate = userData[currUser]["holes"][self.hole - 1].greens / (userData[currUser]["holes"][self.hole - 1].greens + userData[currUser]["holes"][self.hole - 1].failedGreens)
+
+                userData[currUser]["greens"] += 1
+                userData[currUser]["green rate"] = userData[currUser]["greens"] / (userData[currUser]["greens"] + userData[currUser]["failed greens"])
+
 
             userData[currUser]["holes"][self.hole - 1].pars += 1
             userData[currUser]["holes"][self.hole - 1].parRate = userData[currUser]["holes"][self.hole - 1].pars / (userData[currUser]["holes"][self.hole - 1].failedPars + userData[currUser]["holes"][self.hole - 1].pars)
@@ -450,6 +475,19 @@ class GameButtons(Widget):
                 userData[currUser]["failed saves"] += 1
                 userData[currUser]["save rate"] = userData[currUser]["saves"] / (userData[currUser]["failed saves"] + userData[currUser]["saves"])
 
+            if int(self.puttField.text) == int(self.scoreField.text) - 1:
+                userData[currUser]["holes"][self.hole - 1].greens += 1
+                userData[currUser]["holes"][self.hole - 1].greenRate = userData[currUser]["holes"][self.hole - 1].greens / (userData[currUser]["holes"][self.hole - 1].greens + userData[currUser]["holes"][self.hole - 1].failedGreens)
+
+                userData[currUser]["greens"] += 1
+                userData[currUser]["green rate"] = userData[currUser]["greens"] / (userData[currUser]["greens"] + userData[currUser]["failed greens"])
+            else:
+                userData[currUser]["holes"][self.hole - 1].failedGreens += 1
+                userData[currUser]["holes"][self.hole - 1].greenRate = userData[currUser]["holes"][self.hole - 1].greens / (userData[currUser]["holes"][self.hole - 1].greens + userData[currUser]["holes"][self.hole - 1].failedGreens)
+
+                userData[currUser]["failed greens"] += 1
+                userData[currUser]["green rate"] = userData[currUser]["greens"] / (userData[currUser]["greens"] + userData[currUser]["failed greens"])
+
             userData[currUser]["holes"][self.hole - 1].failedBulls += 1
             userData[currUser]["holes"][self.hole - 1].bullRate = userData[currUser]["holes"][self.hole - 1].bulls / (userData[currUser]["holes"][self.hole - 1].failedBulls + userData[currUser]["holes"][self.hole - 1].bulls)
 
@@ -468,13 +506,14 @@ class GameButtons(Widget):
             self.hole += 1
             self.name.text = "Hole: " + str(self.hole)
             self.descriptionID.text = str(mastersData[str(self.hole)]["description"])
-            self.best.text = "Best Score: " + str(mastersData[str(self.hole)]["low"])
             self.userBestScore.text = "Best Score: " + str(userData[currUser]["holes"][self.hole].bestScore)
             self.average.text = "Average Score: " + str(round(mastersData[str(self.hole)]["average"],1))
             self.userAverageScore.text = "Average Score: " + str(round(userData[currUser]["holes"][self.hole].avgScore,1))
             self.index.text = "Stroke Index: " + str(mastersData[str(self.hole)]["index"])
             self.userPar.text = "Par Percent: " + str(round(userData[currUser]["holes"][self.hole].parRate) * 100) + "%"
+            self.userPar.text = "On Percent: " + str(round(userData[currUser]["holes"][self.hole].greenRate) * 100) + "%"
             self.distance.text = "Distance: " + str(mastersData[str(self.hole)]["distance"]) + " yds"
+            # add on percent and par percent for the hole after hole data is updated
             self.scoreField.text = ""
             self.puttField.text = ""
         else:
