@@ -90,6 +90,10 @@ class LoginButtons(Widget):
 
     def loginButtonPress(self):
         global currUser
+
+        for x in MainButtons.mainGraph.plots:
+            MainButtons.mainGraph.remove_plot(x)
+
         username = self.userField.text.lower()
         password = self.passwordField.text
 
@@ -405,11 +409,11 @@ class GameButtons(Widget):
             self.backPutts += int(self.puttField.text)
 
         userData[currUser]["holes"][self.hole - 1].scores.append(int(self.scoreField.text))
-        userData[currUser]["holes"][self.hole - 1].putts.append(int(self.scoreField.text))
+        userData[currUser]["holes"][self.hole - 1].putts.append(int(self.puttField.text))
 
         userData[currUser]["holes"][self.hole - 1].avgScore = sum(userData[currUser]["holes"][self.hole - 1].scores) / len(userData[currUser]["holes"][self.hole - 1].scores)
 
-        if int(self.scoreField.text) > userData[currUser]["holes"][self.hole - 1].bestScore:
+        if int(self.scoreField.text) < userData[currUser]["holes"][self.hole - 1].bestScore:
             userData[currUser]["holes"][self.hole - 1].bestScore = int(self.scoreField.text)
 
         if (int(self.scoreField.text) == 1):
@@ -435,7 +439,7 @@ class GameButtons(Widget):
             userData[currUser]["holes"][self.hole - 1].failedBulls += 1
             userData[currUser]["holes"][self.hole - 1].bullRate = userData[currUser]["holes"][self.hole - 1].bulls / (userData[currUser]["holes"][self.hole - 1].failedBulls + userData[currUser]["holes"][self.hole - 1].bulls)
 
-            userData["failed bulls"] += 1
+            userData[currUser]["failed bulls"] += 1
             userData[currUser]["bull rate"] = userData[currUser]["bulls"] / (userData[currUser]["failed bulls"] + userData[currUser]["bulls"])
         else:
             if int(self.puttField.text) < int(self.scoreField.text) - 1:
