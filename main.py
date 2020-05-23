@@ -91,9 +91,6 @@ class LoginButtons(Widget):
     def loginButtonPress(self):
         global currUser
 
-        for x in MainButtons.mainGraph.plots:
-            MainButtons.mainGraph.remove_plot(x)
-
         username = self.userField.text.lower()
         password = self.passwordField.text
 
@@ -244,6 +241,10 @@ class GameButtons(Widget):
     averageScore = round(mastersData[str(hole)]["average"],1)
     yards = mastersData[str(hole)]["distance"]
     strokeIndex = mastersData[str(hole)]["index"]
+
+    userBest = userData[currUser]["holes"][0].bestScore
+    userAverage = round(userData[currUser]["holes"][0].avgScore,1)
+    userPR = round(userData[currUser]["holes"][0].parRate,1) * 100
 
     frontScore = 0
     frontPutts = 0
@@ -467,10 +468,13 @@ class GameButtons(Widget):
             self.hole += 1
             self.name.text = "Hole: " + str(self.hole)
             self.descriptionID.text = str(mastersData[str(self.hole)]["description"])
-            self.best.text = str(mastersData[str(self.hole)]["low"])
-            self.average.text = str(round(mastersData[str(self.hole)]["average"],1))
-            self.index.text = str(mastersData[str(self.hole)]["index"])
-            self.distance.text = str(mastersData[str(self.hole)]["distance"]) + " yds"
+            self.best.text = "Best Score: " + str(mastersData[str(self.hole)]["low"])
+            self.userBestScore.text = "Best Score: " + str(userData[currUser]["holes"][self.hole].bestScore)
+            self.average.text = "Average Score: " + str(round(mastersData[str(self.hole)]["average"],1))
+            self.userAverageScore.text = "Average Score: " + str(round(userData[currUser]["holes"][self.hole].avgScore,1))
+            self.index.text = "Stroke Index: " + str(mastersData[str(self.hole)]["index"])
+            self.userPar.text = "Par Percent: " + str(round(userData[currUser]["holes"][self.hole].parRate) * 100) + "%"
+            self.distance.text = "Distance: " + str(mastersData[str(self.hole)]["distance"]) + " yds"
             self.scoreField.text = ""
             self.puttField.text = ""
         else:
