@@ -1,3 +1,6 @@
+#fix bug with rates
+
+
 import kivy
 from PIL.ImageQt import rgb
 from kivy.app import App
@@ -13,7 +16,6 @@ from kivy_garden.graph import Graph, LinePlot
 
 from math import ceil
 import datetime
-import json
 
 from PlayedData import Game, Hole
 
@@ -47,14 +49,17 @@ for user in users:
             scores.append(int(y))
         for y in x[1:-1].split(",")[1][1:-1].split("."):
             putts.append(int(y))
-        userData[data[0].lower()]["holes"].append(Hole(scores,putts,int(x[1:-1].split(",")[2]),float(x[1:-1].split(",")[3]),int(x[1:-1].split(",")[4]),int(x[1:-1].split(",")[5]),int(x[1:-1].split(",")[6]),float(x[1:-1].split(",")[7]),float(x[1:-1].split(",")[8]),float(x[1:-1].split(",")[9])))
+        userData[data[0].lower()]["holes"].append(Hole(scores,putts,int(x[1:-1].split(",")[2]),float(x[1:-1].split(",")[3]),int(x[1:-1].split(",")[4]),int(x[1:-1].split(",")[5]),int(x[1:-1].split(",")[6]),int(x[1:-1].split(",")[7]),int(x[1:-1].split(",")[8]),int(x[1:-1].split(",")[9]),float(x[1:-1].split(",")[10]),float(x[1:-1].split(",")[11]),float(x[1:-1].split(",")[12])))
     userData[data[0].lower()]["games count"] = int(data[14])
     userData[data[0].lower()]["pars"] = int(data[15])
     userData[data[0].lower()]["bulls"] = int(data[16])
     userData[data[0].lower()]["saves"] = int(data[17])
-    userData[data[0].lower()]["par rate"] = float(data[18])
-    userData[data[0].lower()]["bull rate"] = float(data[19])
-    userData[data[0].lower()]["save rate"] = float(data[20])
+    userData[data[0].lower()]["failed pars"] = int (data[18])
+    userData[data[0].lower()]["failed bulls"] = int(data[19])
+    userData[data[0].lower()]["failed saves"] = int(data[20])
+    userData[data[0].lower()]["par rate"] = float(data[21])
+    userData[data[0].lower()]["bull rate"] = float(data[22])
+    userData[data[0].lower()]["save rate"] = float(data[23])
 users.close()
 
 mastersData = {}
@@ -294,6 +299,9 @@ class GameButtons(Widget):
                 line += str(hole.pars) + ","
                 line += str(hole.bulls) + ","
                 line += str(hole.saves) + ","
+                line += str(hole.failedPars) + ","
+                line += str(hole.failedBulls) + ","
+                line += str(hole.failedSaves) + ","
                 line += str(hole.parRate) + ","
                 line += str(hole.bullRate) + ","
                 line += str(hole.saveRate) + ")-"
@@ -303,6 +311,9 @@ class GameButtons(Widget):
             line += str(userData[user]["pars"]) + ";"
             line += str(userData[user]["bulls"]) + ";"
             line += str(userData[user]["saves"]) + ";"
+            line += str(userData[user]["failed pars"]) + ";"
+            line += str(userData[user]["failed bulls"]) + ";"
+            line += str(userData[user]["failed saves"]) + ";"
             line += str(userData[user]["par rate"]) + ";"
             line += str(userData[user]["bull rate"]) + ";"
             line += str(userData[user]["save rate"])
@@ -401,65 +412,50 @@ class GameButtons(Widget):
         if int(self.scoreField.text) > userData[currUser]["holes"][self.hole - 1].bestScore:
             userData[currUser]["holes"][self.hole - 1].bestScore = int(self.scoreField.text)
 
-        failedBullsHole = userData[currUser]["holes"][self.hole - 1].bulls / userData[currUser]["holes"][self.hole - 1].bullRate
-        if failedBullsHole == 0: failedBullsHole = 1
-        failedBulls = userData[currUser]["bulls"] / userData[currUser]["bull rate"]
-        if failedBulls == 0: failedBulls = 1
-
-        failedParsHole = userData[currUser]["holes"][self.hole - 1].pars / userData[currUser]["holes"][self.hole - 1].parRate
-        if failedParsHole == 0: failedParsHole = 1
-        failedPars = userData[currUser]["pars"] / userData[currUser]["par rate"]
-        if failedPars == 0: failedPars = 1
-
-        failedSavesHole = userData[currUser]["holes"][self.hole - 1].saves / userData[currUser]["holes"][self.hole - 1].saveRate
-        if failedSavesHole == 0: failedSavesHole = 1
-        failedSaves = userData[currUser]["saves"] / userData[currUser]["save rate"]
-        if failedSaves == 0: failedSaves = 1
-
         if (int(self.scoreField.text) == 1):
             userData[currUser]["holes"][self.hole - 1].bulls += 1
-            userData[currUser]["holes"][self.hole - 1].bullRate = userData[currUser]["holes"][self.hole - 1].bulls / (failedBullsHole + userData[currUser]["holes"][self.hole - 1].bulls)
+            userData[currUser]["holes"][self.hole - 1].bullRate = userData[currUser]["holes"][self.hole - 1].bulls / (userData[currUser]["holes"][self.hole - 1].failedBulls + userData[currUser]["holes"][self.hole - 1].bulls)
 
             userData[currUser]["bulls"] += 1
-            userData[currUser]["bull rate"] = userData[currUser]["bulls"] / failedBulls
+            userData[currUser]["bull rate"] = userData[currUser]["bulls"] / userData[currUser]["failed bulls"]
         elif (int(self.scoreField.text) == 2):
             if (int(self.puttField.text) == 0):
                 userData[currUser]["holes"][self.hole - 1].saves += 1
-                userData[currUser]["holes"][self.hole - 1].saveRate = userData[currUser]["holes"][self.hole - 1].saves / (failedSavesHole + userData[currUser]["holes"][self.hole - 1].saves)
+                userData[currUser]["holes"][self.hole - 1].saveRate = userData[currUser]["holes"][self.hole - 1].saves / (userData[currUser]["holes"][self.hole - 1].failedSaves + userData[currUser]["holes"][self.hole - 1].saves)
 
                 userData[currUser]["saves"] += 1
-                userData[currUser]["save rate"] = userData[currUser]["saves"] / (failedSaves + userData[currUser]["saves"])
+                userData[currUser]["save rate"] = userData[currUser]["saves"] / (userData[currUser]["failed saves"] + userData[currUser]["saves"])
 
             userData[currUser]["holes"][self.hole - 1].pars += 1
-            userData[currUser]["holes"][self.hole - 1].parRate = userData[currUser]["holes"][self.hole - 1].pars / (failedParsHole + userData[currUser]["holes"][self.hole - 1].pars)
+            userData[currUser]["holes"][self.hole - 1].parRate = userData[currUser]["holes"][self.hole - 1].pars / (userData[currUser]["holes"][self.hole - 1].failedPars + userData[currUser]["holes"][self.hole - 1].pars)
 
             userData[currUser]["pars"] += 1
-            userData[currUser]["par rate"] = userData[currUser]["pars"] / (failedPars + userData[currUser]["pars"])
+            userData[currUser]["par rate"] = userData[currUser]["pars"] / (userData[currUser]["failed pars"] + userData[currUser]["pars"])
 
-            failedBullsHole += 1
-            userData[currUser]["holes"][self.hole - 1].bullRate = userData[currUser]["holes"][self.hole - 1].bulls / (failedBullsHole + userData[currUser]["holes"][self.hole - 1].bulls)
+            userData[currUser]["holes"][self.hole - 1].failedBulls += 1
+            userData[currUser]["holes"][self.hole - 1].bullRate = userData[currUser]["holes"][self.hole - 1].bulls / (userData[currUser]["holes"][self.hole - 1].failedBulls + userData[currUser]["holes"][self.hole - 1].bulls)
 
-            failedBulls += 1
-            userData[currUser]["bull rate"] = userData[currUser]["bulls"] / (failedBulls + userData[currUser]["bulls"])
+            userData["failed bulls"] += 1
+            userData[currUser]["bull rate"] = userData[currUser]["bulls"] / (userData[currUser]["failed bulls"] + userData[currUser]["bulls"])
         else:
             if int(self.puttField.text) < int(self.scoreField.text) - 1:
-                failedSavesHole += 1
-                userData[currUser]["holes"][self.hole - 1].saveRate = userData[currUser]["holes"][self.hole - 1].saves / (failedSavesHole + userData[currUser]["holes"][self.hole - 1].saves)
+                userData[currUser]["holes"][self.hole - 1].failedSaves += 1
+                userData[currUser]["holes"][self.hole - 1].saveRate = userData[currUser]["holes"][self.hole - 1].saves / (userData[currUser]["holes"][self.hole - 1].failedSaves + userData[currUser]["holes"][self.hole - 1].saves)
 
-                failedSaves += 1
-                userData[currUser]["save rate"] = userData[currUser]["saves"] / (failedSaves + userData[currUser]["saves"])
+                userData[currUser]["failed saves"] += 1
+                userData[currUser]["save rate"] = userData[currUser]["saves"] / (userData[currUser]["failed saves"] + userData[currUser]["saves"])
 
-            failedBullsHole += 1
-            userData[currUser]["holes"][self.hole - 1].bullRate = userData[currUser]["holes"][self.hole - 1].bulls / (failedBullsHole + userData[currUser]["holes"][self.hole - 1].bulls)
+            userData[currUser]["holes"][self.hole - 1].failedBulls += 1
+            userData[currUser]["holes"][self.hole - 1].bullRate = userData[currUser]["holes"][self.hole - 1].bulls / (userData[currUser]["holes"][self.hole - 1].failedBulls + userData[currUser]["holes"][self.hole - 1].bulls)
 
-            failedBulls += 1
-            userData[currUser]["bull rate"] = userData[currUser]["bulls"] / (failedBulls + userData[currUser]["bulls"])
+            userData[currUser]["failed bulls"] += 1
+            userData[currUser]["bull rate"] = userData[currUser]["bulls"] / (userData[currUser]["failed bulls"] + userData[currUser]["bulls"])
 
-            failedParsHole += 1
-            userData[currUser]["holes"][self.hole - 1].parRate = userData[currUser]["holes"][self.hole - 1].pars / (failedParsHole + userData[currUser]["holes"][self.hole - 1].pars)
+            userData[currUser]["holes"][self.hole - 1].failedPars += 1
+            userData[currUser]["holes"][self.hole - 1].parRate = userData[currUser]["holes"][self.hole - 1].pars / (userData[currUser]["holes"][self.hole - 1].failedPars + userData[currUser]["holes"][self.hole - 1].pars)
 
-            failedPars += 1
-            userData[currUser]["par rate"] = userData[currUser]["pars"] / (failedPars + userData[currUser]["pars"])
+            userData[currUser]["failed pars"] += 1
+            userData[currUser]["par rate"] = userData[currUser]["pars"] / (userData[currUser]["failed pars"] + userData[currUser]["pars"])
 
     def updateHole(self):
         if self.scoreField.text in map(str,range(1,100)) and self.puttField.text in map(str,range(100)):
