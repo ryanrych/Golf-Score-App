@@ -534,6 +534,17 @@ class GameScreen(Screen):
 
 
 
+class StatsButtons(Widget):
+    pass
+
+class StatsBackground(Widget):
+    pass
+
+class StatsScreen(Screen):
+    pass
+
+
+
 class GolfApp(App):
     global userData
     global mastersData
