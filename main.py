@@ -80,14 +80,15 @@ for hole in holes:
     mastersData[data[0]]["pars"] = int(data[8])
     mastersData[data[0]]["bulls"] = int(data[9])
     mastersData[data[0]]["saves"] = int(data[10])
-    mastersData[data[0]]["failed pars"] = int(data[11])
-    mastersData[data[0]]["failed bulls"] = int(data[12])
-    mastersData[data[0]]["failed saves"] = int(data[13])
-    mastersData[data[0]]["failed greens"] = int(data[14])
-    mastersData[data[0]]["par rate"] = float(data[15])
-    mastersData[data[0]]["bull rate"] = float(data[16])
-    mastersData[data[0]]["save rate"] = float(data[17])
-    mastersData[data[0]]["on rate"] = float(data[18])
+    mastersData[data[0]]["greens"] = int(data[11])
+    mastersData[data[0]]["failed pars"] = int(data[12])
+    mastersData[data[0]]["failed bulls"] = int(data[13])
+    mastersData[data[0]]["failed saves"] = int(data[14])
+    mastersData[data[0]]["failed greens"] = int(data[15])
+    mastersData[data[0]]["par rate"] = float(data[16])
+    mastersData[data[0]]["bull rate"] = float(data[17])
+    mastersData[data[0]]["save rate"] = float(data[18])
+    mastersData[data[0]]["on rate"] = float(data[19])
 holes.close()
 
 class WindowManager(ScreenManager):
@@ -151,6 +152,34 @@ class CreateAccountButtons(Widget):
         else:
             userData[username] = {}
             userData[username]["password"] = password
+            userData[username]["games"] = []
+            userData[username]["best front"] = 99
+            userData[username]["best back"] = 99
+            userData[username]["average front"] = 99
+            userData[username]["average back"] = 99
+            userData[username]["best total"] = 99
+            userData[username]["average total"] = 99
+            userData[username]["average last 5"] = 99
+            userData[username]["average last 10"] = 99
+            userData[username]["super 9"] = 99
+            userData[username]["super 1"] = 99
+            userData[username]["holes"] = []
+            for i in range(18):
+                userData[username]["holes"].append(Hole([],[],99,99,0,0,0,0,0,0,0,0,0,0,0,0))
+            userData[username]["games count"] = 0
+            userData[username]["pars"] = 0
+            userData[username]["bulls"] = 0
+            userData[username]["saves"] = 0
+            userData[username]["failed pars"] = 0
+            userData[username]["failed bulls"] = 0
+            userData[username]["failed saves"] = 0
+            userData[username]["par rate"] = 0
+            userData[username]["bull rate"] = 0
+            userData[username]["save rate"] = 0
+            userData[username]["greens"] = 0
+            userData[username]["failed greens"] = 0
+            userData[username]["green rate"] = 0
+
             self.userField.text = ""
             self.passwordField.text = ""
             self.confirmField.text = ""
@@ -594,12 +623,12 @@ class GameButtons(Widget):
             self.hole += 1
             self.name.text = "Hole: " + str(self.hole)
             self.descriptionID.text = str(mastersData[str(self.hole)]["description"])
-            self.userBestScore.text = "Best Score: " + str(userData[currUser]["holes"][self.hole].bestScore)
+            self.userBestScore.text = "Best Score: " + str(userData[currUser]["holes"][self.hole - 1].bestScore)
             self.average.text = "Average Score: " + str(round(mastersData[str(self.hole)]["average"],1))
-            self.userAverageScore.text = "Average Score: " + str(round(userData[currUser]["holes"][self.hole].avgScore,1))
+            self.userAverageScore.text = "Average Score: " + str(round(userData[currUser]["holes"][self.hole - 1].avgScore,1))
             self.index.text = "Stroke Index: " + str(mastersData[str(self.hole)]["index"])
-            self.userPar.text = "Par Percent: " + str(round(userData[currUser]["holes"][self.hole].parRate) * 100) + "%"
-            self.userPar.text = "On Percent: " + str(round(userData[currUser]["holes"][self.hole].greenRate) * 100) + "%"
+            self.userPar.text = "Par Percent: " + str(round(userData[currUser]["holes"][self.hole - 1].parRate) * 100) + "%"
+            self.userPar.text = "On Percent: " + str(round(userData[currUser]["holes"][self.hole - 1].greenRate) * 100) + "%"
             self.distance.text = "Distance: " + str(mastersData[str(self.hole)]["distance"]) + " yds"
             # add on percent and par percent for the hole after hole data is updated
             self.scoreField.text = ""

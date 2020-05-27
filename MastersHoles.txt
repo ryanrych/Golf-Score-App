@@ -1,18 +1,18 @@
-1;Hole 1 is a long hole with a garden blocking the target. Keep the large elevation change in mind.;[3,5,2,2,3,3,3,3,2,3,2,3,2,2,3,2,3,2,2,2];2;5;2.6;4;57;10;0;5;10;20;10;5;.5;0.0;.4;.4
-2;Hole 2 is a short hole with many trees making players zig zag to the target.;[3,3,2,2,3,4,3,3,3,3,3,3,4,2,2,3,3,4,3,3];2;4;2.95;2;34;4;0;2;16;20;16;18;.2;0.0;.3;.1
-3;Hole 3 is a long fairway with a sharp turn at the very end leading to the target. Beware of overshooting and landing in the deep rough.;[2,3,3,2,4,3,2,3,2,2,3,3,2,2,3,2,4,3,3,3];2;4;2.7;3;44;8;0;4;12;20;12;4;.4;0.0;.3;.5
-4;Hole 4 is a long hole with the trampoline and large pine tree blocking the target.;[2,3,2,3,2,2,2,2,2,2,3,3,2,3,2,1,2,2,2,2];1;3;2.2;13;45;14;1;5;5;19;5;10;.6;.05;.6;.6
-5;Hole 5 is the shortest hole with a tree perfectly blocking the target. Be sure to watch you distance on this one.;[2,3,2,2,1,2,2,2,3,3,3,3,2,1,1,2,2,2,2,2];1;3;2.1;16;20;12;3;7;5;17;5;5;.6;.15;.1;.9
-6;Hole 6 is very short but a large tree directly in front of the tee box makes the path challenging.;[2,3,3,2,2,3,1,2,2,2,2,3,3,3,2,2,2,2,3,2];1;3;2.3;10;19;12;1;6;7;19;7;7;.7;.05;.8;.4
-7;Hole 7 is a medium length hole through many trees making long distance shots difficult.;[2,3,2,2,2,3,3,3,2,3,3,3,2,3,3,3,3,2,2,2];2;3;2.55;6;51;9;0;3;11;20;11;6;.45;0.0;.3;.3
-8;Hole 8 is straight with low swinging branches on the tee box making the first shot difficult.;[3,3,2,2,3,2,3,3,3,2,2,2,2,3,2,2,3,3,1,3];1;3;2.45;8;27;9;1;4;10;19;10;6;.45;.05;.6;.6
-9;Hole 9 is very short but has a great height difference. Overshooting the hill can lead to long second shots.;[2,2,2,2,1,2,2,2,2,1,1,2,2,3,2,2,2,2,2,3];1;3;1.95;18;25;15;3;7;2;17;1;12;.75;.15;.6;.8
-10;Hole 10 is a medium length hole with a tree behind the target making OB shots common.;[2,2,2,3];2;3;2.25;11;37;3;0;1;1;4;1;1;.75;0.0;.5;.5
-11;Hole 11 is a short hole with many small trees blocking the target.;[2,2,2,2,4,3];2;4;2.5;7;27;4;0;3;2;6;2;2;.66;0.0;.75;.3
-12;Hole 12 is a short hole with a very dense tree blocking the tee box.;[2,3,2,3,2];2;3;2.4;9;30;3;0;2;2;5;2;2;.6;0.0;.7;.5
-13;Hole 13 is very short but has 2 trees in front of the target.;[2,4,3,3,3];2;4;3;4;16;1;0;0;4;5;4;4;.25;0.0;0.0;.25
-14;Hole 14 is a long hole with a brick wall blocking the target. Be sure to watch out for the house on this one.;[2,3,2,2,2];2;3;2.2;12;33;4;0;2;1;5;1;1;.8;.0;.6;.4
-15;Hole 15 is a short hole going uphill.;[2,2,2,2,2];2;2;2;17;20;5;0;0;0;5;0;1;0;.0;.0;1
-16;Hole 16 is a long hole shooting over the course parking lot.;[3,2,2,2,2];2;3;2.2;14;46;4;0;1;1;5;1;1;.8;.0;.6;.6
-17;Hole 17 is a medium length hole with bushes and trees surrounding the target.;[2,2,3,2,2];2;3;2.2;15;43;4;0;1;1;5;1;1;.8;.0;.6;.5
-18;Hole 18 is a long hole with the target on top of a large hill.;[3,3,2,3,2];2;3;2.6;5;54;2;0;1;3;5;3;3;.4;.0;.25;.2
+1;Hole 1 is a long hole with a garden blocking the target. Keep the large elevation change in mind.;[3,5,2,2,3,3,3,3,2,3,2,3,2,2,3,2,3,2,2,2];2;5;2.6;4;57;10;0;5;5;10;20;10;5;.5;0.0;.4;.4
+2;Hole 2 is a short hole with many trees making players zig zag to the target.;[3,3,2,2,3,4,3,3,3,3,3,3,4,2,2,3,3,4,3,3];2;4;2.95;2;34;4;0;2;2;16;20;16;18;.2;0.0;.3;.1
+3;Hole 3 is a long fairway with a sharp turn at the very end leading to the target. Beware of overshooting and landing in the deep rough.;[2,3,3,2,4,3,2,3,2,2,3,3,2,2,3,2,4,3,3,3];2;4;2.7;3;44;8;0;4;4;12;20;12;4;.4;0.0;.3;.5
+4;Hole 4 is a long hole with the trampoline and large pine tree blocking the target.;[2,3,2,3,2,2,2,2,2,2,3,3,2,3,2,1,2,2,2,2];1;3;2.2;13;45;14;1;5;10;5;19;5;10;.6;.05;.6;.6
+5;Hole 5 is the shortest hole with a tree perfectly blocking the target. Be sure to watch you distance on this one.;[2,3,2,2,1,2,2,2,3,3,3,3,2,1,1,2,2,2,2,2];1;3;2.1;16;20;12;3;7;8;5;17;5;5;.6;.15;.1;.9
+6;Hole 6 is very short but a large tree directly in front of the tee box makes the path challenging.;[2,3,3,2,2,3,1,2,2,2,2,3,3,3,2,2,2,2,3,2];1;3;2.3;10;19;12;1;6;7;7;19;7;7;.7;.05;.8;.4
+7;Hole 7 is a medium length hole through many trees making long distance shots difficult.;[2,3,2,2,2,3,3,3,2,3,3,3,2,3,3,3,3,2,2,2];2;3;2.55;6;51;9;0;3;6;11;20;11;6;.45;0.0;.3;.3
+8;Hole 8 is straight with low swinging branches on the tee box making the first shot difficult.;[3,3,2,2,3,2,3,3,3,2,2,2,2,3,2,2,3,3,1,3];1;3;2.45;8;27;9;1;4;6;10;19;10;6;.45;.05;.6;.6
+9;Hole 9 is very short but has a great height difference. Overshooting the hill can lead to long second shots.;[2,2,2,2,1,2,2,2,2,1,1,2,2,3,2,2,2,2,2,3];1;3;1.95;18;25;15;3;7;11;2;17;1;12;.75;.15;.6;.8
+10;Hole 10 is a medium length hole with a tree behind the target making OB shots common.;[2,2,2,3];2;3;2.25;11;37;3;0;1;2;1;4;1;1;.75;0.0;.5;.5
+11;Hole 11 is a short hole with many small trees blocking the target.;[2,2,2,2,4,3];2;4;2.5;7;27;4;0;3;1;2;6;2;2;.66;0.0;.75;.3
+12;Hole 12 is a short hole with a very dense tree blocking the tee box.;[2,3,2,3,2];2;3;2.4;9;30;3;0;2;1;2;5;2;2;.6;0.0;.7;.5
+13;Hole 13 is very short but has 2 trees in front of the target.;[2,4,3,3,3];2;4;3;4;16;1;0;0;1;1;4;5;4;4;.25;0.0;0.0;.25
+14;Hole 14 is a long hole with a brick wall blocking the target. Be sure to watch out for the house on this one.;[2,3,2,2,2];2;3;2.2;12;33;4;0;2;2;1;5;1;1;.8;.0;.6;.4
+15;Hole 15 is a short hole going uphill.;[2,2,2,2,2];2;2;2;17;20;5;0;0;5;0;5;0;1;0;.0;.0;1
+16;Hole 16 is a long hole shooting over the course parking lot.;[3,2,2,2,2];2;3;2.2;14;46;4;0;1;3;1;5;1;1;.8;.0;.6;.6
+17;Hole 17 is a medium length hole with bushes and trees surrounding the target.;[2,2,3,2,2];2;3;2.2;15;43;4;0;1;3;1;5;1;1;.8;.0;.6;.5
+18;Hole 18 is a long hole with the target on top of a large hill.;[3,3,2,3,2];2;3;2.6;5;54;2;0;1;1;3;5;3;3;.4;.0;.25;.2
