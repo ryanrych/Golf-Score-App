@@ -280,15 +280,16 @@ class GameButtons(Widget):
 
     hole = 1
     description = mastersData[str(hole)]["description"]
-    bestScore = mastersData[str(hole)]["low"]
-    averageScore = round(mastersData[str(hole)]["average"],1)
     yards = mastersData[str(hole)]["distance"]
+    onRate = int(round(mastersData[str(hole)]["on rate"] * 100,0))
+    parRate = int(round(mastersData[str(hole)]["par rate"] * 100,0))
+    averageScore = round(mastersData[str(hole)]["average"],1)
     strokeIndex = mastersData[str(hole)]["index"]
 
     userBest = userData[currUser]["holes"][0].bestScore
     userAverage = round(userData[currUser]["holes"][0].avgScore,1)
-    userPR = round(userData[currUser]["holes"][0].parRate,1) * 100
-    userGR = round(userData[currUser]["holes"][0].parRate,1) * 100
+    userPR = int(round(userData[currUser]["holes"][0].parRate * 100,0))
+    userGR = int(round(userData[currUser]["holes"][0].parRate * 100,0))
 
     frontScore = 0
     frontPutts = 0
@@ -353,7 +354,10 @@ class GameButtons(Widget):
                 line += str(hole.failedSaves) + ","
                 line += str(hole.parRate) + ","
                 line += str(hole.bullRate) + ","
-                line += str(hole.saveRate) + ")-"
+                line += str(hole.saveRate) + ","
+                line += str(hole.greens) + ","
+                line += str(hole.failedGreens) + ","
+                line += str(hole.greenRate) + ")-"
             line = line[:-1]
             line += "];"
             line += str(userData[user]["games count"]) + ";"
@@ -372,13 +376,12 @@ class GameButtons(Widget):
 
             file.write(line + "\n")
 
-        file = open("User.txt","w")
-        file.writelines(lines)
         file.close()
 
         open("MastersHole.txt","w").close()
 
         lines = []
+        file = open("MastersHole.txt","w")
         for i in range(1,19):
             line = ""
             line += str(i) + ";"
@@ -391,7 +394,7 @@ class GameButtons(Widget):
             line += str(mastersData[str(i)]["low"]) + ";"
             line += str(mastersData[str(i)]["high"]) + ";"
             line += str(mastersData[str(i)]["average"]) + ";"
-            line += str(mastersData[str(i)]["stroke index"]) + ";"
+            line += str(mastersData[str(i)]["index"]) + ";"
             line += str(mastersData[str(i)]["distance"]) + ";"
             line += str(mastersData[str(i)]["pars"]) + ";"
             line += str(mastersData[str(i)]["bulls"]) + ";"
@@ -406,13 +409,12 @@ class GameButtons(Widget):
             line += str(mastersData[str(i)]["save rate"]) + ";"
             line += str(mastersData[str(i)]["on rate"]) + ";"
             lines.append(line)
+            file.write(line + "\n")
 
-        file = open("MastersHoles.txt","w")
-        file.writelines(lines)
         file.close()
 
     def endGame(self):
-        userData[currUser]["games"].append(Game(self.frontScore,self.frontPutts,self.bestScore,self.backPutts,self.score,self.putts,str(datetime.datetime.now().strftime("%x"))))
+        userData[currUser]["games"].append(Game(self.frontScore,self.frontPutts,self.backScore,self.backPutts,self.score,self.putts,str(datetime.datetime.now().strftime("%x"))))
 
         sumScoreFront = userData[currUser]["games count"] * userData[currUser]["average front"]
         sumScoreBack = userData[currUser]["games count"] * userData[currUser]["average back"]
@@ -443,6 +445,8 @@ class GameButtons(Widget):
             userData[currUser]["best front"] = self.frontScore
         if self.backScore < userData[currUser]["best back"]:
             userData[currUser]["best back"] = self.backScore
+        if self.score < userData[currUser]["best total"]:
+            userData[currUser]["best total"] = self.score
 
         userData[currUser]["super 9"] = userData[currUser]["best front"] + userData[currUser]["best back"]
 
@@ -467,7 +471,6 @@ class GameButtons(Widget):
 
         self.name.text = "Hole: " + str(self.hole)
         self.descriptionID.text = str(mastersData[str(self.hole)]["description"])
-        self.best.text = str(mastersData[str(self.hole)]["low"])
         self.average.text = str(round(mastersData[str(self.hole)]["average"], 1))
         self.index.text = str(mastersData[str(self.hole)]["index"])
         self.distance.text = str(mastersData[str(self.hole)]["distance"]) + " yds"
@@ -627,10 +630,11 @@ class GameButtons(Widget):
             self.average.text = "Average Score: " + str(round(mastersData[str(self.hole)]["average"],1))
             self.userAverageScore.text = "Average Score: " + str(round(userData[currUser]["holes"][self.hole - 1].avgScore,1))
             self.index.text = "Stroke Index: " + str(mastersData[str(self.hole)]["index"])
-            self.userPar.text = "Par Percent: " + str(round(userData[currUser]["holes"][self.hole - 1].parRate) * 100) + "%"
-            self.userPar.text = "On Percent: " + str(round(userData[currUser]["holes"][self.hole - 1].greenRate) * 100) + "%"
+            self.userPar.text = "Par Percent: " + str(round(userData[currUser]["holes"][self.hole - 1].parRate * 100,0)) + "%"
+            self.userGreen.text = "On Percent: " + str(round(userData[currUser]["holes"][self.hole - 1].greenRate * 100,0)) + "%"
+            self.coursePar.text = "Par Percent: " + str(round(mastersData[str(self.hole - 1)]["par rate"] * 100,0)) + "%"
+            self.courseGreen.text = "On Percent: " + str(round(mastersData[str(self.hole - 1)]["on rate"] * 100, 0)) + "%"
             self.distance.text = "Distance: " + str(mastersData[str(self.hole)]["distance"]) + " yds"
-            # add on percent and par percent for the hole after hole data is updated
             self.scoreField.text = ""
             self.puttField.text = ""
         else:

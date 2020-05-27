@@ -459,6 +459,8 @@ WindowManager:
 <GameButtons>:
     name: name
     descriptionID: descriptionID
+    courseGreen: courseGreen
+    coursePar: coursePar
     average: average
     index: index
     distance: distance
@@ -545,53 +547,53 @@ WindowManager:
                         text: "You:"
 
                     Label:
-                        #id:
+                        id: courseGreen
                         size_hint: 1, .25
                         halign: "left"
                         color: 0,0,0,1
-                        text: "On Percentage: " + "add"
+                        text: "On Percentage: " + str(root.onRate) + "%"
 
                     Label:
                         id: userGreen
                         size_hint: 1, .25
                         halign: "left"
                         color: 0,0,0,1
-                        text: "On Percentage: " + str(root.userGR)
+                        text: "On Percentage: " + str(root.userGR) + "%"
 
                     Label:
-                        #id:
+                        id: coursePar
                         size_hint: 1, .25
                         halign: "left"
                         color: 0,0,0,1
-                        text: "Par Percentage: " + "add"
+                        text: "Par Percentage: " + str(root.parRate) + "%"
 
                     Label:
                         id: userPar
                         size_hint: 1, .25
                         halign: "left"
                         color: 0,0,0,1
-                        text: "Par Percentage: " + str(root.userPR)
+                        text: "Par Percentage: " + str(root.userPR) + "%"
 
                     Label:
                         id: average
                         size_hint: 1, .25
                         halign: "left"
                         color: 0,0,0,1
-                        text: "Average Score: " + str(root.strokeIndex)
+                        text: "Average Score: " + str(root.averageScore)
 
                     Label:
                         id: userAverageScore
                         size_hint: 1, .25
                         halign: "left"
                         color: 0,0,0,1
-                        text: "Average Score: " + str(root.userPR) + "%"
+                        text: "Average Score: " + str(root.userAverage)
 
                     Label:
                         id: index
                         size_hint: 1, .25
                         halign: "left"
                         color: 0,0,0,1
-                        text: "Stroke Index: " + str(root.userPR) + "%"
+                        text: "Stroke Index: " + str(root.strokeIndex)
 
                     Label:
                         id: userBestScore
