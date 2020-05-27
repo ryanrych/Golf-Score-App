@@ -68,15 +68,22 @@ users.close()
 mastersData = {}
 holes = open("MastersHoles.txt","r")
 for hole in holes:
-    data = hole.split(",")
+    data = hole.split(";")
     mastersData[data[0]] = {}
     mastersData[data[0]]["description"] = data[1]
-    mastersData[data[0]]["scores"] = list(map(int,data[2][1:-1].split(";")))
+    mastersData[data[0]]["scores"] = list(map(int,data[2][1:-1].split(",")))
     mastersData[data[0]]["low"] = int(data[3])
     mastersData[data[0]]["high"] = int(data[4])
     mastersData[data[0]]["average"] = float(data[5])
     mastersData[data[0]]["index"] = int(data[6])
     mastersData[data[0]]["distance"] = int(data[7])
+    mastersData[data[0]]["pars"] = int(data[8])
+    mastersData[data[0]]["bulls"] = int(data[9])
+    mastersData[data[0]]["saves"] = int(data[10])
+    mastersData[data[0]]["par percent"] = float(data[11])
+    mastersData[data[0]]["bull percent"] = float(data[12])
+    mastersData[data[0]]["save percent"] = float(data[13])
+    mastersData[data[0]]["on percent"] = float(data[14])
 holes.close()
 
 class WindowManager(ScreenManager):
