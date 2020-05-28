@@ -275,128 +275,182 @@ class MainButtons(Widget):
 
         screen.ids.background.ids.stats.ids.hole1Best.text = str(userData[currUser]["holes"][0].bestScore)
         screen.ids.background.ids.stats.ids.hole1Average.text = str(userData[currUser]["holes"][0].avgScore)
-        screen.ids.background.ids.stats.ids.hole1PR.text = str(userData[currUser]["holes"][0].parRate)
-        screen.ids.background.ids.stats.ids.hole1GR.text = str(userData[currUser]["holes"][0].greenRate)
-        screen.ids.background.ids.stats.ids.hole1SR.text = str(userData[currUser]["holes"][0].saveRate)
+        screen.ids.background.ids.stats.ids.hole1PR.text = str(
+            round(userData[currUser]["holes"][0].parRate * 100)) + "%"
+        screen.ids.background.ids.stats.ids.hole1GR.text = str(
+            round(userData[currUser]["holes"][0].greenRate * 100)) + "%"
+        screen.ids.background.ids.stats.ids.hole1SR.text = str(
+            round(userData[currUser]["holes"][0].saveRate * 100)) + "%"
         screen.ids.background.ids.stats.ids.hole1Bulls.text = str(userData[currUser]["holes"][0].bulls)
 
         screen.ids.background.ids.stats.ids.hole2Best.text = str(userData[currUser]["holes"][1].bestScore)
         screen.ids.background.ids.stats.ids.hole2Average.text = str(userData[currUser]["holes"][1].avgScore)
-        screen.ids.background.ids.stats.ids.hole2PR.text = str(userData[currUser]["holes"][1].parRate)
-        screen.ids.background.ids.stats.ids.hole2GR.text = str(userData[currUser]["holes"][1].greenRate)
-        screen.ids.background.ids.stats.ids.hole2SR.text = str(userData[currUser]["holes"][1].saveRate)
+        screen.ids.background.ids.stats.ids.hole2PR.text = str(
+            round(userData[currUser]["holes"][1].parRate * 100)) + "%"
+        screen.ids.background.ids.stats.ids.hole2GR.text = str(
+            round(userData[currUser]["holes"][1].greenRate * 100)) + "%"
+        screen.ids.background.ids.stats.ids.hole2SR.text = str(
+            round(userData[currUser]["holes"][1].saveRate * 100)) + "%"
         screen.ids.background.ids.stats.ids.hole2Bulls.text = str(userData[currUser]["holes"][1].bulls)
 
         screen.ids.background.ids.stats.ids.hole3Best.text = str(userData[currUser]["holes"][2].bestScore)
         screen.ids.background.ids.stats.ids.hole3Average.text = str(userData[currUser]["holes"][2].avgScore)
-        screen.ids.background.ids.stats.ids.hole3PR.text = str(userData[currUser]["holes"][2].parRate)
-        screen.ids.background.ids.stats.ids.hole3GR.text = str(userData[currUser]["holes"][2].greenRate)
-        screen.ids.background.ids.stats.ids.hole3SR.text = str(userData[currUser]["holes"][2].saveRate)
+        screen.ids.background.ids.stats.ids.hole3PR.text = str(
+            round(userData[currUser]["holes"][2].parRate * 100)) + "%"
+        screen.ids.background.ids.stats.ids.hole3GR.text = str(
+            round(userData[currUser]["holes"][2].greenRate * 100)) + "%"
+        screen.ids.background.ids.stats.ids.hole3SR.text = str(
+            round(userData[currUser]["holes"][2].saveRate * 100)) + "%"
         screen.ids.background.ids.stats.ids.hole3Bulls.text = str(userData[currUser]["holes"][2].bulls)
 
         screen.ids.background.ids.stats.ids.hole4Best.text = str(userData[currUser]["holes"][3].bestScore)
         screen.ids.background.ids.stats.ids.hole4Average.text = str(userData[currUser]["holes"][3].avgScore)
-        screen.ids.background.ids.stats.ids.hole4PR.text = str(userData[currUser]["holes"][3].parRate)
-        screen.ids.background.ids.stats.ids.hole4GR.text = str(userData[currUser]["holes"][3].greenRate)
-        screen.ids.background.ids.stats.ids.hole4SR.text = str(userData[currUser]["holes"][3].saveRate)
+        screen.ids.background.ids.stats.ids.hole4PR.text = str(
+            round(userData[currUser]["holes"][3].parRate * 100)) + "%"
+        screen.ids.background.ids.stats.ids.hole4GR.text = str(
+            round(userData[currUser]["holes"][3].greenRate * 100)) + "%"
+        screen.ids.background.ids.stats.ids.hole4SR.text = str(
+            round(userData[currUser]["holes"][3].saveRate * 100)) + "%"
         screen.ids.background.ids.stats.ids.hole4Bulls.text = str(userData[currUser]["holes"][3].bulls)
 
         screen.ids.background.ids.stats.ids.hole5Best.text = str(userData[currUser]["holes"][4].bestScore)
         screen.ids.background.ids.stats.ids.hole5Average.text = str(userData[currUser]["holes"][4].avgScore)
-        screen.ids.background.ids.stats.ids.hole5PR.text = str(userData[currUser]["holes"][4].parRate)
-        screen.ids.background.ids.stats.ids.hole5GR.text = str(userData[currUser]["holes"][4].greenRate)
-        screen.ids.background.ids.stats.ids.hole5SR.text = str(userData[currUser]["holes"][4].saveRate)
+        screen.ids.background.ids.stats.ids.hole5PR.text = str(
+            round(userData[currUser]["holes"][4].parRate * 100)) + "%"
+        screen.ids.background.ids.stats.ids.hole5GR.text = str(
+            round(userData[currUser]["holes"][4].greenRate * 100)) + "%"
+        screen.ids.background.ids.stats.ids.hole5SR.text = str(
+            round(userData[currUser]["holes"][4].saveRate * 100)) + "%"
         screen.ids.background.ids.stats.ids.hole5Bulls.text = str(userData[currUser]["holes"][4].bulls)
 
         screen.ids.background.ids.stats.ids.hole6Best.text = str(userData[currUser]["holes"][5].bestScore)
         screen.ids.background.ids.stats.ids.hole6Average.text = str(userData[currUser]["holes"][5].avgScore)
-        screen.ids.background.ids.stats.ids.hole6PR.text = str(userData[currUser]["holes"][5].parRate)
-        screen.ids.background.ids.stats.ids.hole6GR.text = str(userData[currUser]["holes"][5].greenRate)
-        screen.ids.background.ids.stats.ids.hole6SR.text = str(userData[currUser]["holes"][5].saveRate)
+        screen.ids.background.ids.stats.ids.hole6PR.text = str(
+            round(userData[currUser]["holes"][5].parRate * 100)) + "%"
+        screen.ids.background.ids.stats.ids.hole6GR.text = str(
+            round(userData[currUser]["holes"][5].greenRate * 100)) + "%"
+        screen.ids.background.ids.stats.ids.hole6SR.text = str(
+            round(userData[currUser]["holes"][5].saveRate * 100)) + "%"
         screen.ids.background.ids.stats.ids.hole6Bulls.text = str(userData[currUser]["holes"][5].bulls)
 
         screen.ids.background.ids.stats.ids.hole7Best.text = str(userData[currUser]["holes"][6].bestScore)
         screen.ids.background.ids.stats.ids.hole7Average.text = str(userData[currUser]["holes"][6].avgScore)
-        screen.ids.background.ids.stats.ids.hole7PR.text = str(userData[currUser]["holes"][6].parRate)
-        screen.ids.background.ids.stats.ids.hole7GR.text = str(userData[currUser]["holes"][6].greenRate)
-        screen.ids.background.ids.stats.ids.hole7SR.text = str(userData[currUser]["holes"][6].saveRate)
+        screen.ids.background.ids.stats.ids.hole7PR.text = str(
+            round(userData[currUser]["holes"][6].parRate * 100)) + "%"
+        screen.ids.background.ids.stats.ids.hole7GR.text = str(
+            round(userData[currUser]["holes"][6].greenRate * 100)) + "%"
+        screen.ids.background.ids.stats.ids.hole7SR.text = str(
+            round(userData[currUser]["holes"][6].saveRate * 100)) + "%"
         screen.ids.background.ids.stats.ids.hole7Bulls.text = str(userData[currUser]["holes"][6].bulls)
 
         screen.ids.background.ids.stats.ids.hole8Best.text = str(userData[currUser]["holes"][7].bestScore)
         screen.ids.background.ids.stats.ids.hole8Average.text = str(userData[currUser]["holes"][7].avgScore)
-        screen.ids.background.ids.stats.ids.hole8PR.text = str(userData[currUser]["holes"][7].parRate)
-        screen.ids.background.ids.stats.ids.hole8GR.text = str(userData[currUser]["holes"][7].greenRate)
-        screen.ids.background.ids.stats.ids.hole8SR.text = str(userData[currUser]["holes"][7].saveRate)
+        screen.ids.background.ids.stats.ids.hole8PR.text = str(
+            round(userData[currUser]["holes"][7].parRate * 100)) + "%"
+        screen.ids.background.ids.stats.ids.hole8GR.text = str(
+            round(userData[currUser]["holes"][7].greenRate * 100)) + "%"
+        screen.ids.background.ids.stats.ids.hole8SR.text = str(
+            round(userData[currUser]["holes"][7].saveRate * 100)) + "%"
         screen.ids.background.ids.stats.ids.hole8Bulls.text = str(userData[currUser]["holes"][7].bulls)
 
         screen.ids.background.ids.stats.ids.hole9Best.text = str(userData[currUser]["holes"][8].bestScore)
         screen.ids.background.ids.stats.ids.hole9Average.text = str(userData[currUser]["holes"][8].avgScore)
-        screen.ids.background.ids.stats.ids.hole9PR.text = str(userData[currUser]["holes"][8].parRate)
-        screen.ids.background.ids.stats.ids.hole9GR.text = str(userData[currUser]["holes"][8].greenRate)
-        screen.ids.background.ids.stats.ids.hole9SR.text = str(userData[currUser]["holes"][8].saveRate)
+        screen.ids.background.ids.stats.ids.hole9PR.text = str(
+            round(userData[currUser]["holes"][8].parRate * 100)) + "%"
+        screen.ids.background.ids.stats.ids.hole9GR.text = str(
+            round(userData[currUser]["holes"][8].greenRate * 100)) + "%"
+        screen.ids.background.ids.stats.ids.hole9SR.text = str(
+            round(userData[currUser]["holes"][8].saveRate * 100)) + "%"
         screen.ids.background.ids.stats.ids.hole9Bulls.text = str(userData[currUser]["holes"][8].bulls)
 
         screen.ids.background.ids.stats.ids.hole10Best.text = str(userData[currUser]["holes"][9].bestScore)
         screen.ids.background.ids.stats.ids.hole10Average.text = str(userData[currUser]["holes"][9].avgScore)
-        screen.ids.background.ids.stats.ids.hole10PR.text = str(userData[currUser]["holes"][9].parRate)
-        screen.ids.background.ids.stats.ids.hole10GR.text = str(userData[currUser]["holes"][9].greenRate)
-        screen.ids.background.ids.stats.ids.hole10SR.text = str(userData[currUser]["holes"][9].saveRate)
+        screen.ids.background.ids.stats.ids.hole10PR.text = str(
+            round(userData[currUser]["holes"][9].parRate * 100)) + "%"
+        screen.ids.background.ids.stats.ids.hole10GR.text = str(
+            round(userData[currUser]["holes"][9].greenRate * 100)) + "%"
+        screen.ids.background.ids.stats.ids.hole10SR.text = str(
+            round(userData[currUser]["holes"][9].saveRate * 100)) + "%"
         screen.ids.background.ids.stats.ids.hole10Bulls.text = str(userData[currUser]["holes"][9].bulls)
 
         screen.ids.background.ids.stats.ids.hole11Best.text = str(userData[currUser]["holes"][10].bestScore)
         screen.ids.background.ids.stats.ids.hole11Average.text = str(userData[currUser]["holes"][10].avgScore)
-        screen.ids.background.ids.stats.ids.hole11PR.text = str(userData[currUser]["holes"][10].parRate)
-        screen.ids.background.ids.stats.ids.hole11GR.text = str(userData[currUser]["holes"][10].greenRate)
-        screen.ids.background.ids.stats.ids.hole11SR.text = str(userData[currUser]["holes"][10].saveRate)
+        screen.ids.background.ids.stats.ids.hole11PR.text = str(
+            round(userData[currUser]["holes"][10].parRate * 100)) + "%"
+        screen.ids.background.ids.stats.ids.hole11GR.text = str(
+            round(userData[currUser]["holes"][10].greenRate * 100)) + "%"
+        screen.ids.background.ids.stats.ids.hole11SR.text = str(
+            round(userData[currUser]["holes"][10].saveRate * 100)) + "%"
         screen.ids.background.ids.stats.ids.hole11Bulls.text = str(userData[currUser]["holes"][10].bulls)
 
         screen.ids.background.ids.stats.ids.hole12Best.text = str(userData[currUser]["holes"][11].bestScore)
         screen.ids.background.ids.stats.ids.hole12Average.text = str(userData[currUser]["holes"][11].avgScore)
-        screen.ids.background.ids.stats.ids.hole12PR.text = str(userData[currUser]["holes"][11].parRate)
-        screen.ids.background.ids.stats.ids.hole12GR.text = str(userData[currUser]["holes"][11].greenRate)
-        screen.ids.background.ids.stats.ids.hole12SR.text = str(userData[currUser]["holes"][11].saveRate)
+        screen.ids.background.ids.stats.ids.hole12PR.text = str(
+            round(userData[currUser]["holes"][11].parRate * 100)) + "%"
+        screen.ids.background.ids.stats.ids.hole12GR.text = str(
+            round(userData[currUser]["holes"][11].greenRate * 100)) + "%"
+        screen.ids.background.ids.stats.ids.hole12SR.text = str(
+            round(userData[currUser]["holes"][11].saveRate * 100)) + "%"
         screen.ids.background.ids.stats.ids.hole12Bulls.text = str(userData[currUser]["holes"][11].bulls)
 
         screen.ids.background.ids.stats.ids.hole13Best.text = str(userData[currUser]["holes"][12].bestScore)
         screen.ids.background.ids.stats.ids.hole13Average.text = str(userData[currUser]["holes"][12].avgScore)
-        screen.ids.background.ids.stats.ids.hole13PR.text = str(userData[currUser]["holes"][12].parRate)
-        screen.ids.background.ids.stats.ids.hole13GR.text = str(userData[currUser]["holes"][12].greenRate)
-        screen.ids.background.ids.stats.ids.hole13SR.text = str(userData[currUser]["holes"][12].saveRate)
+        screen.ids.background.ids.stats.ids.hole13PR.text = str(
+            round(userData[currUser]["holes"][12].parRate * 100)) + "%"
+        screen.ids.background.ids.stats.ids.hole13GR.text = str(
+            round(userData[currUser]["holes"][12].greenRate * 100)) + "%"
+        screen.ids.background.ids.stats.ids.hole13SR.text = str(
+            round(userData[currUser]["holes"][12].saveRate * 100)) + "%"
         screen.ids.background.ids.stats.ids.hole13Bulls.text = str(userData[currUser]["holes"][12].bulls)
 
         screen.ids.background.ids.stats.ids.hole14Best.text = str(userData[currUser]["holes"][13].bestScore)
         screen.ids.background.ids.stats.ids.hole14Average.text = str(userData[currUser]["holes"][13].avgScore)
-        screen.ids.background.ids.stats.ids.hole14PR.text = str(userData[currUser]["holes"][13].parRate)
-        screen.ids.background.ids.stats.ids.hole14GR.text = str(userData[currUser]["holes"][13].greenRate)
-        screen.ids.background.ids.stats.ids.hole14SR.text = str(userData[currUser]["holes"][13].saveRate)
+        screen.ids.background.ids.stats.ids.hole14PR.text = str(
+            round(userData[currUser]["holes"][13].parRate * 100)) + "%"
+        screen.ids.background.ids.stats.ids.hole14GR.text = str(
+            round(userData[currUser]["holes"][13].greenRate * 100)) + "%"
+        screen.ids.background.ids.stats.ids.hole14SR.text = str(
+            round(userData[currUser]["holes"][13].saveRate * 100)) + "%"
         screen.ids.background.ids.stats.ids.hole14Bulls.text = str(userData[currUser]["holes"][13].bulls)
 
         screen.ids.background.ids.stats.ids.hole15Best.text = str(userData[currUser]["holes"][14].bestScore)
         screen.ids.background.ids.stats.ids.hole15Average.text = str(userData[currUser]["holes"][14].avgScore)
-        screen.ids.background.ids.stats.ids.hole15PR.text = str(userData[currUser]["holes"][14].parRate)
-        screen.ids.background.ids.stats.ids.hole15GR.text = str(userData[currUser]["holes"][14].greenRate)
-        screen.ids.background.ids.stats.ids.hole15SR.text = str(userData[currUser]["holes"][14].saveRate)
+        screen.ids.background.ids.stats.ids.hole15PR.text = str(
+            round(userData[currUser]["holes"][14].parRate * 100)) + "%"
+        screen.ids.background.ids.stats.ids.hole15GR.text = str(
+            round(userData[currUser]["holes"][14].greenRate * 100)) + "%"
+        screen.ids.background.ids.stats.ids.hole15SR.text = str(
+            round(userData[currUser]["holes"][14].saveRate * 100)) + "%"
         screen.ids.background.ids.stats.ids.hole15Bulls.text = str(userData[currUser]["holes"][14].bulls)
 
         screen.ids.background.ids.stats.ids.hole16Best.text = str(userData[currUser]["holes"][15].bestScore)
         screen.ids.background.ids.stats.ids.hole16Average.text = str(userData[currUser]["holes"][15].avgScore)
-        screen.ids.background.ids.stats.ids.hole16PR.text = str(userData[currUser]["holes"][15].parRate)
-        screen.ids.background.ids.stats.ids.hole16GR.text = str(userData[currUser]["holes"][15].greenRate)
-        screen.ids.background.ids.stats.ids.hole16SR.text = str(userData[currUser]["holes"][15].saveRate)
+        screen.ids.background.ids.stats.ids.hole16PR.text = str(
+            round(userData[currUser]["holes"][15].parRate * 100)) + "%"
+        screen.ids.background.ids.stats.ids.hole16GR.text = str(
+            round(userData[currUser]["holes"][15].greenRate * 100)) + "%"
+        screen.ids.background.ids.stats.ids.hole16SR.text = str(
+            round(userData[currUser]["holes"][15].saveRate * 100)) + "%"
         screen.ids.background.ids.stats.ids.hole16Bulls.text = str(userData[currUser]["holes"][15].bulls)
 
         screen.ids.background.ids.stats.ids.hole17Best.text = str(userData[currUser]["holes"][16].bestScore)
         screen.ids.background.ids.stats.ids.hole17Average.text = str(userData[currUser]["holes"][16].avgScore)
-        screen.ids.background.ids.stats.ids.hole17PR.text = str(userData[currUser]["holes"][16].parRate)
-        screen.ids.background.ids.stats.ids.hole17GR.text = str(userData[currUser]["holes"][16].greenRate)
-        screen.ids.background.ids.stats.ids.hole17SR.text = str(userData[currUser]["holes"][16].saveRate)
+        screen.ids.background.ids.stats.ids.hole17PR.text = str(
+            round(userData[currUser]["holes"][16].parRate * 100)) + "%"
+        screen.ids.background.ids.stats.ids.hole17GR.text = str(
+            round(userData[currUser]["holes"][16].greenRate * 100)) + "%"
+        screen.ids.background.ids.stats.ids.hole17SR.text = str(
+            round(userData[currUser]["holes"][16].saveRate * 100)) + "%"
         screen.ids.background.ids.stats.ids.hole17Bulls.text = str(userData[currUser]["holes"][16].bulls)
 
         screen.ids.background.ids.stats.ids.hole18Best.text = str(userData[currUser]["holes"][17].bestScore)
         screen.ids.background.ids.stats.ids.hole18Average.text = str(userData[currUser]["holes"][17].avgScore)
-        screen.ids.background.ids.stats.ids.hole18PR.text = str(userData[currUser]["holes"][17].parRate)
-        screen.ids.background.ids.stats.ids.hole18GR.text = str(userData[currUser]["holes"][17].greenRate)
-        screen.ids.background.ids.stats.ids.hole18SR.text = str(userData[currUser]["holes"][17].saveRate)
+        screen.ids.background.ids.stats.ids.hole18PR.text = str(
+            round(userData[currUser]["holes"][17].parRate * 100)) + "%"
+        screen.ids.background.ids.stats.ids.hole18GR.text = str(
+            round(userData[currUser]["holes"][17].greenRate * 100)) + "%"
+        screen.ids.background.ids.stats.ids.hole18SR.text = str(
+            round(userData[currUser]["holes"][17].saveRate * 100)) + "%"
         screen.ids.background.ids.stats.ids.hole18Bulls.text = str(userData[currUser]["holes"][17].bulls)
 
 class MainBackground(Widget):

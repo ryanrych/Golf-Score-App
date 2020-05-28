@@ -732,8 +732,9 @@ WindowManager:
                     text: "Statistics"
 
                 Label:
-                    size_hint: 1, .03
-                    text: ""
+                    size_hint: 1, .07
+                    color: app.hexToKivyColor("#595959",1)
+                    text: "Holes"
 
                 BoxLayout:
                     size_hint: 1, .74
@@ -751,7 +752,7 @@ WindowManager:
                             height: self.texture_size[1]
                             width: self.texture_size[0]
                             color: 0,0,0,1
-                            text: "Hole"
+                            text: "Hole:"
 
                         Label:
                             size_hint: None, None
@@ -879,6 +880,10 @@ WindowManager:
                             color: 0,0,0,1
                             text: "18"
 
+                    Label:
+                        size_hint: .05, 1
+                        text: ""
+
                     ScrollView:
                         size_hint: .8, 1
 
@@ -896,7 +901,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
-                                text: "Best"
+                                text: "Best:"
 
                             Label:
                                 size_hint: None, None
@@ -910,7 +915,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
-                                text: "Average"
+                                text: "Average:"
 
                             Label:
                                 size_hint: None, None
@@ -924,7 +929,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
-                                text: "Par Rate"
+                                text: "Par Rate:"
 
                             Label:
                                 size_hint: None, None
@@ -938,7 +943,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
-                                text: "Green Rate"
+                                text: "Green Rate:"
 
                             Label:
                                 size_hint: None, None
@@ -952,7 +957,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
-                                text: "Save Rate"
+                                text: "Save Rate:"
 
                             Label:
                                 size_hint: None, None
@@ -966,7 +971,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
-                                text: "Bulls"
+                                text: "Bulls:"
 
                             Label:
                                 id: hole1Best
@@ -2472,6 +2477,8 @@ WindowManager:
 
                     Button:
                         size_hint: .55, 1
+                        background_normal: ""
+                        background_color: app.hexToKivyColor("#008ae6",1)
                         text: "Back"
 
                     Label:
@@ -2480,10 +2487,12 @@ WindowManager:
 
                     Button:
                         size_hint: .55, 1
+                        background_normal: ""
+                        background_color: app.hexToKivyColor("#008ae6",1)
                         text: "Next Page"
 
                 Label:
-                    size_hint: 1, .07
+                    size_hint: 1, .03
                     text: ""
 
             Label:
