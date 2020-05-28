@@ -413,6 +413,7 @@ WindowManager:
                         background_normal: ""
                         background_color: app.hexToKivyColor("#008ae6",1)
                         on_release:
+                            root.updateStatsScreen()
                             app.root.transition = CardTransition(direction = "up", mode = "push", duration = .3)
                             app.root.current = "StatsScreen"
 
@@ -700,7 +701,6 @@ WindowManager:
 
 
 <StatsButtons>:
-
     size_hint: None, None
 
     RelativeLayout:
@@ -717,9 +717,1783 @@ WindowManager:
             size: self.parent.size
             orientation: "horizontal"
 
+            Label:
+                size_hint: .05, 1
+                text: ""
+
+            BoxLayout:
+                size_hint: .9, 1
+                orientation: "vertical"
+
+                Label:
+                    size_hint: 1, .1
+                    color: 0,0,0,1
+                    font_size: .65 * self.height
+                    text: "Statistics"
+
+                Label:
+                    size_hint: 1, .03
+                    text: ""
+
+                BoxLayout:
+                    size_hint: 1, .74
+                    height: self.minimum_height
+                    orientation: "horizontal"
+
+                    GridLayout:
+                        size_hint: None, 1
+                        width: self.minimum_width
+                        padding: 3
+                        cols: 1
+
+                        Label:
+                            size_hint: None, None
+                            height: self.texture_size[1]
+                            width: self.texture_size[0]
+                            color: 0,0,0,1
+                            text: "Hole"
+
+                        Label:
+                            size_hint: None, None
+                            height: self.texture_size[1]
+                            width: self.texture_size[0]
+                            color: 0,0,0,1
+                            text: "1"
+
+                        Label:
+                            size_hint: None, None
+                            height: self.texture_size[1]
+                            width: self.texture_size[0]
+                            color: 0,0,0,1
+                            text: "2"
+
+                        Label:
+                            size_hint: None, None
+                            height: self.texture_size[1]
+                            width: self.texture_size[0]
+                            color: 0,0,0,1
+                            text: "3"
+
+                        Label:
+                            size_hint: None, None
+                            height: self.texture_size[1]
+                            width: self.texture_size[0]
+                            color: 0,0,0,1
+                            text: "4"
+
+                        Label:
+                            size_hint: None, None
+                            height: self.texture_size[1]
+                            width: self.texture_size[0]
+                            color: 0,0,0,1
+                            text: "5"
+
+                        Label:
+                            size_hint: None, None
+                            height: self.texture_size[1]
+                            width: self.texture_size[0]
+                            color: 0,0,0,1
+                            text: "6"
+
+                        Label:
+                            size_hint: None, None
+                            height: self.texture_size[1]
+                            width: self.texture_size[0]
+                            color: 0,0,0,1
+                            text: "7"
+
+                        Label:
+                            size_hint: None, None
+                            height: self.texture_size[1]
+                            width: self.texture_size[0]
+                            color: 0,0,0,1
+                            text: "8"
+
+                        Label:
+                            size_hint: None, None
+                            height: self.texture_size[1]
+                            width: self.texture_size[0]
+                            color: 0,0,0,1
+                            text: "9"
+
+                        Label:
+                            size_hint: None, None
+                            height: self.texture_size[1]
+                            width: self.texture_size[0]
+                            color: 0,0,0,1
+                            text: "10"
+
+                        Label:
+                            size_hint: None, None
+                            height: self.texture_size[1]
+                            width: self.texture_size[0]
+                            color: 0,0,0,1
+                            text: "11"
+
+                        Label:
+                            size_hint: None, None
+                            height: self.texture_size[1]
+                            width: self.texture_size[0]
+                            color: 0,0,0,1
+                            text: "12"
+
+                        Label:
+                            size_hint: None, None
+                            height: self.texture_size[1]
+                            width: self.texture_size[0]
+                            color: 0,0,0,1
+                            text: "13"
+
+                        Label:
+                            size_hint: None, None
+                            height: self.texture_size[1]
+                            width: self.texture_size[0]
+                            color: 0,0,0,1
+                            text: "14"
+
+                        Label:
+                            size_hint: None, None
+                            height: self.texture_size[1]
+                            width: self.texture_size[0]
+                            color: 0,0,0,1
+                            text: "15"
+
+                        Label:
+                            size_hint: None, None
+                            height: self.texture_size[1]
+                            width: self.texture_size[0]
+                            color: 0,0,0,1
+                            text: "16"
+
+                        Label:
+                            size_hint: None, None
+                            height: self.texture_size[1]
+                            width: self.texture_size[0]
+                            color: 0,0,0,1
+                            text: "17"
+
+                        Label:
+                            size_hint: None, None
+                            height: self.texture_size[1]
+                            width: self.texture_size[0]
+                            color: 0,0,0,1
+                            text: "18"
+
+                    ScrollView:
+                        size_hint: .8, 1
+
+                        do_scroll_y: False
+                        do_scroll_x: True
+
+                        GridLayout:
+                            size_hint: None, 1
+                            width: self.minimum_width
+                            padding: 3
+                            cols: 11
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "Best"
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "Average"
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "Par Rate"
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "Green Rate"
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "Save Rate"
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "Bulls"
+
+                            Label:
+                                id: hole1Best
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole1Average
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole1PR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole1GR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole1SR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole1Bulls
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                id: hole2Best
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole2Average
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole2PR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole2GR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole2SR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole2Bulls
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                id: hole3Best
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole3Average
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole3PR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole3GR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole3SR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole3Bulls
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                id: hole4Best
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole4Average
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole4PR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole4GR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole4SR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole4Bulls
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                id: hole5Best
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole5Average
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole5PR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole5GR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole5SR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole5Bulls
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                id: hole6Best
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole6Average
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole6PR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole6GR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole6SR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole6Bulls
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                id: hole7Best
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole7Average
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole7PR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole7GR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole7SR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole7Bulls
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                id: hole8Best
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole8Average
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole8PR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole8GR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole8SR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole8Bulls
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                id: hole9Best
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole9Average
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole9PR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole9GR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole9SR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole9Bulls
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                id: hole10Best
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole10Average
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole10PR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole10GR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole10SR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole10Bulls
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                id: hole11Best
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole11Average
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole11PR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole11GR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole11SR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole11Bulls
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                id: hole12Best
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole12Average
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole12PR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole12GR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole12SR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole12Bulls
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                id: hole13Best
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole13Average
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole13PR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole13GR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole13SR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole13Bulls
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                id: hole14Best
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole14Average
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole14PR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole14GR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole14SR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole14Bulls
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                id: hole15Best
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole15Average
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole15PR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole15GR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole15SR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole15Bulls
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                id: hole16Best
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole16Average
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole16PR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole16GR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole16SR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole16Bulls
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                id: hole17Best
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole17Average
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole17PR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole17GR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole17SR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole17Bulls
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                id: hole18Best
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole18Average
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole18PR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole18GR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole18SR
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                            Label:
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: "     "
+
+                            Label:
+                                id: hole18Bulls
+                                size_hint: None, None
+                                height: self.texture_size[1]
+                                width: self.texture_size[0]
+                                color: 0,0,0,1
+                                text: ""
+
+                Label:
+                    size_hint: 1, .03
+                    text: ""
+
+                BoxLayout:
+                    size_hint: 1, .07
+                    orientation: "horizontal"
+
+                    Button:
+                        size_hint: .55, 1
+                        text: "Back"
+
+                    Label:
+                        size_hint: .1, 1
+                        text: ""
+
+                    Button:
+                        size_hint: .55, 1
+                        text: "Next Page"
+
+                Label:
+                    size_hint: 1, .07
+                    text: ""
+
+            Label:
+                size_hint: .05, 1
+                text: ""
+
 
 
 <StatsBackground>:
+
     AnchorLayout:
         canvas.before:
             Rectangle:
@@ -730,12 +2504,14 @@ WindowManager:
         anchor_x: 'center'
         anchor_y: 'center'
         StatsButtons:
-            size_hint: .95, .6
+            id: stats
+            size_hint: .9, .8
 
 <StatsScreen>:
     name: "StatsScreen"
     FloatLayout:
         StatsBackground:
+            id: background
 
 
 
