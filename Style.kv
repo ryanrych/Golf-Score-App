@@ -468,6 +468,8 @@ WindowManager:
     userAverageScore: userAverageScore
     userPar: userPar
     userGreen: userGreen
+    scoreLabel: scoreLabel
+    puttLabel: puttLabel
     scoreField: scoreField
     puttField: puttField
     errorMessage: errorMessage
@@ -508,7 +510,7 @@ WindowManager:
                     size_hint: 1, .1
                     color: 0,0,0,1
                     font_size: .75 * self.height
-                    text: "Hole: " + str(root.hole)
+                    text: "Welcome!"
 
                 Label:
                     id: descriptionID
@@ -518,7 +520,7 @@ WindowManager:
                     halign: "center"
                     color: 0,0,0,1
                     font_size: .22 * self.height
-                    text: str(root.description)
+                    text: "This app will guide you through your round at Rychlak International. Please record all scores honestly for fair course data."
 
                 Label:
                     size_hint: 1, .02
@@ -528,7 +530,7 @@ WindowManager:
                     id: distance
                     size_hint: 1, .06
                     color: 0,0,0,1
-                    text: "Distance: " + str(root.yards) + " yds"
+                    text: ""
 
                 GridLayout:
                     size_hint: 1, .2
@@ -538,69 +540,69 @@ WindowManager:
                         size_hint: 1, .25
                         halign: "left"
                         color: 0,0,0,1
-                        text: "Course:"
+                        text: ""
 
                     Label:
                         size_hint: 1, .25
                         halign: "left"
                         color: 0,0,0,1
-                        text: "You:"
+                        text: ""
 
                     Label:
                         id: courseGreen
                         size_hint: 1, .25
                         halign: "left"
                         color: 0,0,0,1
-                        text: "On Percentage: " + str(root.onRate) + "%"
+                        text: ""
 
                     Label:
                         id: userGreen
                         size_hint: 1, .25
                         halign: "left"
                         color: 0,0,0,1
-                        text: "On Percentage: " + str(root.userGR) + "%"
+                        text: ""
 
                     Label:
                         id: coursePar
                         size_hint: 1, .25
                         halign: "left"
                         color: 0,0,0,1
-                        text: "Par Percentage: " + str(root.parRate) + "%"
+                        text: ""
 
                     Label:
                         id: userPar
                         size_hint: 1, .25
                         halign: "left"
                         color: 0,0,0,1
-                        text: "Par Percentage: " + str(root.userPR) + "%"
+                        text: ""
 
                     Label:
                         id: average
                         size_hint: 1, .25
                         halign: "left"
                         color: 0,0,0,1
-                        text: "Average Score: " + str(root.averageScore)
+                        text: ""
 
                     Label:
                         id: userAverageScore
                         size_hint: 1, .25
                         halign: "left"
                         color: 0,0,0,1
-                        text: "Average Score: " + str(root.userAverage)
+                        text: ""
 
                     Label:
                         id: index
                         size_hint: 1, .25
                         halign: "left"
                         color: 0,0,0,1
-                        text: "Stroke Index: " + str(root.strokeIndex)
+                        text: ""
 
                     Label:
                         id: userBestScore
                         size_hint: 1, .25
                         halign: "left"
                         color: 0,0,0,1
-                        text: "Best Score: " + str(root.userPR) + "%"
+                        text: ""
 
                 Label:
                     size_hint: 1, .05
@@ -615,30 +617,32 @@ WindowManager:
                         text: ""
 
                     Label:
+                        id: scoreLabel
                         size_hint: .25, 1
                         color: 0,0,0,1
-                        text: "Score:"
+                        text: ""
 
                     TextInput:
                         id: scoreField
                         size_hint: .11, 1
                         multiline: False
-                        background_normal: "White.png"
-                        background_active: "White.png"
+                        background_normal: "Blank.png"
+                        background_active: "Blank.png"
                         cursor_color: 0,0,0,1
                         foreground_color: 0,0,0,1
 
                     Label:
+                        id: puttLabel
                         size_hint: .24, 1
                         color: 0,0,0,1
-                        text: "Putts: "
+                        text: ""
 
                     TextInput:
                         id: puttField
                         size_hint: .11, 1
                         multiline: False
-                        background_normal: "White.png"
-                        background_active: "White.png"
+                        background_normal: "Blank.png"
+                        background_active: "Blank.png"
                         cursor_color: 0,0,0,1
                         foreground_color: 0,0,0,1
 
@@ -658,7 +662,8 @@ WindowManager:
                     background_normal: ""
                     background_color: app.hexToKivyColor("#008ae6",1)
                     on_release:
-                        if root.hole != 18: root.updateHole();
+                        if root.hole == 0: root.startGame();
+                        elif root.hole != 18: root.updateHole();
                         else:\
                         root.updateData();\
                         root.endGame();\

@@ -278,13 +278,13 @@ class GameButtons(Widget):
     global userData
     global currUser
 
-    hole = 1
-    description = mastersData[str(hole)]["description"]
-    yards = mastersData[str(hole)]["distance"]
-    onRate = int(round(mastersData[str(hole)]["on rate"] * 100,0))
-    parRate = int(round(mastersData[str(hole)]["par rate"] * 100,0))
-    averageScore = round(mastersData[str(hole)]["average"],1)
-    strokeIndex = mastersData[str(hole)]["index"]
+    hole = 0
+    description = mastersData[str(hole + 1)]["description"]
+    yards = mastersData[str(hole + 1)]["distance"]
+    onRate = int(round(mastersData[str(hole + 1)]["on rate"] * 100,0))
+    parRate = int(round(mastersData[str(hole + 1)]["par rate"] * 100,0))
+    averageScore = round(mastersData[str(hole + 1)]["average"],1)
+    strokeIndex = mastersData[str(hole + 1)]["index"]
 
     userBest = userData[currUser]["holes"][0].bestScore
     userAverage = round(userData[currUser]["holes"][0].avgScore,1)
@@ -455,12 +455,12 @@ class GameButtons(Widget):
             score += min(userData[currUser]["holes"][i].scores)
         userData[currUser]["super 1"] = score
 
-        self.hole = 1
-        self.description = mastersData[str(self.hole)]["description"]
-        self.bestScore = mastersData[str(self.hole)]["low"]
-        self.averageScore = round(mastersData[str(self.hole)]["average"], 1)
-        self.yards = mastersData[str(self.hole)]["distance"]
-        self.strokeIndex = mastersData[str(self.hole)]["index"]
+        self.hole = 0
+        self.description = mastersData[str(self.hole + 1)]["description"]
+        self.bestScore = mastersData[str(self.hole + 1)]["low"]
+        self.averageScore = round(mastersData[str(self.hole + 1)]["average"], 1)
+        self.yards = mastersData[str(self.hole + 1)]["distance"]
+        self.strokeIndex = mastersData[str(self.hole + 1)]["index"]
 
         self.frontScore = 0
         self.frontPutts = 0
@@ -469,13 +469,25 @@ class GameButtons(Widget):
         self.score = 0
         self.putts = 0
 
-        self.name.text = "Hole: " + str(self.hole)
-        self.descriptionID.text = str(mastersData[str(self.hole)]["description"])
-        self.average.text = str(round(mastersData[str(self.hole)]["average"], 1))
-        self.index.text = str(mastersData[str(self.hole)]["index"])
-        self.distance.text = str(mastersData[str(self.hole)]["distance"]) + " yds"
+        self.name.text = "Welcome!"
+        self.descriptionID.text = "This app will guide you through your round at Rychlak International. Please record all scores honestly for fair course data."
+        self.average.text = ""
+        self.index.text = ""
+        self.distance.text = ""
+        self.courseGreen.text = ""
+        self.userGreen.text = ""
+        self.coursePar.text = ""
+        self.userPar.text = ""
+        self.userBestScore.text = ""
+        self.userAverageScore.text = ""
         self.scoreField.text = ""
         self.puttField.text = ""
+        self.scoreLabel.text = ""
+        self.puttLabel.text = ""
+        self.scoreField.background_normal = "Blank.png"
+        self.scoreField.background_active = "Blank.png"
+        self.puttField.background_normal = "Blank.png"
+        self.puttField.background_active = "Blank.png"
 
         self.writeData()
 
@@ -643,6 +655,29 @@ class GameButtons(Widget):
             else:
                 self.errorMessage.text = "Enter Your Putts"
             Clock.schedule_once(self.failInputEnd,2)
+
+    def startGame(self):
+        self.hole += 1
+        self.name.text = "Hole: " + str(self.hole)
+        self.descriptionID.text = str(mastersData[str(self.hole)]["description"])
+        self.userBestScore.text = "Best Score: " + str(userData[currUser]["holes"][self.hole - 1].bestScore)
+        self.average.text = "Average Score: " + str(round(mastersData[str(self.hole)]["average"], 1))
+        self.userAverageScore.text = "Average Score: " + str(round(userData[currUser]["holes"][self.hole - 1].avgScore, 1))
+        self.index.text = "Stroke Index: " + str(mastersData[str(self.hole)]["index"])
+        self.userPar.text = "Par Percent: " + str(round(userData[currUser]["holes"][self.hole - 1].parRate * 100, 0)) + "%"
+        self.userGreen.text = "On Percent: " + str(round(userData[currUser]["holes"][self.hole - 1].greenRate * 100, 0)) + "%"
+        self.coursePar.text = "Par Percent: " + str(round(mastersData[str(self.hole)]["par rate"] * 100, 0)) + "%"
+        self.courseGreen.text = "On Percent: " + str(round(mastersData[str(self.hole)]["on rate"] * 100, 0)) + "%"
+        self.distance.text = "Distance: " + str(mastersData[str(self.hole)]["distance"]) + " yds"
+        self.scoreField.background_normal = "White.png"
+        self.scoreField.background_active = "White.png"
+        self.puttField.background_normal = "White.png"
+        self.puttField.background_active = "White.png"
+        self.scoreLabel.text = "Score: "
+        self.puttLabel.text = "Putt: "
+        self.scoreField.text = ""
+        self.puttField.text = ""
+
 
     def failInputEnd(self, dt):
         self.errorMessage.text = ""
