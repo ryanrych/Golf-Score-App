@@ -7,7 +7,8 @@ WindowManager:
     CreateAccountScreen:
     MainScreen:
     GameScreen:
-    StatsScreen:
+    StatsScreenHoles:
+    StatsScreenCourse
 
 <LoginButtons>:
     userField: userField
@@ -415,7 +416,7 @@ WindowManager:
                         on_release:
                             root.updateStatsScreen()
                             app.root.transition = CardTransition(direction = "up", mode = "push", duration = .3)
-                            app.root.current = "StatsScreen"
+                            app.root.current = "StatsScreenCourse"
 
                     Button:
                         size_hint: 1, .06
@@ -700,7 +701,7 @@ WindowManager:
 
 
 
-<StatsButtons>:
+<StatsButtonsHoles>:
     size_hint: None, None
 
     RelativeLayout:
@@ -2471,8 +2472,199 @@ WindowManager:
                     size_hint: 1, .03
                     text: ""
 
-                BoxLayout:
+                Button:
+                    size_hint: 1, .06
+                    text: "Back"
+                    background_normal: ""
+                    background_color: app.hexToKivyColor("#008ae6",1)
+                    on_release:
+                        app.root.transition = CardTransition(direction = "right", mode = "pop")
+                        app.root.current = "StatsScreenCourse"
+
+                Label:
+                    size_hint: 1, .04
+                    text: ""
+
+            Label:
+                size_hint: .05, 1
+                text: ""
+
+
+
+<StatsBackgroundHoles>:
+
+    AnchorLayout:
+        canvas.before:
+            Rectangle:
+                pos: self.pos
+                size: self.size
+                source: "StatsBackground2.jpg"
+        size: self.parent.size
+        anchor_x: 'center'
+        anchor_y: 'center'
+        StatsButtonsHoles:
+            id: stats
+            size_hint: .9, .8
+
+<StatsScreenHoles>:
+    name: "StatsScreenHoles"
+    FloatLayout:
+        StatsBackgroundHoles:
+            id: background
+
+
+
+<StatsButtonsCourse>:
+    size_hint: None, None
+
+    RelativeLayout:
+        pos: self.parent.pos
+        size: self.parent.size
+
+        BoxLayout:
+            canvas.before:
+                Color:
+                    rgba: app.hexToKivyColor("#ffffff",.8)
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+            size: self.parent.size
+            orientation: "horizontal"
+
+            Label:
+                size_hint: .05, 1
+                text: ""
+
+            BoxLayout:
+                size_hint: .9, 1
+                orientation: "vertical"
+
+                Label:
+                    size_hint: 1, .1
+                    color: 0,0,0,1
+                    font_size: .6 * self.height
+                    text: "Statistics"
+
+                Label:
                     size_hint: 1, .07
+                    color: app.hexToKivyColor("#595959",1)
+                    text: "Course"
+
+                GridLayout:
+                    size_hint: 1, .22
+                    cols: 2
+
+                    Label:
+                        #size_hint: .5, .34
+                        color: 0,0,0,1
+                        text: "Front:"
+
+                    Label:
+                        #size_hint: .5, .33
+                        color: 0,0,0,1
+                        text: "Back:"
+
+                    Label:
+                        #size_hint: .5, .33
+                        id: frontBest
+                        color: 0,0,0,1
+                        text: ""
+
+                    Label:
+                        #size_hint: .5, .33
+                        id: backBest
+                        color: 0,0,0,1
+                        text: ""
+
+                    Label:
+                        #size_hint: .5, .33
+                        id: frontAverage
+                        color: 0,0,0,1
+                        text: ""
+
+                    Label:
+                        #size_hint: .5, .33
+                        id: backAverage
+                        color: 0,0,0,1
+                        text: ""
+
+                Label:
+                    size_hint: 1, .04
+
+                Label:
+                    size_hint: 1, .05
+                    color: 0,0,0,1
+                    text: "Full Course:"
+
+                Label:
+                    id: fullBest
+                    size_hint: 1, .05
+                    color: 0,0,0,1
+                    text: ""
+
+                Label:
+                    id: fullBestDate
+                    size_hint: 1, .05
+                    color: 0,0,0,1
+                    text: ""
+
+                Label:
+                    id: fullAverage
+                    size_hint: 1, .05
+                    color: 0,0,0,1
+                    text: ""
+
+                Label:
+                    id: super9
+                    size_hint: 1, .05
+                    color: 0,0,0,1
+                    text: ""
+
+                Label:
+                    id: super1
+                    size_hint: 1, .05
+                    color: 0,0,0,1
+                    text: ""
+
+                Label:
+                    size_hint: 1, .03
+                    text: ""
+
+                Label:
+                    size_hint: 1, .05
+                    color: 0,0,0,1
+                    text: "Shot Stats:"
+
+                GridLayout:
+                    size_hint: 1, .13
+                    cols: 2
+
+                    Label:
+                        id: userPR
+                        color: 0,0,0,1
+                        text: ""
+
+                    Label:
+                        id: userBulls
+                        color: 0,0,0,1
+                        text: ""
+
+                    Label:
+                        id: userGR
+                        color: 0,0,0,1
+                        text: ""
+
+                    Label:
+                        id: userSR
+                        color: 0,0,0,1
+                        text: ""
+
+                Label:
+                    size_hint: 1, .03
+                    text: ""
+
+                BoxLayout:
+                    size_hint: 1, .06
                     orientation: "horizontal"
 
                     Button:
@@ -2480,6 +2672,9 @@ WindowManager:
                         background_normal: ""
                         background_color: app.hexToKivyColor("#008ae6",1)
                         text: "Back"
+                        on_release:
+                            app.root.transition = CardTransition(direction = "down", mode = "pop")
+                            app.root.current = "MainScreen"
 
                     Label:
                         size_hint: .1, 1
@@ -2489,7 +2684,11 @@ WindowManager:
                         size_hint: .55, 1
                         background_normal: ""
                         background_color: app.hexToKivyColor("#008ae6",1)
-                        text: "Next Page"
+                        text: "Hole Stats"
+                        on_release:
+                            app.root.transition = CardTransition(direction = "left", mode = "push")
+                            app.root.current = "StatsScreenHoles"
+
 
                 Label:
                     size_hint: 1, .03
@@ -2501,7 +2700,7 @@ WindowManager:
 
 
 
-<StatsBackground>:
+<StatsBackgroundCourse>:
 
     AnchorLayout:
         canvas.before:
@@ -2512,14 +2711,14 @@ WindowManager:
         size: self.parent.size
         anchor_x: 'center'
         anchor_y: 'center'
-        StatsButtons:
+        StatsButtonsCourse:
             id: stats
             size_hint: .9, .8
 
-<StatsScreen>:
-    name: "StatsScreen"
+<StatsScreenCourse>:
+    name: "StatsScreenCourse"
     FloatLayout:
-        StatsBackground:
+        StatsBackgroundCourse:
             id: background
 
 

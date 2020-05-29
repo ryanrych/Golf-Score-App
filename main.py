@@ -113,7 +113,6 @@ class LoginButtons(Widget):
             if (password == userData[username]["password"]):
                 self.loginPassed = True
                 currUser = username
-                StatsButtons.hole1 = ListProperty([userData[currUser]["holes"][0].bestScore, userData[currUser]["holes"][0].avgScore, userData[currUser]["holes"][0].parRate, userData[currUser]["holes"][0].greenRate, userData[currUser]["holes"][0].saveRate, userData[currUser]["holes"][0].bulls])
             else:
                 self.loginFailedStart()
                 Clock.schedule_once(self.loginFailedEnd, 3)
@@ -271,10 +270,10 @@ class MainButtons(Widget):
         global currUser
 
         sm = App.get_running_app().root
-        screen = sm.get_screen("StatsScreen")
+        screen = sm.get_screen("StatsScreenHoles")
 
         screen.ids.background.ids.stats.ids.hole1Best.text = str(userData[currUser]["holes"][0].bestScore)
-        screen.ids.background.ids.stats.ids.hole1Average.text = str(userData[currUser]["holes"][0].avgScore)
+        screen.ids.background.ids.stats.ids.hole1Average.text = str(round(userData[currUser]["holes"][0].avgScore, 1))
         screen.ids.background.ids.stats.ids.hole1PR.text = str(
             round(userData[currUser]["holes"][0].parRate * 100)) + "%"
         screen.ids.background.ids.stats.ids.hole1GR.text = str(
@@ -284,7 +283,7 @@ class MainButtons(Widget):
         screen.ids.background.ids.stats.ids.hole1Bulls.text = str(userData[currUser]["holes"][0].bulls)
 
         screen.ids.background.ids.stats.ids.hole2Best.text = str(userData[currUser]["holes"][1].bestScore)
-        screen.ids.background.ids.stats.ids.hole2Average.text = str(userData[currUser]["holes"][1].avgScore)
+        screen.ids.background.ids.stats.ids.hole2Average.text = str(round(userData[currUser]["holes"][1].avgScore, 1))
         screen.ids.background.ids.stats.ids.hole2PR.text = str(
             round(userData[currUser]["holes"][1].parRate * 100)) + "%"
         screen.ids.background.ids.stats.ids.hole2GR.text = str(
@@ -294,7 +293,7 @@ class MainButtons(Widget):
         screen.ids.background.ids.stats.ids.hole2Bulls.text = str(userData[currUser]["holes"][1].bulls)
 
         screen.ids.background.ids.stats.ids.hole3Best.text = str(userData[currUser]["holes"][2].bestScore)
-        screen.ids.background.ids.stats.ids.hole3Average.text = str(userData[currUser]["holes"][2].avgScore)
+        screen.ids.background.ids.stats.ids.hole3Average.text = str(round(userData[currUser]["holes"][2].avgScore, 1))
         screen.ids.background.ids.stats.ids.hole3PR.text = str(
             round(userData[currUser]["holes"][2].parRate * 100)) + "%"
         screen.ids.background.ids.stats.ids.hole3GR.text = str(
@@ -304,7 +303,7 @@ class MainButtons(Widget):
         screen.ids.background.ids.stats.ids.hole3Bulls.text = str(userData[currUser]["holes"][2].bulls)
 
         screen.ids.background.ids.stats.ids.hole4Best.text = str(userData[currUser]["holes"][3].bestScore)
-        screen.ids.background.ids.stats.ids.hole4Average.text = str(userData[currUser]["holes"][3].avgScore)
+        screen.ids.background.ids.stats.ids.hole4Average.text = str(round(userData[currUser]["holes"][3].avgScore, 1))
         screen.ids.background.ids.stats.ids.hole4PR.text = str(
             round(userData[currUser]["holes"][3].parRate * 100)) + "%"
         screen.ids.background.ids.stats.ids.hole4GR.text = str(
@@ -314,7 +313,7 @@ class MainButtons(Widget):
         screen.ids.background.ids.stats.ids.hole4Bulls.text = str(userData[currUser]["holes"][3].bulls)
 
         screen.ids.background.ids.stats.ids.hole5Best.text = str(userData[currUser]["holes"][4].bestScore)
-        screen.ids.background.ids.stats.ids.hole5Average.text = str(userData[currUser]["holes"][4].avgScore)
+        screen.ids.background.ids.stats.ids.hole5Average.text = str(round(userData[currUser]["holes"][4].avgScore, 1))
         screen.ids.background.ids.stats.ids.hole5PR.text = str(
             round(userData[currUser]["holes"][4].parRate * 100)) + "%"
         screen.ids.background.ids.stats.ids.hole5GR.text = str(
@@ -324,7 +323,7 @@ class MainButtons(Widget):
         screen.ids.background.ids.stats.ids.hole5Bulls.text = str(userData[currUser]["holes"][4].bulls)
 
         screen.ids.background.ids.stats.ids.hole6Best.text = str(userData[currUser]["holes"][5].bestScore)
-        screen.ids.background.ids.stats.ids.hole6Average.text = str(userData[currUser]["holes"][5].avgScore)
+        screen.ids.background.ids.stats.ids.hole6Average.text = str(round(userData[currUser]["holes"][5].avgScore, 1))
         screen.ids.background.ids.stats.ids.hole6PR.text = str(
             round(userData[currUser]["holes"][5].parRate * 100)) + "%"
         screen.ids.background.ids.stats.ids.hole6GR.text = str(
@@ -334,7 +333,7 @@ class MainButtons(Widget):
         screen.ids.background.ids.stats.ids.hole6Bulls.text = str(userData[currUser]["holes"][5].bulls)
 
         screen.ids.background.ids.stats.ids.hole7Best.text = str(userData[currUser]["holes"][6].bestScore)
-        screen.ids.background.ids.stats.ids.hole7Average.text = str(userData[currUser]["holes"][6].avgScore)
+        screen.ids.background.ids.stats.ids.hole7Average.text = str(round(userData[currUser]["holes"][6].avgScore, 1))
         screen.ids.background.ids.stats.ids.hole7PR.text = str(
             round(userData[currUser]["holes"][6].parRate * 100)) + "%"
         screen.ids.background.ids.stats.ids.hole7GR.text = str(
@@ -344,7 +343,7 @@ class MainButtons(Widget):
         screen.ids.background.ids.stats.ids.hole7Bulls.text = str(userData[currUser]["holes"][6].bulls)
 
         screen.ids.background.ids.stats.ids.hole8Best.text = str(userData[currUser]["holes"][7].bestScore)
-        screen.ids.background.ids.stats.ids.hole8Average.text = str(userData[currUser]["holes"][7].avgScore)
+        screen.ids.background.ids.stats.ids.hole8Average.text = str(round(userData[currUser]["holes"][7].avgScore, 1))
         screen.ids.background.ids.stats.ids.hole8PR.text = str(
             round(userData[currUser]["holes"][7].parRate * 100)) + "%"
         screen.ids.background.ids.stats.ids.hole8GR.text = str(
@@ -354,7 +353,7 @@ class MainButtons(Widget):
         screen.ids.background.ids.stats.ids.hole8Bulls.text = str(userData[currUser]["holes"][7].bulls)
 
         screen.ids.background.ids.stats.ids.hole9Best.text = str(userData[currUser]["holes"][8].bestScore)
-        screen.ids.background.ids.stats.ids.hole9Average.text = str(userData[currUser]["holes"][8].avgScore)
+        screen.ids.background.ids.stats.ids.hole9Average.text = str(round(userData[currUser]["holes"][8].avgScore, 1))
         screen.ids.background.ids.stats.ids.hole9PR.text = str(
             round(userData[currUser]["holes"][8].parRate * 100)) + "%"
         screen.ids.background.ids.stats.ids.hole9GR.text = str(
@@ -364,7 +363,7 @@ class MainButtons(Widget):
         screen.ids.background.ids.stats.ids.hole9Bulls.text = str(userData[currUser]["holes"][8].bulls)
 
         screen.ids.background.ids.stats.ids.hole10Best.text = str(userData[currUser]["holes"][9].bestScore)
-        screen.ids.background.ids.stats.ids.hole10Average.text = str(userData[currUser]["holes"][9].avgScore)
+        screen.ids.background.ids.stats.ids.hole10Average.text = str(round(userData[currUser]["holes"][9].avgScore, 1))
         screen.ids.background.ids.stats.ids.hole10PR.text = str(
             round(userData[currUser]["holes"][9].parRate * 100)) + "%"
         screen.ids.background.ids.stats.ids.hole10GR.text = str(
@@ -374,7 +373,7 @@ class MainButtons(Widget):
         screen.ids.background.ids.stats.ids.hole10Bulls.text = str(userData[currUser]["holes"][9].bulls)
 
         screen.ids.background.ids.stats.ids.hole11Best.text = str(userData[currUser]["holes"][10].bestScore)
-        screen.ids.background.ids.stats.ids.hole11Average.text = str(userData[currUser]["holes"][10].avgScore)
+        screen.ids.background.ids.stats.ids.hole11Average.text = str(round(userData[currUser]["holes"][10].avgScore, 1))
         screen.ids.background.ids.stats.ids.hole11PR.text = str(
             round(userData[currUser]["holes"][10].parRate * 100)) + "%"
         screen.ids.background.ids.stats.ids.hole11GR.text = str(
@@ -384,7 +383,7 @@ class MainButtons(Widget):
         screen.ids.background.ids.stats.ids.hole11Bulls.text = str(userData[currUser]["holes"][10].bulls)
 
         screen.ids.background.ids.stats.ids.hole12Best.text = str(userData[currUser]["holes"][11].bestScore)
-        screen.ids.background.ids.stats.ids.hole12Average.text = str(userData[currUser]["holes"][11].avgScore)
+        screen.ids.background.ids.stats.ids.hole12Average.text = str(round(userData[currUser]["holes"][11].avgScore, 1))
         screen.ids.background.ids.stats.ids.hole12PR.text = str(
             round(userData[currUser]["holes"][11].parRate * 100)) + "%"
         screen.ids.background.ids.stats.ids.hole12GR.text = str(
@@ -394,7 +393,7 @@ class MainButtons(Widget):
         screen.ids.background.ids.stats.ids.hole12Bulls.text = str(userData[currUser]["holes"][11].bulls)
 
         screen.ids.background.ids.stats.ids.hole13Best.text = str(userData[currUser]["holes"][12].bestScore)
-        screen.ids.background.ids.stats.ids.hole13Average.text = str(userData[currUser]["holes"][12].avgScore)
+        screen.ids.background.ids.stats.ids.hole13Average.text = str(round(userData[currUser]["holes"][12].avgScore, 1))
         screen.ids.background.ids.stats.ids.hole13PR.text = str(
             round(userData[currUser]["holes"][12].parRate * 100)) + "%"
         screen.ids.background.ids.stats.ids.hole13GR.text = str(
@@ -404,7 +403,7 @@ class MainButtons(Widget):
         screen.ids.background.ids.stats.ids.hole13Bulls.text = str(userData[currUser]["holes"][12].bulls)
 
         screen.ids.background.ids.stats.ids.hole14Best.text = str(userData[currUser]["holes"][13].bestScore)
-        screen.ids.background.ids.stats.ids.hole14Average.text = str(userData[currUser]["holes"][13].avgScore)
+        screen.ids.background.ids.stats.ids.hole14Average.text = str(round(userData[currUser]["holes"][13].avgScore, 1))
         screen.ids.background.ids.stats.ids.hole14PR.text = str(
             round(userData[currUser]["holes"][13].parRate * 100)) + "%"
         screen.ids.background.ids.stats.ids.hole14GR.text = str(
@@ -414,7 +413,7 @@ class MainButtons(Widget):
         screen.ids.background.ids.stats.ids.hole14Bulls.text = str(userData[currUser]["holes"][13].bulls)
 
         screen.ids.background.ids.stats.ids.hole15Best.text = str(userData[currUser]["holes"][14].bestScore)
-        screen.ids.background.ids.stats.ids.hole15Average.text = str(userData[currUser]["holes"][14].avgScore)
+        screen.ids.background.ids.stats.ids.hole15Average.text = str(round(userData[currUser]["holes"][14].avgScore, 1))
         screen.ids.background.ids.stats.ids.hole15PR.text = str(
             round(userData[currUser]["holes"][14].parRate * 100)) + "%"
         screen.ids.background.ids.stats.ids.hole15GR.text = str(
@@ -424,7 +423,7 @@ class MainButtons(Widget):
         screen.ids.background.ids.stats.ids.hole15Bulls.text = str(userData[currUser]["holes"][14].bulls)
 
         screen.ids.background.ids.stats.ids.hole16Best.text = str(userData[currUser]["holes"][15].bestScore)
-        screen.ids.background.ids.stats.ids.hole16Average.text = str(userData[currUser]["holes"][15].avgScore)
+        screen.ids.background.ids.stats.ids.hole16Average.text = str(round(userData[currUser]["holes"][15].avgScore, 1))
         screen.ids.background.ids.stats.ids.hole16PR.text = str(
             round(userData[currUser]["holes"][15].parRate * 100)) + "%"
         screen.ids.background.ids.stats.ids.hole16GR.text = str(
@@ -434,7 +433,7 @@ class MainButtons(Widget):
         screen.ids.background.ids.stats.ids.hole16Bulls.text = str(userData[currUser]["holes"][15].bulls)
 
         screen.ids.background.ids.stats.ids.hole17Best.text = str(userData[currUser]["holes"][16].bestScore)
-        screen.ids.background.ids.stats.ids.hole17Average.text = str(userData[currUser]["holes"][16].avgScore)
+        screen.ids.background.ids.stats.ids.hole17Average.text = str(round(userData[currUser]["holes"][16].avgScore, 1))
         screen.ids.background.ids.stats.ids.hole17PR.text = str(
             round(userData[currUser]["holes"][16].parRate * 100)) + "%"
         screen.ids.background.ids.stats.ids.hole17GR.text = str(
@@ -444,7 +443,7 @@ class MainButtons(Widget):
         screen.ids.background.ids.stats.ids.hole17Bulls.text = str(userData[currUser]["holes"][16].bulls)
 
         screen.ids.background.ids.stats.ids.hole18Best.text = str(userData[currUser]["holes"][17].bestScore)
-        screen.ids.background.ids.stats.ids.hole18Average.text = str(userData[currUser]["holes"][17].avgScore)
+        screen.ids.background.ids.stats.ids.hole18Average.text = str(round(userData[currUser]["holes"][17].avgScore, 1))
         screen.ids.background.ids.stats.ids.hole18PR.text = str(
             round(userData[currUser]["holes"][17].parRate * 100)) + "%"
         screen.ids.background.ids.stats.ids.hole18GR.text = str(
@@ -452,6 +451,45 @@ class MainButtons(Widget):
         screen.ids.background.ids.stats.ids.hole18SR.text = str(
             round(userData[currUser]["holes"][17].saveRate * 100)) + "%"
         screen.ids.background.ids.stats.ids.hole18Bulls.text = str(userData[currUser]["holes"][17].bulls)
+
+
+
+        screen = sm.get_screen("StatsScreenCourse")
+
+        date = ""
+        for x in userData[currUser]["games"]:
+            if int(x.frontScore) == int(userData[currUser]["best front"]):
+                date = x.datePlayed
+                break
+        screen.ids.background.ids.stats.ids.frontBest.text = "Best Score: " + str(userData[currUser]["best front"]) + "\nSet on " + date
+        date = ""
+        for x in userData[currUser]["games"]:
+            if int(x.backScore) == int(userData[currUser]["best back"]):
+                date = x.datePlayed
+                break
+        screen.ids.background.ids.stats.ids.backBest.text = "Best Score: " + str(userData[currUser]["best back"]) + "\nSet on " + date
+
+        screen.ids.background.ids.stats.ids.frontAverage.text = "Average Score: " + str(userData[currUser]["average front"])
+        screen.ids.background.ids.stats.ids.backAverage.text = "Average Score: " + str(userData[currUser]["average back"])
+
+        date = ""
+        for x in userData[currUser]["games"]:
+            if int(x.totalScore) == int(userData[currUser]["best total"]):
+                date = x.datePlayed
+                break
+        screen.ids.background.ids.stats.ids.fullBest.text = "Best Score: " + str(userData[currUser]["best total"])
+        screen.ids.background.ids.stats.ids.fullBestDate.text = "Set on " + date
+
+        screen.ids.background.ids.stats.ids.fullAverage.text = "Average Score: " + str(userData[currUser]["average total"])
+
+        screen.ids.background.ids.stats.ids.super9.text = "Front/Back Super: " + str(userData[currUser]["super 9"])
+        screen.ids.background.ids.stats.ids.super1.text = "18 Hole Super: " + str(userData[currUser]["super 1"])
+
+        screen.ids.background.ids.stats.ids.userPR.text = "Par Rate: " + str(round(userData[currUser]["par rate"] * 100)) + "%"
+        screen.ids.background.ids.stats.ids.userBulls.text = "Bulls: " + str(userData[currUser]["bulls"])
+        screen.ids.background.ids.stats.ids.userGR.text = "Green Rate: " + str(round(userData[currUser]["green rate"] * 100)) + "%"
+        screen.ids.background.ids.stats.ids.userSR.text = "Save Rate: " + str(round(userData[currUser]["save rate"] * 100)) + "%"
+
 
 class MainBackground(Widget):
     pass
@@ -878,14 +916,25 @@ class GameScreen(Screen):
 
 
 
-class StatsButtons(Widget):
+class StatsButtonsHoles(Widget):
     global userData
     global currUser
 
-class StatsBackground(Widget):
+class StatsBackgroundHoles(Widget):
     pass
 
-class StatsScreen(Screen):
+class StatsScreenHoles(Screen):
+    pass
+
+
+
+class StatsButtonsCourse(Widget):
+    pass
+
+class StatsBackgroundCourse(Widget):
+    pass
+
+class StatsScreenCourse(Screen):
     pass
 
 
