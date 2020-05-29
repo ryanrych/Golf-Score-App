@@ -220,6 +220,9 @@ class MainButtons(Widget):
         self.mainGraph.y_grid_label = True
         self.mainGraph.tick_color = GolfApp.hexToKivyColor(None,"#595959",1)
 
+        if (userData[currUser]["games count"] == 0):
+            return
+
         userScores = []
         for x in userData[currUser]["games"]:
             userScores.append(int(x.totalScore))
@@ -469,8 +472,8 @@ class MainButtons(Widget):
                 break
         screen.ids.background.ids.stats.ids.backBest.text = "Best Score: " + str(userData[currUser]["best back"]) + "\nSet on " + date
 
-        screen.ids.background.ids.stats.ids.frontAverage.text = "Average Score: " + str(userData[currUser]["average front"])
-        screen.ids.background.ids.stats.ids.backAverage.text = "Average Score: " + str(userData[currUser]["average back"])
+        screen.ids.background.ids.stats.ids.frontAverage.text = "Average Score: " + str(round(userData[currUser]["average front"],1))
+        screen.ids.background.ids.stats.ids.backAverage.text = "Average Score: " + str(round(userData[currUser]["average back"],1))
 
         date = ""
         for x in userData[currUser]["games"]:
@@ -480,7 +483,7 @@ class MainButtons(Widget):
         screen.ids.background.ids.stats.ids.fullBest.text = "Best Score: " + str(userData[currUser]["best total"])
         screen.ids.background.ids.stats.ids.fullBestDate.text = "Set on " + date
 
-        screen.ids.background.ids.stats.ids.fullAverage.text = "Average Score: " + str(userData[currUser]["average total"])
+        screen.ids.background.ids.stats.ids.fullAverage.text = "Average Score: " + str(round(userData[currUser]["average total"],1))
 
         screen.ids.background.ids.stats.ids.super9.text = "Front/Back Super: " + str(userData[currUser]["super 9"])
         screen.ids.background.ids.stats.ids.super1.text = "18 Hole Super: " + str(userData[currUser]["super 1"])
@@ -523,6 +526,25 @@ class GameButtons(Widget):
     backPutts = 0
     score = 0
     putts = 0
+    pars = 0
+    bulls = 0
+    greens = 0
+    saves = 0
+
+    def updateEndScreen(self):
+        global userData
+        global currUser
+
+        sm = App.get_running_app().root
+        screen = sm.get_screen("EndScreen")
+
+        screen.ids.backgroundEnd.ids.end.ids.score.text = "You Shot a " + str(self.score)
+        screen.ids.backgroundEnd.ids.end.ids.pars.text = "Pars: " + str(self.pars)
+        screen.ids.backgroundEnd.ids.end.ids.bulls.text = "Bulls: " + str(self.bulls)
+        screen.ids.backgroundEnd.ids.end.ids.greens.text = "Greens: " + str(self.greens)
+        screen.ids.backgroundEnd.ids.end.ids.saves.text = "Saves: " + str(self.saves)
+
+        self.endGame()
 
     def writeData(self):
         open("Users.txt","w").close()
@@ -654,8 +676,8 @@ class GameButtons(Widget):
 
         if userData[currUser]["games count"] >= 5:
             total = 0
-            for x in userData["games"][-5:]:
-                total += x.totalScore
+            for x in userData[currUser]["games"][-5:]:
+                total += int(x.totalScore)
             userData[currUser]["average total last 5"] = total / 5
 
             if userData[currUser]["games count"] >= 10:
@@ -748,6 +770,8 @@ class GameButtons(Widget):
             mastersData[str(self.hole)]["low"] = int(self.scoreField.text)
 
         if (int(self.scoreField.text) == 1):
+            self.bulls += 1
+
             userData[currUser]["holes"][self.hole - 1].bulls += 1
             userData[currUser]["holes"][self.hole - 1].bullRate = userData[currUser]["holes"][self.hole - 1].bulls / (userData[currUser]["holes"][self.hole - 1].failedBulls + userData[currUser]["holes"][self.hole - 1].bulls)
 
@@ -767,6 +791,8 @@ class GameButtons(Widget):
             mastersData[str(self.hole)]["green rate"] = mastersData[str(self.hole)]["greens"] / (mastersData[str(self.hole)]["greens"] + mastersData[str(self.hole)]["failed greens"])
         elif (int(self.scoreField.text) == 2):
             if (int(self.puttField.text) == 0):
+                self.saves += 1
+
                 userData[currUser]["holes"][self.hole - 1].saves += 1
                 userData[currUser]["holes"][self.hole - 1].saveRate = userData[currUser]["holes"][self.hole - 1].saves / (userData[currUser]["holes"][self.hole - 1].failedSaves + userData[currUser]["holes"][self.hole - 1].saves)
 
@@ -794,6 +820,8 @@ class GameButtons(Widget):
                 mastersData[str(self.hole)]["greens"] += 1
                 mastersData[str(self.hole)]["on rate"] = mastersData[str(self.hole)]["greens"] / (mastersData[str(self.hole)]["greens"] + mastersData[str(self.hole)]["failed greens"])
 
+            self.pars += 1
+            self.greens += 1
 
             userData[currUser]["holes"][self.hole - 1].pars += 1
             userData[currUser]["holes"][self.hole - 1].parRate = userData[currUser]["holes"][self.hole - 1].pars / (userData[currUser]["holes"][self.hole - 1].failedPars + userData[currUser]["holes"][self.hole - 1].pars)
@@ -824,6 +852,8 @@ class GameButtons(Widget):
                 mastersData[str(self.hole)]["save rate"] = mastersData[str(self.hole)]["saves"] / (mastersData[str(self.hole)]["saves"] + mastersData[str(self.hole)]["failed saves"])
 
             if int(self.puttField.text) == int(self.scoreField.text) - 1:
+                self.greens += 1
+
                 userData[currUser]["holes"][self.hole - 1].greens += 1
                 userData[currUser]["holes"][self.hole - 1].greenRate = userData[currUser]["holes"][self.hole - 1].greens / (userData[currUser]["holes"][self.hole - 1].greens + userData[currUser]["holes"][self.hole - 1].failedGreens)
 
@@ -861,7 +891,7 @@ class GameButtons(Widget):
             mastersData[str(self.hole)]["pars rate"] = mastersData[str(self.hole)]["bulls"] / (mastersData[str(self.hole)]["pars"] + mastersData[str(self.hole)]["failed pars"])
 
     def updateHole(self):
-        if self.scoreField.text in map(str,range(1,100)) and self.puttField.text in map(str,range(100)):
+        if self.scoreField.text in map(str,range(1,100)) and self.puttField.text in map(str,range(100)) and int(self.scoreField.text) > int(self.puttField.text):
             self.updateData()
             self.hole += 1
             self.name.text = "Hole: " + str(self.hole)
@@ -902,7 +932,7 @@ class GameButtons(Widget):
         self.puttField.background_normal = "White.png"
         self.puttField.background_active = "White.png"
         self.scoreLabel.text = "Score: "
-        self.puttLabel.text = "Putt: "
+        self.puttLabel.text = "Putts: "
         self.scoreField.text = ""
         self.puttField.text = ""
 
@@ -938,6 +968,19 @@ class StatsBackgroundCourse(Widget):
 
 class StatsScreenCourse(Screen):
     pass
+
+
+
+
+class EndScreenButtons(Widget):
+    pass
+
+class EndScreenBackground(Widget):
+    pass
+
+class EndScreen(Screen):
+    pass
+
 
 
 
