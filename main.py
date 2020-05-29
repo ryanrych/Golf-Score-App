@@ -530,6 +530,8 @@ class GameButtons(Widget):
         file = open("Users.txt","w")
         lines = []
         for user in userData:
+            if userData[user]["games count"] == 0:
+                continue
             line = ""
             line += user + ";"
             line += userData[user]["password"] + ";"
