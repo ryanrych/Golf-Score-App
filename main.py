@@ -1,4 +1,4 @@
-#fix bug with rates
+
 
 
 import kivy
