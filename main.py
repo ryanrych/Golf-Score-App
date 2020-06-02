@@ -1031,6 +1031,8 @@ class GameButtons(Widget):
 
         self.name.text = "Welcome!"
         self.descriptionID.text = "This app will guide you through your round at Rychlak International. Please record all scores honestly for fair course data."
+        self.course.text = ""
+        self.user.text = ""
         self.average.text = ""
         self.index.text = ""
         self.distance.text = ""
@@ -1228,6 +1230,8 @@ class GameButtons(Widget):
         self.hole += 1
         self.name.text = "Hole: " + str(self.hole)
         self.descriptionID.text = str(mastersData[str(self.hole)]["description"])
+        self.course.text = "Course:"
+        self.user.text = "You:"
         self.userBestScore.text = "Best Score: " + str(userData[currUser]["holes"][self.hole - 1].bestScore)
         self.average.text = "Average Score: " + str(round(mastersData[str(self.hole)]["average"], 1))
         self.userAverageScore.text = "Average Score: " + str(round(userData[currUser]["holes"][self.hole - 1].avgScore, 1))

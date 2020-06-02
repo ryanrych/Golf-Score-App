@@ -481,6 +481,8 @@ WindowManager:
 <GameButtons>:
     name: name
     descriptionID: descriptionID
+    course: course
+    user: user
     courseGreen: courseGreen
     coursePar: coursePar
     average: average
@@ -559,12 +561,14 @@ WindowManager:
                     cols: 2
 
                     Label:
+                        id: course
                         size_hint: 1, .25
                         halign: "left"
                         color: 0,0,0,1
                         text: ""
 
                     Label:
+                        id: user
                         size_hint: 1, .25
                         halign: "left"
                         color: 0,0,0,1
