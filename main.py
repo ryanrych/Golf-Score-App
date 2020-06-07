@@ -99,17 +99,17 @@ for line in file:
     for x in data[0][1:-1].split(","):
         courseData["scores"].append(int(x))
     courseData["average"] = data[1]
-    courseData["best score"] = (data[2].split(",")[0],int(data[2].split(",")[1]))
-    courseData["best average"] = (data[3].split(",")[0], float(data[3].split(",")[1]))
-    courseData["best front"] = (data[4].split(",")[0], int(data[4].split(",")[1]))
-    courseData["best front average"] = (data[5].split(",")[0], float(data[5].split(",")[1]))
-    courseData["best back"] = (data[6].split(",")[0], int(data[6].split(",")[1]))
-    courseData["best back average"] = (data[7].split(",")[0], float(data[7].split(",")[1]))
-    courseData["best par"] = (data[8].split(",")[0], float(data[8].split(",")[1]))
-    courseData["best save"] = (data[9].split(",")[0], float(data[9].split(",")[1]))
-    courseData["best on"] = (data[10].split(",")[0], float(data[10].split(",")[1]))
-    courseData["most bulls"] = (data[11].split(",")[0], int(data[11].split(",")[1]))
-    courseData["most games"] = (data[12].split(",")[0], int(data[12].split(",")[1]))
+    courseData["best score"] = [data[2].split(",")[0],int(data[2].split(",")[1])]
+    courseData["best average"] = [data[3].split(",")[0], float(data[3].split(",")[1])]
+    courseData["best front"] = [data[4].split(",")[0], int(data[4].split(",")[1])]
+    courseData["best front average"] = [data[5].split(",")[0], float(data[5].split(",")[1])]
+    courseData["best back"] = [data[6].split(",")[0], int(data[6].split(",")[1])]
+    courseData["best back average"] = [data[7].split(",")[0], float(data[7].split(",")[1])]
+    courseData["best par"] = [data[8].split(",")[0], float(data[8].split(",")[1])]
+    courseData["best save"] = [data[9].split(",")[0], float(data[9].split(",")[1])]
+    courseData["best on"] = [data[10].split(",")[0], float(data[10].split(",")[1])]
+    courseData["most bulls"] = [data[11].split(",")[0], int(data[11].split(",")[1])]
+    courseData["most games"] = [data[12].split(",")[0], int(data[12].split(",")[1])]
 file.close()
 
 class WindowManager(ScreenManager):
@@ -927,6 +927,29 @@ class GameButtons(Widget):
 
         file.close()
 
+        open("Course").close()
+
+        file = open("Course")
+
+        line = "["
+        for x in courseData["scores"]:
+            line += str(x) + ","
+        line += "];"
+        line += str(sum(courseData["scores"])/len(courseData["scores"])) + ";"
+        line += courseData["best score"][0] + "," + str(courseData["best score"][1]) + ";"
+        line += courseData["best average"][0] + "," + str(courseData["best average"][1]) + ";"
+        line += courseData["best front"][0] + "," + str(courseData["best front"][1]) + ";"
+        line += courseData["best front average"][0] + "," + str(courseData["best front average"][1]) + ";"
+        line += courseData["best back"][0] + "," + str(courseData["best back"][1]) + ";"
+        line += courseData["best back average"][0] + "," + str(courseData["best back average"][1]) + ";"
+        line += courseData["best par"][0] + "," + str(courseData["best par"][1]) + ";"
+        line += courseData["best save"][0] + "," + str(courseData["best save"][1]) + ";"
+        line += courseData["best on"][0] + "," + str(courseData["best on"][1]) + ";"
+        line += courseData["most bulls"][0] + "," + str(courseData["most bulls"][1]) + ";"
+        line += courseData["most games"][0] + "," + str(courseData["most games"][1])
+
+        file.close()
+
     def endGame(self):
         userData[currUser]["games"].append(Game(self.frontScore,self.frontPutts,self.backScore,self.backPutts,self.score,self.putts,str(datetime.datetime.now().strftime("%x"))))
 
@@ -994,8 +1017,8 @@ class GameButtons(Widget):
             courseData["best front average"][0] = currUser
             courseData["best front average"][1] = userData[currUser]["average front"]
         if (userData[currUser]["average back"] < courseData["best back average"][1]):
-            courseData["best best average"][0] = currUser
-            courseData["best best average"][1] = userData[currUser]["average back"]
+            courseData["best average"][0] = currUser
+            courseData["best average"][1] = userData[currUser]["average back"]
         if (userData[currUser]["par rate"] > courseData["best par"][1]):
             courseData["best par"][0] = currUser
             courseData["best par"][1] = userData[currUser]["par rate"]
