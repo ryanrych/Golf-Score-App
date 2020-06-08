@@ -92,7 +92,7 @@ for hole in holes:
 holes.close()
 
 courseData = {}
-file = open("Course","r")
+file = open("Course.txt","r")
 for line in file:
     data = line.split(";")
     courseData["scores"] = []
@@ -927,13 +927,14 @@ class GameButtons(Widget):
 
         file.close()
 
-        open("Course").close()
+        open("Course.txt","w").close()
 
-        file = open("Course")
+        file = open("Course.txt","w")
 
         line = "["
         for x in courseData["scores"]:
             line += str(x) + ","
+        line = line[:-1]
         line += "];"
         line += str(sum(courseData["scores"])/len(courseData["scores"])) + ";"
         line += courseData["best score"][0] + "," + str(courseData["best score"][1]) + ";"
@@ -947,6 +948,7 @@ class GameButtons(Widget):
         line += courseData["best on"][0] + "," + str(courseData["best on"][1]) + ";"
         line += courseData["most bulls"][0] + "," + str(courseData["most bulls"][1]) + ";"
         line += courseData["most games"][0] + "," + str(courseData["most games"][1])
+        file.write(line)
 
         file.close()
 
