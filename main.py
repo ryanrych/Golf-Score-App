@@ -1012,24 +1012,6 @@ class GameButtons(Widget):
         if (self.backScore < courseData["best back"][1]):
             courseData["best back"][0] = currUser
             courseData["best back"][1] = self.backScore
-        if (userData[currUser]["average total"] < courseData["best average"][1]):
-            courseData["best average"][0] = currUser
-            courseData["best average"][1] = userData[currUser]["average total"]
-        if (userData[currUser]["average front"] < courseData["best front average"][1]):
-            courseData["best front average"][0] = currUser
-            courseData["best front average"][1] = userData[currUser]["average front"]
-        if (userData[currUser]["average back"] < courseData["best back average"][1]):
-            courseData["best average"][0] = currUser
-            courseData["best average"][1] = userData[currUser]["average back"]
-        if (userData[currUser]["par rate"] > courseData["best par"][1]):
-            courseData["best par"][0] = currUser
-            courseData["best par"][1] = userData[currUser]["par rate"]
-        if (userData[currUser]["green rate"] > courseData["best on"][1]):
-            courseData["best on"][0] = currUser
-            courseData["best on"][1] = userData[currUser]["green rate"]
-        if (userData[currUser]["save rate"] > courseData["best save"][1]):
-            courseData["best save"][0] = currUser
-            courseData["best save"][1] = userData[currUser]["save rate"]
         if (userData[currUser]["bulls"] > courseData["most bulls"][1]):
             courseData["most bulls"][0] = currUser
             courseData["most bulls"][1] = userData[currUser]["bulls"]
@@ -1039,6 +1021,48 @@ class GameButtons(Widget):
         if (userData[currUser]["games count"] > courseData["most games"][1]):
             courseData["most games"][0] = currUser
             courseData["most games"][1] = userData[currUser]["games count"]
+
+        l = []
+        for x in userData:
+            if userData[x]["games count"] >= 5:
+                l.append((x,userData[x]["average front"]))
+        l = sorted(l, key=lambda x: x[-1])
+        courseData["best front average"] = (l[0][0],l[0][1])
+
+        l = []
+        for x in userData:
+            if userData[x]["games count"] >= 5:
+                l.append((x, userData[x]["average back"]))
+        l = sorted(l, key=lambda x: x[-1])
+        courseData["best back average"] = (l[0][0], l[0][1])
+
+        l = []
+        for x in userData:
+            if userData[x]["games count"] >= 5:
+                l.append((x, userData[x]["average total"]))
+        l = sorted(l, key=lambda x: x[-1])
+        courseData["best average"] = (l[0][0], l[0][1])
+
+        l = []
+        for x in userData:
+            if userData[x]["games count"] >= 5:
+                l.append((x, userData[x]["par rate"]))
+        l = sorted(l, key=lambda x: x[-1])[::-1]
+        courseData["best par"] = (l[0][0], l[0][1])
+
+        l = []
+        for x in userData:
+            if userData[x]["games count"] >= 5:
+                l.append((x, userData[x]["save rate"]))
+        l = sorted(l, key=lambda x: x[-1])[::-1]
+        courseData["best save"] = (l[0][0], l[0][1])
+
+        l = []
+        for x in userData:
+            if userData[x]["games count"] >= 5:
+                l.append((x, userData[x]["green rate"]))
+        l = sorted(l, key=lambda x: x[-1])[::-1]
+        courseData["best on"] = (l[0][0], l[0][1])
 
         self.hole = 0
         self.description = mastersData[str(self.hole + 1)]["description"]
