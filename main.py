@@ -136,6 +136,11 @@ class LoginButtons(Widget):
                 currUser = username
                 self.userField.text = ""
                 self.passwordField.text = ""
+
+                sm = App.get_running_app().root
+                screen = sm.get_screen("MainScreen")
+                screen.ids.background.ids.buttons.graphButtons(1)
+
             else:
                 self.loginFailedStart()
                 Clock.schedule_once(self.loginFailedEnd, 3)
