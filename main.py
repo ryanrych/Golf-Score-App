@@ -298,28 +298,28 @@ class MainButtons(Widget):
         screen.ids.background.ids.stats.ids.bestScore.text = "Best Score: " + str(courseData["best score"][1])
         screen.ids.background.ids.stats.ids.bestScoreUser.text = "Set By: " + str(courseData["best score"][0])
 
-        screen.ids.background.ids.stats.ids.bestAverage.text = "Best Average Score: " + str(courseData["best average"][1])
+        screen.ids.background.ids.stats.ids.bestAverage.text = "Best Average Score: " + str(round(courseData["best average"][1],2))
         screen.ids.background.ids.stats.ids.bestAverageUser.text = "Set By: " + str(courseData["best average"][0])
 
         screen.ids.background.ids.stats.ids.bestFront.text = "Best Front Score: " + str(courseData["best front"][1])
         screen.ids.background.ids.stats.ids.bestFrontUser.text = "Set By: " + str(courseData["best front"][0])
 
-        screen.ids.background.ids.stats.ids.bestFrontAverage.text = "Best Average Front Score: " + str(courseData["best front average"][1])
+        screen.ids.background.ids.stats.ids.bestFrontAverage.text = "Best Average Front Score: " + str(round(courseData["best front average"][1],2))
         screen.ids.background.ids.stats.ids.bestFrontAverageUser.text = "Set By: " + str(courseData["best front average"][0])
 
         screen.ids.background.ids.stats.ids.bestBack.text = "Best Back Score: " + str(courseData["best back"][1])
         screen.ids.background.ids.stats.ids.bestBackUser.text = "Set By: " + str(courseData["best back"][0])
 
-        screen.ids.background.ids.stats.ids.bestBackAverage.text = "Best Average Back Score: " + str(courseData["best back average"][1])
+        screen.ids.background.ids.stats.ids.bestBackAverage.text = "Best Average Back Score: " + str(round(courseData["best back average"][1],2))
         screen.ids.background.ids.stats.ids.bestBackAverageUser.text = "Set By: " + str(courseData["best back average"][0])
 
-        screen.ids.background.ids.stats.ids.bestPR.text = "Best Par Rate: " + str(courseData["best par"][1])
+        screen.ids.background.ids.stats.ids.bestPR.text = "Best Par Rate: " + str(round(courseData["best par"][1] * 100, 1)) + "%"
         screen.ids.background.ids.stats.ids.bestPRUser.text = "Set By: " + str(courseData["best par"][0])
 
-        screen.ids.background.ids.stats.ids.bestGR.text = "Best Green Rate: " + str(courseData["best on"][1])
+        screen.ids.background.ids.stats.ids.bestGR.text = "Best Green Rate: " + str(round(courseData["best on"][1] * 100, 1)) + "%"
         screen.ids.background.ids.stats.ids.bestGRUser.text = "Set By: " + str(courseData["best on"][0])
 
-        screen.ids.background.ids.stats.ids.bestSR.text = "Best Save Rate: " + str(courseData["best save"][1])
+        screen.ids.background.ids.stats.ids.bestSR.text = "Best Save Rate: " + str(round(courseData["best save"][1] * 100, 1)) + "%"
         screen.ids.background.ids.stats.ids.bestSRUser.text = "Set By: " + str(courseData["best save"][0])
 
         screen.ids.background.ids.stats.ids.mostBulls.text = "Most Bulls: " + str(courseData["most bulls"][1])
@@ -1077,6 +1077,10 @@ class GameButtons(Widget):
         self.backPutts = 0
         self.score = 0
         self.putts = 0
+        self.pars = 0
+        self.bulls = 0
+        self.saves = 0
+        self.greens = 0
 
         self.name.text = "Welcome!"
         self.descriptionID.text = "This app will guide you through your round at Rychlak International. Please record all scores honestly for fair course data."
