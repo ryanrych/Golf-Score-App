@@ -328,7 +328,8 @@ WindowManager:
                     text: "X"
                     background_normal: ""
                     background_active: ""
-                    backgroundColor: app.hexToKivyColor("#008ae6",1)
+                    backgroundColorNormal: app.hexToKivyColor("#008ae6",1)
+                    backgroundColorDown: app.hexToKivyColor("#006ac6",1)
                     border_radius: [9]
                     on_release:
                         app.root.transition = CardTransition(direction = "right", mode = "pop")
@@ -5173,11 +5174,12 @@ WindowManager:
     background_color: (0,0,0,0)
     background_normal: ""
     background_active: ""
-    backgroundColor: (0,0,1,1)
+    backgroundColorNormal: (0,0,1,1)
+    backgroundColorDown: (1,0,0,1)
     border_radius: [18]
     canvas.before:
         Color:
-            rgba: self.backgroundColor
+            rgba: self.backgroundColorNormal if self.state == "normal" else self.backgroundColorDown
         RoundedRectangle:
             size: self.size
             pos: self.pos
