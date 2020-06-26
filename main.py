@@ -897,10 +897,10 @@ class GameButtons(Widget):
 
         file.close()
 
-        open("MastersHole.txt","w").close()
+        open("MastersHoles.txt","w").close()
 
         lines = []
-        file = open("MastersHole.txt","w")
+        file = open("MastersHoles.txt","w")
         for i in range(1,19):
             line = ""
             line += str(i) + ";"
