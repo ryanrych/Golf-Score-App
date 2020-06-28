@@ -972,15 +972,15 @@ class GameButtons(Widget):
             total = 0
             for x in userData[currUser]["games"][-5:]:
                 total += int(x.totalScore)
-            userData[currUser]["average total last 5"] = total / 5
+            userData[currUser]["average last 5"] = total / 5
 
             if userData[currUser]["games count"] >= 10:
                 total = 0
                 for x in userData[currUser]["games"][-10:]:
                     total += int(x.totalScore)
-                userData[currUser]["average total last 10"] = total / 10
+                userData[currUser]["average last 10"] = total / 10
             else:
-                userData[currUser]["average total last 10"] = total / 5
+                userData[currUser]["average last 10"] = total / 5
         else:
             userData[currUser]["average total last 5"] = userData[currUser]["average total"]
             userData[currUser]["average total last 10"] = userData[currUser]["average total"]
