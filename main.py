@@ -751,7 +751,7 @@ class MainButtons(Widget):
         screen.ids.background.ids.stats.ids.fullBest.text = "Best Score: " + str(userData[currUser]["best total"])
         screen.ids.background.ids.stats.ids.fullBestDate.text = "Set on " + date
 
-        screen.ids.background.ids.stats.ids.fullAverage.text = "Average Score: " + str(round(userData[currUser]["average total"],1))
+        screen.ids.background.ids.stats.ids.fullAverage.text = "Average Score: " + str(round(userData[currUser]["average total"],1)) + "  5: " + str(round(userData[currUser]["average last 5"],1)) + "  10: " + str(round(userData[currUser]["average last 10"],1))
 
         screen.ids.background.ids.stats.ids.super9.text = "Front/Back Super: " + str(userData[currUser]["super 9"])
         screen.ids.background.ids.stats.ids.super1.text = "18 Hole Super: " + str(userData[currUser]["super 1"])
