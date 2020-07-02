@@ -154,6 +154,9 @@ class LoginButtons(Widget):
     def loginFailedEnd(self, dt):
         self.loginFailed.text = ""
 
+    def resetLogin(self):
+        self.loginPassed = False
+
 class LoginBackground(Widget):
     pass
 

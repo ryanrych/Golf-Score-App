@@ -115,6 +115,7 @@ WindowManager:
                         root.loginButtonPress()
                         app.root.transition =  CardTransition(direction = "left",mode = "push", duration = .3)
                         app.root.current = "MainScreen" if root.loginPassed else "LoginScreen"
+                        root.resetLogin()
 
                 Button:
                     id: createAccountButton
