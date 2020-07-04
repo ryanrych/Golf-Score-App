@@ -102,6 +102,7 @@ WindowManager:
                     id: loginFailed
                     size_hint:1,.06
                     text: ""
+                    font_name: "Raleway-Regular.ttf"
                     color: app.hexToKivyColor("#ff0000",1)
 
                 Button:
@@ -248,6 +249,7 @@ WindowManager:
                     id: createFailed
                     size_hint:1,.06
                     text: ""
+                    font_name: "Raleway-Regular.ttf"
                     color: 1,0,0,1
 
                 Button:
@@ -387,6 +389,7 @@ WindowManager:
                             size_hint: .35,1
                             color: app.hexToKivyColor("#595959",1)
                             text: "Previous Scores:"
+                            font_name: "Raleway-Regular.ttf"
                             font_size: .53 * self.height
 
                         Button:
@@ -538,6 +541,7 @@ WindowManager:
                     size_hint: 1, .1
                     color: 0,0,0,1
                     font_size: .75 * self.height
+                    font_name: "Raleway-Regular.ttf"
                     text: "Welcome!"
 
                 Label:
@@ -547,6 +551,7 @@ WindowManager:
                     height: self.texture_size[1]
                     halign: "center"
                     color: 0,0,0,1
+                    font_name: "Raleway-Regular.ttf"
                     font_size: .22 * self.height
                     text: "This app will guide you through your round at Rychlak International. Please record all scores honestly for fair course data."
 
@@ -558,6 +563,7 @@ WindowManager:
                     id: distance
                     size_hint: 1, .06
                     color: 0,0,0,1
+                    font_name: "Raleway-Regular.ttf"
                     text: ""
 
                 GridLayout:
@@ -569,6 +575,7 @@ WindowManager:
                         size_hint: 1, .25
                         halign: "left"
                         color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
                         text: ""
 
                     Label:
@@ -576,6 +583,7 @@ WindowManager:
                         size_hint: 1, .25
                         halign: "left"
                         color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
                         text: ""
 
                     Label:
@@ -583,6 +591,7 @@ WindowManager:
                         size_hint: 1, .25
                         halign: "left"
                         color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
                         text: ""
 
                     Label:
@@ -590,6 +599,7 @@ WindowManager:
                         size_hint: 1, .25
                         halign: "left"
                         color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
                         text: ""
 
                     Label:
@@ -597,6 +607,7 @@ WindowManager:
                         size_hint: 1, .25
                         halign: "left"
                         color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
                         text: ""
 
                     Label:
@@ -604,6 +615,7 @@ WindowManager:
                         size_hint: 1, .25
                         halign: "left"
                         color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
                         text: ""
 
                     Label:
@@ -611,6 +623,7 @@ WindowManager:
                         size_hint: 1, .25
                         halign: "left"
                         color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
                         text: ""
 
                     Label:
@@ -618,6 +631,7 @@ WindowManager:
                         size_hint: 1, .25
                         halign: "left"
                         color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
                         text: ""
 
                     Label:
@@ -625,6 +639,7 @@ WindowManager:
                         size_hint: 1, .25
                         halign: "left"
                         color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
                         text: ""
 
                     Label:
@@ -632,6 +647,7 @@ WindowManager:
                         size_hint: 1, .25
                         halign: "left"
                         color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
                         text: ""
 
                 Label:
@@ -650,6 +666,7 @@ WindowManager:
                         id: scoreLabel
                         size_hint: .25, 1
                         color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
                         text: ""
 
                     TextInput:
@@ -660,11 +677,13 @@ WindowManager:
                         background_active: "Blank.png"
                         cursor_color: 0,0,0,1
                         foreground_color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
 
                     Label:
                         id: puttLabel
                         size_hint: .24, 1
                         color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
                         text: ""
 
                     TextInput:
@@ -675,6 +694,7 @@ WindowManager:
                         background_active: "Blank.png"
                         cursor_color: 0,0,0,1
                         foreground_color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
 
                     Label:
                         size_hint: .25, 1
@@ -684,10 +704,12 @@ WindowManager:
                     id: errorMessage
                     size_hint: 1, .06
                     color: 1,0,0,1
+                    font_name: "Raleway-Regular.ttf"
                     text: ""
 
                 Button:
                     size_hint: 1, .08
+                    font_name: "Raleway-Regular.ttf"
                     text: "Next Hole"
                     background_normal: ""
                     background_color: app.hexToKivyColor("#008ae6",1)
@@ -758,12 +780,14 @@ WindowManager:
                     size_hint: 1, .08
                     color: 0,0,0,1
                     font_size: .65 * self.height
+                    font_name: "Raleway-Regular.ttf"
                     text: "Statistics"
 
                 Label:
                     size_hint: 1, .05
                     color: app.hexToKivyColor("#595959",1)
                     font_size: self.height * .8
+                    font_name: "Raleway-Regular.ttf"
                     text: "Holes"
 
                 BoxLayout:
@@ -782,6 +806,7 @@ WindowManager:
                             height: self.texture_size[1]
                             width: self.texture_size[0]
                             color: 0,0,0,1
+                            font_name: "Raleway-Regular.ttf"
                             text: "Hole:"
 
                         Label:
@@ -789,6 +814,7 @@ WindowManager:
                             height: self.texture_size[1]
                             width: self.texture_size[0]
                             color: 0,0,0,1
+                            font_name: "Raleway-Regular.ttf"
                             text: "1"
 
                         Label:
@@ -796,6 +822,7 @@ WindowManager:
                             height: self.texture_size[1]
                             width: self.texture_size[0]
                             color: 0,0,0,1
+                            font_name: "Raleway-Regular.ttf"
                             text: "2"
 
                         Label:
@@ -803,6 +830,7 @@ WindowManager:
                             height: self.texture_size[1]
                             width: self.texture_size[0]
                             color: 0,0,0,1
+                            font_name: "Raleway-Regular.ttf"
                             text: "3"
 
                         Label:
@@ -810,6 +838,7 @@ WindowManager:
                             height: self.texture_size[1]
                             width: self.texture_size[0]
                             color: 0,0,0,1
+                            font_name: "Raleway-Regular.ttf"
                             text: "4"
 
                         Label:
@@ -817,6 +846,7 @@ WindowManager:
                             height: self.texture_size[1]
                             width: self.texture_size[0]
                             color: 0,0,0,1
+                            font_name: "Raleway-Regular.ttf"
                             text: "5"
 
                         Label:
@@ -824,6 +854,7 @@ WindowManager:
                             height: self.texture_size[1]
                             width: self.texture_size[0]
                             color: 0,0,0,1
+                            font_name: "Raleway-Regular.ttf"
                             text: "6"
 
                         Label:
@@ -831,6 +862,7 @@ WindowManager:
                             height: self.texture_size[1]
                             width: self.texture_size[0]
                             color: 0,0,0,1
+                            font_name: "Raleway-Regular.ttf"
                             text: "7"
 
                         Label:
@@ -838,6 +870,7 @@ WindowManager:
                             height: self.texture_size[1]
                             width: self.texture_size[0]
                             color: 0,0,0,1
+                            font_name: "Raleway-Regular.ttf"
                             text: "8"
 
                         Label:
@@ -845,6 +878,7 @@ WindowManager:
                             height: self.texture_size[1]
                             width: self.texture_size[0]
                             color: 0,0,0,1
+                            font_name: "Raleway-Regular.ttf"
                             text: "9"
 
                         Label:
@@ -852,6 +886,7 @@ WindowManager:
                             height: self.texture_size[1]
                             width: self.texture_size[0]
                             color: 0,0,0,1
+                            font_name: "Raleway-Regular.ttf"
                             text: "10"
 
                         Label:
@@ -859,6 +894,7 @@ WindowManager:
                             height: self.texture_size[1]
                             width: self.texture_size[0]
                             color: 0,0,0,1
+                            font_name: "Raleway-Regular.ttf"
                             text: "11"
 
                         Label:
@@ -866,6 +902,7 @@ WindowManager:
                             height: self.texture_size[1]
                             width: self.texture_size[0]
                             color: 0,0,0,1
+                            font_name: "Raleway-Regular.ttf"
                             text: "12"
 
                         Label:
@@ -873,6 +910,7 @@ WindowManager:
                             height: self.texture_size[1]
                             width: self.texture_size[0]
                             color: 0,0,0,1
+                            font_name: "Raleway-Regular.ttf"
                             text: "13"
 
                         Label:
@@ -880,6 +918,7 @@ WindowManager:
                             height: self.texture_size[1]
                             width: self.texture_size[0]
                             color: 0,0,0,1
+                            font_name: "Raleway-Regular.ttf"
                             text: "14"
 
                         Label:
@@ -887,6 +926,7 @@ WindowManager:
                             height: self.texture_size[1]
                             width: self.texture_size[0]
                             color: 0,0,0,1
+                            font_name: "Raleway-Regular.ttf"
                             text: "15"
 
                         Label:
@@ -894,6 +934,7 @@ WindowManager:
                             height: self.texture_size[1]
                             width: self.texture_size[0]
                             color: 0,0,0,1
+                            font_name: "Raleway-Regular.ttf"
                             text: "16"
 
                         Label:
@@ -901,6 +942,7 @@ WindowManager:
                             height: self.texture_size[1]
                             width: self.texture_size[0]
                             color: 0,0,0,1
+                            font_name: "Raleway-Regular.ttf"
                             text: "17"
 
                         Label:
@@ -908,6 +950,7 @@ WindowManager:
                             height: self.texture_size[1]
                             width: self.texture_size[0]
                             color: 0,0,0,1
+                            font_name: "Raleway-Regular.ttf"
                             text: "18"
 
                     Label:
@@ -931,6 +974,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: "Best:"
 
                             Label:
@@ -945,6 +989,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: "Average:"
 
                             Label:
@@ -959,6 +1004,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: "Par Rate:"
 
                             Label:
@@ -973,6 +1019,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: "Green Rate:"
 
                             Label:
@@ -987,6 +1034,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: "Save Rate:"
 
                             Label:
@@ -1001,6 +1049,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: "Bulls:"
 
                             Label:
@@ -1009,6 +1058,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1024,6 +1074,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1039,6 +1090,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1054,6 +1106,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1069,6 +1122,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1084,6 +1138,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1092,6 +1147,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1107,6 +1163,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1122,6 +1179,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1137,6 +1195,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1152,6 +1211,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1167,6 +1227,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1175,6 +1236,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1190,6 +1252,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1205,6 +1268,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1220,6 +1284,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1235,6 +1300,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1250,6 +1316,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1258,6 +1325,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1273,6 +1341,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1288,6 +1357,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1303,6 +1373,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1318,6 +1389,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1333,6 +1405,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1341,6 +1414,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1356,6 +1430,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1371,6 +1446,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1386,6 +1462,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1401,6 +1478,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1416,6 +1494,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1424,6 +1503,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1439,6 +1519,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1469,6 +1550,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1484,6 +1566,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1499,6 +1582,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1507,6 +1591,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1522,6 +1607,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1537,6 +1623,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1552,6 +1639,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1567,6 +1655,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1582,6 +1671,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1590,6 +1680,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1605,6 +1696,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1620,6 +1712,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1635,6 +1728,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1650,6 +1744,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1665,6 +1760,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1673,6 +1769,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1688,6 +1785,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1703,6 +1801,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1718,6 +1817,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1733,6 +1833,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1748,6 +1849,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1756,6 +1858,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1771,6 +1874,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1786,6 +1890,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1801,6 +1906,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1816,6 +1922,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1831,6 +1938,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1839,6 +1947,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1854,6 +1963,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1869,6 +1979,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1884,6 +1995,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1899,6 +2011,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1914,6 +2027,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1922,6 +2036,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1937,6 +2052,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1952,6 +2068,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1967,6 +2084,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1982,6 +2100,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -1997,6 +2116,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -2005,6 +2125,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -2020,6 +2141,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -2035,6 +2157,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -2050,6 +2173,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -2065,6 +2189,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -2080,6 +2205,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -2088,6 +2214,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -2103,6 +2230,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -2118,6 +2246,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -2133,6 +2262,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -2148,6 +2278,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -2163,6 +2294,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -2171,6 +2303,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -2186,6 +2319,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -2201,6 +2335,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -2216,6 +2351,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -2231,6 +2367,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -2246,6 +2383,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -2254,6 +2392,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -2269,6 +2408,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -2284,6 +2424,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -2299,6 +2440,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -2314,6 +2456,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -2329,6 +2472,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -2337,6 +2481,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -2352,6 +2497,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -2367,6 +2513,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -2382,6 +2529,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -2397,6 +2545,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -2412,6 +2561,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -2420,6 +2570,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -2435,6 +2586,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -2450,6 +2602,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -2465,6 +2618,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -2480,6 +2634,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -2495,6 +2650,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                 Label:
@@ -2572,12 +2728,14 @@ WindowManager:
                     size_hint: 1, .08
                     color: 0,0,0,1
                     font_size: .65 * self.height
+                    font_name: "Raleway-Regular.ttf"
                     text: "Statistics"
 
                 Label:
                     size_hint: 1, .05
                     color: app.hexToKivyColor("#595959",1)
                     font_size: self.height * .8
+                    font_name: "Raleway-Regular.ttf"
                     text: "Course"
 
                 GridLayout:
@@ -2587,76 +2745,89 @@ WindowManager:
                     Label:
                         #size_hint: .5, .34
                         color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
                         text: "Front:"
 
                     Label:
                         #size_hint: .5, .33
                         color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
                         text: "Back:"
 
                     Label:
                         #size_hint: .5, .33
                         id: frontBest
                         color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
                         text: ""
 
                     Label:
                         #size_hint: .5, .33
                         id: backBest
                         color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
                         text: ""
 
                     Label:
                         #size_hint: .5, .33
                         id: frontAverage
                         color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
                         text: ""
 
                     Label:
                         #size_hint: .5, .33
                         id: backAverage
                         color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
                         text: ""
 
                 Label:
                     size_hint: 1, .05
                     color: 0,0,0,1
+                    font_name: "Raleway-Regular.ttf"
                     text: "Full Course:"
 
                 Label:
                     id: played
                     size_hint: 1, .04
                     color: 0,0,0,1
+                    font_name: "Raleway-Regular.ttf"
                     text: ""
 
                 Label:
                     id: fullBest
                     size_hint: 1, .05
                     color: 0,0,0,1
+                    font_name: "Raleway-Regular.ttf"
                     text: ""
 
                 Label:
                     id: fullBestDate
                     size_hint: 1, .05
                     color: 0,0,0,1
+                    font_name: "Raleway-Regular.ttf"
                     text: ""
 
                 Label:
                     id: fullAverage
                     size_hint: 1, .05
                     color: 0,0,0,1
+                    font_name: "Raleway-Regular.ttf"
                     text: ""
 
                 Label:
                     id: super9
                     size_hint: 1, .05
                     color: 0,0,0,1
+                    font_name: "Raleway-Regular.ttf"
                     text: ""
 
                 Label:
                     id: super1
                     size_hint: 1, .05
                     color: 0,0,0,1
+                    font_name: "Raleway-Regular.ttf"
                     text: ""
 
                 Label:
@@ -2666,6 +2837,7 @@ WindowManager:
                 Label:
                     size_hint: 1, .05
                     color: 0,0,0,1
+                    font_name: "Raleway-Regular.ttf"
                     text: "Shot Stats:"
 
                 GridLayout:
@@ -2675,21 +2847,25 @@ WindowManager:
                     Label:
                         id: userPR
                         color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
                         text: ""
 
                     Label:
                         id: userBulls
                         color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
                         text: ""
 
                     Label:
                         id: userGR
                         color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
                         text: ""
 
                     Label:
                         id: userSR
                         color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
                         text: ""
 
                 Label:
@@ -2762,6 +2938,7 @@ WindowManager:
                 Label:
                     size_hint: 1, .15
                     color: 0,0,0,1
+                    font_name: "Raleway-Regular.ttf"
                     text: "Good Round!"
 
                 Label:
@@ -2772,6 +2949,7 @@ WindowManager:
                     id: score
                     size_hint: 1, .1
                     color: 0,0,0,1
+                    font_name: "Raleway-Regular.ttf"
                     text: ""
 
                 GridLayout:
@@ -2781,21 +2959,25 @@ WindowManager:
                     Label:
                         id: pars
                         color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
                         text:
 
                     Label:
                         id: bulls
                         color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
                         text:
 
                     Label:
                         id: greens
                         color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
                         text:
 
                     Label:
                         id: saves
                         color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
                         text:
 
                 Label:
@@ -2895,12 +3077,14 @@ WindowManager:
                     size_hint: 1, .08
                     color: 0,0,0,1
                     font_size: .65 * self.height
+                    font_name: "Raleway-Regular.ttf"
                     text: "Statistics"
 
                 Label:
                     size_hint: 1, .05
                     color: app.hexToKivyColor("#595959",1)
                     font_size: self.height * .8
+                    font_name: "Raleway-Regular.ttf"
                     text: "Holes"
 
                 BoxLayout:
@@ -2919,6 +3103,7 @@ WindowManager:
                             height: self.texture_size[1]
                             width: self.texture_size[0]
                             color: 0,0,0,1
+                            font_name: "Raleway-Regular.ttf"
                             text: "Hole:"
 
                         Label:
@@ -2926,6 +3111,7 @@ WindowManager:
                             height: self.texture_size[1]
                             width: self.texture_size[0]
                             color: 0,0,0,1
+                            font_name: "Raleway-Regular.ttf"
                             text: "1"
 
                         Label:
@@ -2933,6 +3119,7 @@ WindowManager:
                             height: self.texture_size[1]
                             width: self.texture_size[0]
                             color: 0,0,0,1
+                            font_name: "Raleway-Regular.ttf"
                             text: "2"
 
                         Label:
@@ -2940,6 +3127,7 @@ WindowManager:
                             height: self.texture_size[1]
                             width: self.texture_size[0]
                             color: 0,0,0,1
+                            font_name: "Raleway-Regular.ttf"
                             text: "3"
 
                         Label:
@@ -2947,6 +3135,7 @@ WindowManager:
                             height: self.texture_size[1]
                             width: self.texture_size[0]
                             color: 0,0,0,1
+                            font_name: "Raleway-Regular.ttf"
                             text: "4"
 
                         Label:
@@ -2954,6 +3143,7 @@ WindowManager:
                             height: self.texture_size[1]
                             width: self.texture_size[0]
                             color: 0,0,0,1
+                            font_name: "Raleway-Regular.ttf"
                             text: "5"
 
                         Label:
@@ -2961,6 +3151,7 @@ WindowManager:
                             height: self.texture_size[1]
                             width: self.texture_size[0]
                             color: 0,0,0,1
+                            font_name: "Raleway-Regular.ttf"
                             text: "6"
 
                         Label:
@@ -2968,6 +3159,7 @@ WindowManager:
                             height: self.texture_size[1]
                             width: self.texture_size[0]
                             color: 0,0,0,1
+                            font_name: "Raleway-Regular.ttf"
                             text: "7"
 
                         Label:
@@ -2975,6 +3167,7 @@ WindowManager:
                             height: self.texture_size[1]
                             width: self.texture_size[0]
                             color: 0,0,0,1
+                            font_name: "Raleway-Regular.ttf"
                             text: "8"
 
                         Label:
@@ -2982,6 +3175,7 @@ WindowManager:
                             height: self.texture_size[1]
                             width: self.texture_size[0]
                             color: 0,0,0,1
+                            font_name: "Raleway-Regular.ttf"
                             text: "9"
 
                         Label:
@@ -2989,6 +3183,7 @@ WindowManager:
                             height: self.texture_size[1]
                             width: self.texture_size[0]
                             color: 0,0,0,1
+                            font_name: "Raleway-Regular.ttf"
                             text: "10"
 
                         Label:
@@ -2996,6 +3191,7 @@ WindowManager:
                             height: self.texture_size[1]
                             width: self.texture_size[0]
                             color: 0,0,0,1
+                            font_name: "Raleway-Regular.ttf"
                             text: "11"
 
                         Label:
@@ -3003,6 +3199,7 @@ WindowManager:
                             height: self.texture_size[1]
                             width: self.texture_size[0]
                             color: 0,0,0,1
+                            font_name: "Raleway-Regular.ttf"
                             text: "12"
 
                         Label:
@@ -3010,6 +3207,7 @@ WindowManager:
                             height: self.texture_size[1]
                             width: self.texture_size[0]
                             color: 0,0,0,1
+                            font_name: "Raleway-Regular.ttf"
                             text: "13"
 
                         Label:
@@ -3017,6 +3215,7 @@ WindowManager:
                             height: self.texture_size[1]
                             width: self.texture_size[0]
                             color: 0,0,0,1
+                            font_name: "Raleway-Regular.ttf"
                             text: "14"
 
                         Label:
@@ -3024,6 +3223,7 @@ WindowManager:
                             height: self.texture_size[1]
                             width: self.texture_size[0]
                             color: 0,0,0,1
+                            font_name: "Raleway-Regular.ttf"
                             text: "15"
 
                         Label:
@@ -3031,6 +3231,7 @@ WindowManager:
                             height: self.texture_size[1]
                             width: self.texture_size[0]
                             color: 0,0,0,1
+                            font_name: "Raleway-Regular.ttf"
                             text: "16"
 
                         Label:
@@ -3038,6 +3239,7 @@ WindowManager:
                             height: self.texture_size[1]
                             width: self.texture_size[0]
                             color: 0,0,0,1
+                            font_name: "Raleway-Regular.ttf"
                             text: "17"
 
                         Label:
@@ -3045,6 +3247,7 @@ WindowManager:
                             height: self.texture_size[1]
                             width: self.texture_size[0]
                             color: 0,0,0,1
+                            font_name: "Raleway-Regular.ttf"
                             text: "18"
 
                     Label:
@@ -3068,6 +3271,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: "Best:"
 
                             Label:
@@ -3082,6 +3286,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: "Average:"
 
                             Label:
@@ -3096,6 +3301,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: "Par Rate:"
 
                             Label:
@@ -3110,6 +3316,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: "Green Rate:"
 
                             Label:
@@ -3124,6 +3331,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: "Save Rate:"
 
                             Label:
@@ -3138,6 +3346,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: "Bulls:"
 
                             Label:
@@ -3152,6 +3361,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: "Index:"
 
                             Label:
@@ -3160,6 +3370,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3175,6 +3386,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3190,6 +3402,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3205,6 +3418,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3220,6 +3434,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3235,6 +3450,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3250,6 +3466,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3258,6 +3475,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3273,6 +3491,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3288,6 +3507,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3303,6 +3523,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3318,6 +3539,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3333,6 +3555,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3348,6 +3571,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3356,6 +3580,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3371,6 +3596,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3386,6 +3612,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3401,6 +3628,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3416,6 +3644,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3431,6 +3660,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3446,6 +3676,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3454,6 +3685,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3469,6 +3701,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3484,6 +3717,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3499,6 +3733,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3514,6 +3749,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3529,6 +3765,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3544,6 +3781,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3552,6 +3790,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3567,6 +3806,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3582,6 +3822,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3597,6 +3838,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3612,6 +3854,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3627,6 +3870,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3642,6 +3886,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3650,6 +3895,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3665,6 +3911,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3680,6 +3927,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3695,6 +3943,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3710,6 +3959,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3725,6 +3975,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3740,6 +3991,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3748,6 +4000,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3763,6 +4016,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3778,6 +4032,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3793,6 +4048,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3808,6 +4064,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3823,6 +4080,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3838,6 +4096,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3846,6 +4105,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3861,6 +4121,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3876,6 +4137,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3891,6 +4153,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3906,6 +4169,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3921,6 +4185,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3936,6 +4201,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3944,6 +4210,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3959,6 +4226,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3974,6 +4242,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -3989,6 +4258,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4004,6 +4274,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4019,6 +4290,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4034,6 +4306,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4042,6 +4315,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4057,6 +4331,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4072,6 +4347,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4087,6 +4363,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4102,6 +4379,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4117,6 +4395,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4132,6 +4411,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4140,6 +4420,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4155,6 +4436,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4170,6 +4452,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4185,6 +4468,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4200,6 +4484,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4215,6 +4500,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4230,6 +4516,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4238,6 +4525,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4253,6 +4541,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4268,6 +4557,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4283,6 +4573,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4298,6 +4589,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4313,6 +4605,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4328,6 +4621,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4336,6 +4630,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4351,6 +4646,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4366,6 +4662,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4381,6 +4678,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4396,6 +4694,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4411,6 +4710,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4426,6 +4726,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4434,6 +4735,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4449,6 +4751,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4464,6 +4767,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4479,6 +4783,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4494,6 +4799,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4509,6 +4815,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4524,6 +4831,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4532,6 +4840,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4547,6 +4856,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4562,6 +4872,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4577,6 +4888,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4592,6 +4904,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4607,6 +4920,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4622,6 +4936,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4630,6 +4945,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4645,6 +4961,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4660,6 +4977,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4675,6 +4993,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4690,6 +5009,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4705,6 +5025,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4720,6 +5041,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4728,6 +5050,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4743,6 +5066,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4758,6 +5082,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4773,6 +5098,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4788,6 +5114,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4803,6 +5130,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4818,6 +5146,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4826,6 +5155,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4841,6 +5171,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4856,6 +5187,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4871,6 +5203,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4886,6 +5219,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4901,6 +5235,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                             Label:
@@ -4916,6 +5251,7 @@ WindowManager:
                                 height: self.texture_size[1]
                                 width: self.texture_size[0]
                                 color: 0,0,0,1
+                                font_name: "Raleway-Regular.ttf"
                                 text: ""
 
                 Label:
@@ -5009,6 +5345,7 @@ WindowManager:
                     size_hint: 1, .1
                     color: 0,0,0,1
                     font_size: self.height * .6
+                    font_name: "Raleway-Regular.ttf"
                     text: "Course Records"
 
                 Label:
@@ -5022,111 +5359,133 @@ WindowManager:
                     Label:
                         id: bestScore
                         color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
                         text: ""
 
                     Label:
                         id: bestScoreUser
                         color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
                         text: ""
 
                     Label:
                         id: bestAverage
                         color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
                         text: ""
 
                     Label:
                         id: bestAverageUser
                         color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
                         text: ""
 
                     Label:
                         id: bestFront
                         color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
                         text: ""
 
                     Label:
                         id: bestFrontUser
                         color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
                         text: ""
 
                     Label:
                         id: bestFrontAverage
                         color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
                         text: ""
 
                     Label:
                         id: bestFrontAverageUser
                         color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
                         text: ""
 
                     Label:
                         id: bestBack
                         color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
                         text: ""
 
                     Label:
                         id: bestBackUser
                         color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
                         text: ""
 
                     Label:
                         id: bestBackAverage
                         color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
                         text: ""
 
                     Label:
                         id: bestBackAverageUser
                         color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
                         text: ""
 
                     Label:
                         id: bestPR
                         color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
                         text: ""
 
                     Label:
                         id: bestPRUser
                         color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
                         text: ""
 
                     Label:
                         id: bestGR
                         color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
                         text: ""
 
                     Label:
                         id: bestGRUser
                         color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
                         text: ""
 
                     Label:
                         id: bestSR
                         color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
                         text: ""
 
                     Label:
                         id: bestSRUser
                         color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
                         text: ""
 
                     Label:
                         id: mostBulls
                         color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
                         text: ""
 
                     Label:
                         id: mostBullsUser
                         color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
                         text: ""
 
                     Label:
                         id: mostGames
                         color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
                         text: ""
 
                     Label:
                         id: mostGamesUser
                         color: 0,0,0,1
+                        font_name: "Raleway-Regular.ttf"
                         text: ""
 
                 Label:
