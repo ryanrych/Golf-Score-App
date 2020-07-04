@@ -78,6 +78,7 @@ WindowManager:
                 TextInput:
                     id: userField
                     size_hint:1,.12
+                    font_name: "Raleway-Regular.ttf"
                     hint_text: "User"
                     multiline: False
                     background_normal: "White.png"
@@ -89,6 +90,7 @@ WindowManager:
                 TextInput:
                     id: passwordField
                     size_hint:1,.12
+                    font_name: "Raleway-Regular.ttf"
                     hint_text: "Password"
                     multiline: False
                     password: True
@@ -109,6 +111,7 @@ WindowManager:
                     id: loginButton
                     size_hint:1,.10
                     font_size: .6*self.height
+                    font_name: "Raleway-Regular.ttf"
                     text: "Login"
                     background_normal: ""
                     background_color: app.hexToKivyColor("#008ae6",1)
@@ -122,6 +125,7 @@ WindowManager:
                     id: createAccountButton
                     size_hint:1,.10
                     font_size: .6*self.height
+                    font_name: "Raleway-Regular.ttf"
                     text: "Create Account"
                     background_normal: ""
                     background_color: app.hexToKivyColor("#008ae6",1)
@@ -213,6 +217,7 @@ WindowManager:
                 TextInput:
                     id: userField
                     size_hint:1,.14
+                    font_name: "Raleway-Regular.ttf"
                     hint_text: "Username"
                     multiline: False
                     background_normal: "White.png"
@@ -224,6 +229,7 @@ WindowManager:
                 TextInput:
                     id: passwordField
                     size_hint:1,.14
+                    font_name: "Raleway-Regular.ttf"
                     hint_text: "Password"
                     multiline: False
                     password: True
@@ -236,6 +242,7 @@ WindowManager:
                 TextInput:
                     id: confirmField
                     size_hint:1,.14
+                    font_name: "Raleway-Regular.ttf"
                     hint_text: "Confirm Password"
                     multiline: False
                     password: True
@@ -255,6 +262,7 @@ WindowManager:
                 Button:
                     size_hint:1,.11
                     font_size: .6*self.height
+                    font_name: "Raleway-Regular.ttf"
                     text: "Create"
                     background_normal: ""
                     background_color: app.hexToKivyColor("#008ae6",1)
@@ -265,6 +273,7 @@ WindowManager:
                 Button:
                     size_hint:1,.11
                     font_size: .6*self.height
+                    font_name: "Raleway-Regular.ttf"
                     text: "Cancel"
                     background_normal: ""
                     background_color: app.hexToKivyColor("#008ae6",1)
@@ -328,6 +337,7 @@ WindowManager:
                 RoundedButton:
                     size_hint: .1, 1
                     font_size: .6*self.height
+                    font_name: "Raleway-Regular.ttf"
                     text: "X"
                     background_normal: ""
                     background_active: ""
@@ -394,6 +404,7 @@ WindowManager:
 
                         Button:
                             size_hint: .1, 1
+                            font_name: "Raleway-Regular.ttf"
                             text: "5"
                             background_normal: ""
                             background_color: app.hexToKivyColor("#008ae6",1)
@@ -406,6 +417,7 @@ WindowManager:
 
                         Button:
                             size_hint: .1, 1
+                            font_name: "Raleway-Regular.ttf"
                             text: "10"
                             background_normal: ""
                             background_color: app.hexToKivyColor("#008ae6",1)
@@ -423,6 +435,7 @@ WindowManager:
                     Button:
                         size_hint: 1, .05
                         font_size: .72*self.height
+                        font_name: "Raleway-Regular.ttf"
                         text: "Personal Stats"
                         background_normal: ""
                         background_color: app.hexToKivyColor("#008ae6",1)
@@ -434,6 +447,7 @@ WindowManager:
                     Button:
                         size_hint: 1, .05
                         font_size: .72*self.height
+                        font_name: "Raleway-Regular.ttf"
                         text: "Course Stats"
                         background_normal: ""
                         background_color: app.hexToKivyColor("#008ae6",1)
@@ -446,6 +460,7 @@ WindowManager:
                     Button:
                         size_hint: 1, .05
                         font_size: .72*self.height
+                        font_name: "Raleway-Regular.ttf"
                         text: "Play Round"
                         background_normal: ""
                         background_color: app.hexToKivyColor("#008ae6",1)
@@ -673,6 +688,7 @@ WindowManager:
                         id: scoreField
                         size_hint: .11, 1
                         multiline: False
+                        font_name: "Raleway-Regular.ttf"
                         background_normal: "Blank.png"
                         background_active: "Blank.png"
                         cursor_color: 0,0,0,1
@@ -690,6 +706,7 @@ WindowManager:
                         id: puttField
                         size_hint: .11, 1
                         multiline: False
+                        font_name: "Raleway-Regular.ttf"
                         background_normal: "Blank.png"
                         background_active: "Blank.png"
                         cursor_color: 0,0,0,1
@@ -709,6 +726,7 @@ WindowManager:
 
                 Button:
                     size_hint: 1, .08
+                    font_name: "Raleway-Regular.ttf"
                     font_name: "Raleway-Regular.ttf"
                     text: "Next Hole"
                     background_normal: ""
@@ -2659,6 +2677,7 @@ WindowManager:
 
                 Button:
                     size_hint: 1, .06
+                    font_name: "Raleway-Regular.ttf"
                     text: "Back"
                     background_normal: ""
                     background_color: app.hexToKivyColor("#008ae6",1)
@@ -2880,6 +2899,7 @@ WindowManager:
                         size_hint: .55, 1
                         background_normal: ""
                         background_color: app.hexToKivyColor("#008ae6",1)
+                        font_name: "Raleway-Regular.ttf"
                         text: "Back"
                         on_release:
                             app.root.transition = CardTransition(direction = "up", mode = "pop")
@@ -2893,6 +2913,7 @@ WindowManager:
                         size_hint: .55, 1
                         background_normal: ""
                         background_color: app.hexToKivyColor("#008ae6",1)
+                        font_name: "Raleway-Regular.ttf"
                         text: "Hole Stats"
                         on_release:
                             app.root.transition = CardTransition(direction = "left", mode = "push")
@@ -2988,6 +3009,7 @@ WindowManager:
                     size_hint: 1, .15
                     background_normal: ""
                     background_color: app.hexToKivyColor("#008ae6",1)
+                    font_name: "Raleway-Regular.ttf"
                     text: "Exit"
                     on_release:
                         app.root.transition = CardTransition(direction = "down", mode = "push")
@@ -5264,6 +5286,7 @@ WindowManager:
 
                     Button:
                         size_hint: .55, 1
+                        font_name: "Raleway-Regular.ttf"
                         text: "Back"
                         background_normal: ""
                         background_color: app.hexToKivyColor("#008ae6",1)
@@ -5277,6 +5300,7 @@ WindowManager:
 
                     Button:
                         size_hint: .55, 1
+                        font_name: "Raleway-Regular.ttf"
                         text: "Course Records"
                         background_normal: ""
                         background_color: app.hexToKivyColor("#008ae6",1)
@@ -5494,6 +5518,7 @@ WindowManager:
 
                 Button:
                     size_hint: 1, .08
+                    font_name: "Raleway-Regular.ttf"
                     text: "Back"
                     background_normal: ""
                     background_color: app.hexToKivyColor("#008ae6",1)
